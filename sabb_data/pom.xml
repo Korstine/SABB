@@ -7,4 +7,35 @@
   </parent>
   <artifactId>sabb_data</artifactId>
   <packaging>pom</packaging>
+  
+   <dependencies>
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.1-901-1.jdbc4</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.liquibase</groupId>
+                    <artifactId>liquibase-maven-plugin</artifactId>
+                    <version>3.4.1</version>
+                    <configuration>
+                        <promptOnNonLocalDatabase>true</promptOnNonLocalDatabase>
+                        <changeLogFile>src/changelog/db.changelog-master.xml</changeLogFile>
+                        <propertyFile>src/ressources/jdbc.properties</propertyFile>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
 </project>
