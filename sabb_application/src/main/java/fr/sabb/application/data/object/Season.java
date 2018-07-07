@@ -3,7 +3,7 @@ package fr.sabb.application.data.object;
 public class Season {
 
 	private int id;
-	private String season;
+	private String name;
 	private boolean active;
 	/**
 	 * @return the id
@@ -18,18 +18,6 @@ public class Season {
 		this.id = id;
 	}
 	/**
-	 * @return the season
-	 */
-	public String getSeason() {
-		return season;
-	}
-	/**
-	 * @param season the season to set
-	 */
-	public void setSeason(String season) {
-		this.season = season;
-	}
-	/**
 	 * @return the active
 	 */
 	public boolean isActive() {
@@ -40,6 +28,22 @@ public class Season {
 	 */
 	public void setActive(boolean active) {
 		this.active = active;
+	}
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public boolean isPersisted() {
+		return id != 0;
 	}
 	
 }

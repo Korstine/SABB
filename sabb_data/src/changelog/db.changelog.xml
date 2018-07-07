@@ -25,5 +25,9 @@
             </column>
         </createTable>
     </changeSet>
+    
+    <changeSet id="rename_column_season" author="FRO">
+    <renameColumn schemaName="sabb" tableName="season" oldColumnName="season" newColumnName="name"/>
+    </changeSet>
 
 </databaseChangeLog>
