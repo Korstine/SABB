@@ -30,7 +30,7 @@
                     <version>3.4.1</version>
                     <configuration>
                         <promptOnNonLocalDatabase>true</promptOnNonLocalDatabase>
-                        <changeLogFile>src/changelog/db.changelog-master.xml</changeLogFile>
+                        <changeLogFile>src/changelog/db.changelog.xml</changeLogFile>
                         <propertyFile>src/ressources/jdbc.properties</propertyFile>
                     </configuration>
                 </plugin>
