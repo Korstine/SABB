@@ -13,7 +13,8 @@ import com.vaadin.ui.themes.ValoTheme;
 
 import fr.sabb.application.ValidationException;
 import fr.sabb.application.data.object.Season;
-import fr.sabb.application.ui.MainUI;
+import fr.sabb.application.ui.SabbUI;
+import fr.sabb.application.ui.view.SeasonView;
 
 @SpringUI
 public class SeasonForm extends FormLayout {
@@ -27,10 +28,10 @@ public class SeasonForm extends FormLayout {
 	private Button save = new Button("Save");
 	private Button delete = new Button("Delete");
 	
-	private MainUI mainUI;
+	private SeasonView view;
 	
-	public SeasonForm(MainUI mainUI) {
-		this.mainUI = mainUI;
+	public SeasonForm(SeasonView view) {
+		this.view = view;
 		
 		setSizeUndefined();
 	    HorizontalLayout buttons = new HorizontalLayout(save, delete);
@@ -54,16 +55,16 @@ public class SeasonForm extends FormLayout {
 	}
 
 	private void delete() {
-		mainUI.getService().delete(season);
-		mainUI.updateList();
+view.getService().delete(season);
+view.updateList();
 	}
 	
 	private void save() {
 		try {
-			mainUI.getService().updateOrInsert(season);
+			view.getService().updateOrInsert(season);
 		} catch (ValidationException ex) {
 			save.setComponentError(new UserError("Il ne doit y avoir qu'une seule saison d'active."));
 		}
-		mainUI.updateList();
+		view.updateList();
 	}
 }

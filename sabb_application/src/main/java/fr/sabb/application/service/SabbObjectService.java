@@ -1,4 +1,4 @@
-package fr.sabb.application.service.common;
+package fr.sabb.application.service;
 
 import java.util.List;
 import java.util.Optional;
