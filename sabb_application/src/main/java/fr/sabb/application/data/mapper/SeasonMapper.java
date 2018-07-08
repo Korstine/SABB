@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import fr.sabb.application.data.object.Season;
 
@@ -20,5 +21,7 @@ public interface SeasonMapper {
 	
 	@Delete("DELETE FROM sabb.season WHERE id=#{id}")
 	void delete(Season season);
-
+	
+	@Update("UPDATE sabb.season SET name=#{name}, active=#{active} WHERE id=#{id}")
+	void update(Season season);
 }

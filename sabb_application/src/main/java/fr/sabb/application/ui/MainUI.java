@@ -15,6 +15,7 @@ import com.vaadin.ui.VerticalLayout;
 
 import fr.sabb.application.data.mapper.SeasonMapper;
 import fr.sabb.application.data.object.Season;
+import fr.sabb.application.service.season.SeasonService;
 import fr.sabb.application.ui.objectform.SeasonForm;
 
 @SpringUI
@@ -22,7 +23,7 @@ import fr.sabb.application.ui.objectform.SeasonForm;
 public class MainUI  extends UI {
 
     @Autowired
-    private SeasonMapper mapper;
+    private SeasonService service;
     private Season season;
 
     private Grid<Season> gridSeasons = new Grid<>(Season.class);
@@ -31,7 +32,7 @@ public class MainUI  extends UI {
 
     @Override
     protected void init(VaadinRequest request) {
-    	List seasons = mapper.getAll();
+    	List seasons = service.getAll();
     	
     	gridSeasons.setColumns("id", "name", "active");
     	
@@ -69,13 +70,13 @@ public class MainUI  extends UI {
     }
     
     public void updateList() {
-        List<Season> customers = mapper.getAll();
+        List<Season> customers = service.getAll();
         gridSeasons.setItems(customers);
     }
 
 
-    public SeasonMapper getMapper() {
-    	return this.mapper;
+    public SeasonService getService() {
+    	return this.service;
     }
 
 }

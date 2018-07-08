@@ -2,6 +2,7 @@ package fr.sabb.application.ui.objectform;
 
 import com.vaadin.data.Binder;
 import com.vaadin.event.ShortcutAction.KeyCode;
+import com.vaadin.server.UserError;
 import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.CheckBox;
@@ -10,6 +11,7 @@ import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.themes.ValoTheme;
 
+import fr.sabb.application.ValidationException;
 import fr.sabb.application.data.object.Season;
 import fr.sabb.application.ui.MainUI;
 
@@ -52,12 +54,16 @@ public class SeasonForm extends FormLayout {
 	}
 
 	private void delete() {
-		mainUI.getMapper().delete(season);
+		mainUI.getService().delete(season);
 		mainUI.updateList();
 	}
 	
 	private void save() {
-		mainUI.getMapper().insert(season);
+		try {
+			mainUI.getService().updateOrInsert(season);
+		} catch (ValidationException ex) {
+			save.setComponentError(new UserError("Il ne doit y avoir qu'une seule saison d'active."));
+		}
 		mainUI.updateList();
 	}
 }
