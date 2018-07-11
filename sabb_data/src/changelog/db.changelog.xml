@@ -27,7 +27,38 @@
     </changeSet>
     
     <changeSet id="rename_column_season" author="FRO">
-    <renameColumn schemaName="sabb" tableName="season" oldColumnName="season" newColumnName="name"/>
+    	<renameColumn schemaName="sabb" tableName="season" oldColumnName="season" newColumnName="name"/>
+    </changeSet>
+    
+     <changeSet id="create_table_category" author="FRO">
+        <createTable schemaName="sabb" tableName="category">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="active" type="boolean" defaultValueBoolean="false">
+            	<constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    
+    <changeSet id="create_table_association" author="FRO">
+        <createTable schemaName="sabb" tableName="association">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="main" type="boolean" defaultValueBoolean="false">
+            	<constraints nullable="false"/>
+            </column>
+            <column name="active" type="boolean" defaultValueBoolean="false">
+            	<constraints nullable="false"/>
+            </column>
+        </createTable>
     </changeSet>
 
 </databaseChangeLog>

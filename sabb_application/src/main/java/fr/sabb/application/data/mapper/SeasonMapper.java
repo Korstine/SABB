@@ -11,7 +11,7 @@ import org.apache.ibatis.annotations.Update;
 import fr.sabb.application.data.object.Season;
 
 @Mapper
-public interface SeasonMapper {
+public interface SeasonMapper extends SabbMapper {
 
 	@Select("SELECT * FROM sabb.season ORDER BY id")
 	List<Season> getAll();

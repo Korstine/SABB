@@ -1,7 +1,7 @@
 package fr.sabb.application.data.object;
 
-public class Season  extends SabbObject{
-
+public class Category extends SabbObject {
+	
 	private int id;
 	private String name;
 	private boolean active;
@@ -13,20 +13,9 @@ public class Season  extends SabbObject{
 	}
 	/**
 	 * @param id the id to set
+	 */
 	public void setId(int id) {
 		this.id = id;
-	}
-	/**
-	 * @return the active
-	 */
-	public boolean isActive() {
-		return active;
-	}
-	/**
-	 * @param active the active to set
-	 */
-	public void setActive(boolean active) {
-		this.active = active;
 	}
 	/**
 	 * @return the name
@@ -39,6 +28,18 @@ public class Season  extends SabbObject{
 	 */
 	public void setName(String name) {
 		this.name = name;
+	}
+	/**
+	 * @return the active
+	 */
+	public boolean isActive() {
+		return active;
+	}
+	/**
+	 * @param active the active to set
+	 */
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 	
 }

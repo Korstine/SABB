@@ -9,6 +9,8 @@ import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.themes.ValoTheme;
 
+import fr.sabb.application.service.assocation.AssociationService;
+import fr.sabb.application.service.category.CategoryService;
 import fr.sabb.application.service.season.SeasonService;
 import fr.sabb.application.ui.screen.MainScreen;
 
@@ -18,6 +20,10 @@ public class SabbUI  extends UI {
 
 	@Autowired
     private SeasonService seasonService;
+	@Autowired
+	private CategoryService categoryService;
+	@Autowired
+	private AssociationService associationService;
    
     
     @Override
@@ -43,6 +49,20 @@ public class SabbUI  extends UI {
 	 */
 	public SeasonService getSeasonService() {
 		return seasonService;
+	}
+
+	/**
+	 * @return the categoryService
+	 */
+	public CategoryService getCategoryService() {
+		return categoryService;
+	}
+
+	/**
+	 * @return the associationService
+	 */
+	public AssociationService getAssociationService() {
+		return associationService;
 	}
 
 }

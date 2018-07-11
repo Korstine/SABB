@@ -8,9 +8,11 @@ import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.HorizontalLayout;
 
 import fr.sabb.application.ui.SabbUI;
+import fr.sabb.application.ui.screen.administration.association.AssociationView;
+import fr.sabb.application.ui.screen.administration.category.CategoryView;
+import fr.sabb.application.ui.screen.administration.season.SeasonView;
 import fr.sabb.application.ui.view.AboutView;
 import fr.sabb.application.ui.view.ErrorView;
-import fr.sabb.application.ui.view.SeasonView;
 
 public class MainScreen extends HorizontalLayout {
     private Menu menu;
@@ -26,8 +28,12 @@ public class MainScreen extends HorizontalLayout {
         final Navigator navigator = new Navigator(ui, viewContainer);
         navigator.setErrorView(ErrorView.class);
         menu = new Menu(navigator);
-        menu.addView(new SeasonView(ui), "Gestion des saisons",
-                "Gestion des saisons", VaadinIcons.EDIT);
+        menu.addView(new SeasonView(ui), SeasonView.VIEW_NAME,
+        		 SeasonView.VIEW_NAME, VaadinIcons.EDIT);
+        menu.addView(new CategoryView(ui), CategoryView.VIEW_NAME,
+        		CategoryView.VIEW_NAME, VaadinIcons.EDIT);
+        menu.addView(new AssociationView(ui), AssociationView.VIEW_NAME,
+        		AssociationView.VIEW_NAME, VaadinIcons.EDIT);
         menu.addView(new AboutView(), AboutView.VIEW_NAME, AboutView.VIEW_NAME,
         		VaadinIcons.INFO_CIRCLE);
 
