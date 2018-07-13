@@ -1,5 +1,9 @@
 package fr.sabb.application.service.assocation;
 
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +21,11 @@ public class AssociationServiceImpl extends SabbObjectServiceImpl<Association> i
 	@Override
 	public SabbMapper<Association> getMapper() {
 		return mapper;
+	}
+
+	@Override
+	public List<Association> getAllActive() {
+		return getAll().stream().filter(Association::isActive).collect(Collectors.toList());
 	}
 
 }

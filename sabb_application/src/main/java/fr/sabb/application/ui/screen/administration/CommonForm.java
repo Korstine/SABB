@@ -42,6 +42,13 @@ public abstract class CommonForm<T extends SabbObject> extends FormLayout {
 		getDefaultSelectAll().selectAll();
 	}
 
+	/**
+	 * @return the item
+	 */
+	public T getItem() {
+		return item;
+	}
+
 	private void save() {
 		try {
 			view.getService().updateOrInsert(item);

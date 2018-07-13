@@ -1,5 +1,8 @@
 package fr.sabb.application.service.category;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +21,12 @@ public class CategoryServiceImpl extends SabbObjectServiceImpl<Category> impleme
 	@Override
 	public SabbMapper<Category> getMapper() {
 		return mapper;
+	}
+
+
+	@Override
+	public List<Category> getAllActive() {
+		return getAll().stream().filter(Category::isActive).collect(Collectors.toList());
 	}
 
 }

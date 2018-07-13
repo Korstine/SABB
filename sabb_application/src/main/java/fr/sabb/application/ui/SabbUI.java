@@ -12,6 +12,7 @@ import com.vaadin.ui.themes.ValoTheme;
 import fr.sabb.application.service.assocation.AssociationService;
 import fr.sabb.application.service.category.CategoryService;
 import fr.sabb.application.service.season.SeasonService;
+import fr.sabb.application.service.team.TeamService;
 import fr.sabb.application.ui.screen.MainScreen;
 
 @SpringUI
@@ -24,6 +25,8 @@ public class SabbUI  extends UI {
 	private CategoryService categoryService;
 	@Autowired
 	private AssociationService associationService;
+	@Autowired
+	private TeamService teamService;
    
     
     @Override
@@ -63,6 +66,13 @@ public class SabbUI  extends UI {
 	 */
 	public AssociationService getAssociationService() {
 		return associationService;
+	}
+
+	/**
+	 * @return the teamService
+	 */
+	public TeamService getTeamService() {
+		return teamService;
 	}
 
 }

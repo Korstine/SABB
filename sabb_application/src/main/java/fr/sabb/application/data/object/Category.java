@@ -42,4 +42,8 @@ public class Category extends SabbObject {
 		this.active = active;
 	}
 	
+	public String toString() {
+		return this.name;
+	}
+	
 }

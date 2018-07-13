@@ -60,5 +60,46 @@
             </column>
         </createTable>
     </changeSet>
+    
+    <changeSet id="create_table_team" author="FRO">
+        <createTable schemaName="sabb" tableName="team">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id_season" type="int">
+            	<constraints nullable="false"/>
+            </column>
+            <column name="id_association" type="int">
+            	<constraints nullable="false"/>
+            </column>
+            <column name="id_category" type="int">
+            	<constraints nullable="false"/>
+            </column>
+            <column name="active" type="boolean" defaultValueBoolean="false">
+            	<constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableSchemaName="sabb" baseColumnNames="id_season"
+                             baseTableName="team"
+                             constraintName="fk_team_season"
+                             referencedTableSchemaName="sabb"
+                             referencedColumnNames="id"
+                             referencedTableName="season"/>
+       	<addForeignKeyConstraint baseTableSchemaName="sabb" baseColumnNames="id_association"
+                             baseTableName="team"
+                             constraintName="fk_team_association"
+                             referencedTableSchemaName="sabb"
+                             referencedColumnNames="id"
+                             referencedTableName="association"/>
+       <addForeignKeyConstraint baseTableSchemaName="sabb" baseColumnNames="id_category"
+                             baseTableName="team"
+                             constraintName="fk_team_category"
+                             referencedTableSchemaName="sabb"
+                             referencedColumnNames="id"
+                             referencedTableName="category"/>
+    </changeSet>
 
 </databaseChangeLog>

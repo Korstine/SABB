@@ -11,6 +11,7 @@ import fr.sabb.application.ui.SabbUI;
 import fr.sabb.application.ui.screen.administration.association.AssociationView;
 import fr.sabb.application.ui.screen.administration.category.CategoryView;
 import fr.sabb.application.ui.screen.administration.season.SeasonView;
+import fr.sabb.application.ui.screen.administration.team.TeamView;
 import fr.sabb.application.ui.view.AboutView;
 import fr.sabb.application.ui.view.ErrorView;
 
@@ -34,6 +35,8 @@ public class MainScreen extends HorizontalLayout {
         		CategoryView.VIEW_NAME, VaadinIcons.EDIT);
         menu.addView(new AssociationView(ui), AssociationView.VIEW_NAME,
         		AssociationView.VIEW_NAME, VaadinIcons.EDIT);
+        menu.addView(new TeamView(ui), TeamView.VIEW_NAME,
+        		TeamView.VIEW_NAME, VaadinIcons.EDIT);
         menu.addView(new AboutView(), AboutView.VIEW_NAME, AboutView.VIEW_NAME,
         		VaadinIcons.INFO_CIRCLE);
 
