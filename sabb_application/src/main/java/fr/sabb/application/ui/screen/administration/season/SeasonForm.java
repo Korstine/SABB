@@ -6,7 +6,7 @@ import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.TextField;
 
 import fr.sabb.application.data.object.Season;
-import fr.sabb.application.ui.screen.administration.CommonForm;
+import fr.sabb.application.ui.screen.CommonForm;
 
 public class SeasonForm extends CommonForm<Season> {
 	
@@ -35,6 +35,12 @@ public class SeasonForm extends CommonForm<Season> {
 	@Override
 	public TextField getDefaultSelectAll() {
 		return name;
+	}
+
+
+	@Override
+	public String getValidationExceptionMessage() {
+		return "Il ne doit y avoir qu'une seule saison d'active.";
 	}
 
 }

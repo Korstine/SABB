@@ -1,18 +1,24 @@
 package fr.sabb.application.ui.screen.administration.association;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.vaadin.ui.Grid;
 
 import fr.sabb.application.data.object.Association;
-import fr.sabb.application.data.object.Category;
 import fr.sabb.application.service.SabbObjectService;
-import fr.sabb.application.ui.SabbUI;
-import fr.sabb.application.ui.screen.administration.CommonForm;
-import fr.sabb.application.ui.screen.administration.CommonView;
+import fr.sabb.application.service.assocation.AssociationService;
+import fr.sabb.application.ui.screen.CommonForm;
+import fr.sabb.application.ui.screen.CommonView;
 
+@Component
 public class AssociationView  extends CommonView<Association> {
 
-	public AssociationView(SabbUI ui) {
-		super(ui);
+	@Autowired
+	private AssociationService service;
+	
+	public AssociationView() {
+		super();
 	}
 
 	public static final String VIEW_NAME = "Gestion des clubs";
@@ -24,7 +30,7 @@ public class AssociationView  extends CommonView<Association> {
 
 	@Override
 	public SabbObjectService<Association> getService() {
-		return ui.getAssociationService();
+		return service;
 	}
 
 	@Override
@@ -44,7 +50,7 @@ public class AssociationView  extends CommonView<Association> {
 
 	@Override
 	public void setColumns(Grid<Association> grid) {
-		grid.setColumns("id", "name", "main", "active");
+		grid.setColumns("id", "name", "nameFfbb", "main", "active");
 	}
 
 }

@@ -1,4 +1,4 @@
-package fr.sabb.application.ui.screen.administration;
+package fr.sabb.application.ui.screen;
 
 import java.util.List;
 
@@ -12,7 +12,6 @@ import com.vaadin.ui.VerticalLayout;
 
 import fr.sabb.application.data.object.SabbObject;
 import fr.sabb.application.service.SabbObjectService;
-import fr.sabb.application.ui.SabbUI;
 
 public abstract class CommonView<T extends SabbObject> extends CssLayout implements View {
 
@@ -23,10 +22,8 @@ public abstract class CommonView<T extends SabbObject> extends CssLayout impleme
 
 	private Grid<T> grid = getGrid();
 	private CommonForm<T> form;
-	public SabbUI ui;
 
-	public CommonView(SabbUI ui) {
-		this.ui = ui;
+	public CommonView() {
 		setSizeFull();
 	}
 
@@ -38,31 +35,41 @@ public abstract class CommonView<T extends SabbObject> extends CssLayout impleme
 
 		setColumns(grid);
 
-		Button addSeasonBtn = new Button(getButtonName());
-		addSeasonBtn.addClickListener(e -> {
-			grid.asSingleSelect().clear();
-			form.setItem(createItem());
-		});
-
 		HorizontalLayout main = new HorizontalLayout(grid);
 		main.setSizeFull();
 		grid.setSizeFull();
 		main.setExpandRatio(grid, 1);
 
 		grid.setItems(gridItems);
-
-		form.setVisible(false);
-
-		grid.asSingleSelect().addValueChangeListener(e -> {
-			if (e.getValue() == null) {
-				form.setVisible(false);
-			} else {
-				form.setItem(e.getValue());
-			}
+		
+		Button addItemBtn = new Button(getButtonName());
+		addItemBtn.addClickListener(e -> {
+			grid.asSingleSelect().clear();
+			form.setItem(createItem());
 		});
 
-		HorizontalLayout formLayout = new HorizontalLayout(addSeasonBtn, form);
-		VerticalLayout layout = new VerticalLayout(main, formLayout);
+		HorizontalLayout formLayout = null;
+		if (form != null) {
+			form.setVisible(false);
+
+			grid.asSingleSelect().addValueChangeListener(e -> {
+				if (e.getValue() == null) {
+					form.setVisible(false);
+				} else {
+					form.setItem(e.getValue());
+				}
+			});
+
+			formLayout = new HorizontalLayout(addItemBtn, form);
+		}
+		
+		VerticalLayout layout;
+		if (formLayout != null) {
+			layout = new VerticalLayout(main, formLayout);
+		} else {
+			layout = new VerticalLayout(main);
+		}
+		
 		layout.setMargin(true);
 		layout.setSpacing(true);
 		addComponent(layout);

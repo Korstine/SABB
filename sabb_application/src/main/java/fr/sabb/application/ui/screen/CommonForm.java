@@ -1,4 +1,4 @@
-package fr.sabb.application.ui.screen.administration;
+package fr.sabb.application.ui.screen;
 
 import com.vaadin.data.Binder;
 import com.vaadin.event.ShortcutAction.KeyCode;
@@ -53,7 +53,7 @@ public abstract class CommonForm<T extends SabbObject> extends FormLayout {
 		try {
 			view.getService().updateOrInsert(item);
 		} catch (ValidationException ex) {
-			save.setComponentError(new UserError("Il ne doit y avoir qu'une seule saison d'active."));
+			save.setComponentError(new UserError(getValidationExceptionMessage()));
 		}
 		view.updateList();
 	}
@@ -77,4 +77,5 @@ public abstract class CommonForm<T extends SabbObject> extends FormLayout {
 		return delete;
 	}
 	
+	public abstract String getValidationExceptionMessage();
 }

@@ -14,65 +14,78 @@ import fr.sabb.application.service.category.CategoryService;
 import fr.sabb.application.service.season.SeasonService;
 import fr.sabb.application.service.team.TeamService;
 import fr.sabb.application.ui.screen.MainScreen;
+import fr.sabb.application.ui.screen.administration.association.AssociationView;
+import fr.sabb.application.ui.screen.administration.category.CategoryView;
+import fr.sabb.application.ui.screen.administration.season.SeasonView;
+import fr.sabb.application.ui.screen.administration.team.TeamView;
+import fr.sabb.application.ui.screen.business.match.MatchView;
 
 @SpringUI
 @Theme("valo")
-public class SabbUI  extends UI {
+public class SabbUI extends UI {
 
 	@Autowired
-    private SeasonService seasonService;
+	private SeasonView seasonView;
 	@Autowired
-	private CategoryService categoryService;
+	private AssociationView associationView;
 	@Autowired
-	private AssociationService associationService;
+	private TeamView teamView;
 	@Autowired
-	private TeamService teamService;
-   
-    
-    @Override
-    protected void init(VaadinRequest vaadinRequest) {
-        Responsive.makeResponsive(this);
-        setLocale(vaadinRequest.getLocale());
-        getPage().setTitle("SabbApp");
-        showMainView();
-    }
+	private CategoryView categoryView;
+	@Autowired
+	private MatchView matchView;
 
-    protected void showMainView() {
-        addStyleName(ValoTheme.UI_WITH_MENU);
-        setContent(new MainScreen(SabbUI.this));
-        getNavigator().navigateTo(getNavigator().getState());
-    }
+	@Override
+	protected void init(VaadinRequest vaadinRequest) {
+		Responsive.makeResponsive(this);
+		setLocale(vaadinRequest.getLocale());
+		getPage().setTitle("SabbApp");
+		showMainView();
+	}
 
-    public static SabbUI get() {
-        return (SabbUI) UI.getCurrent();
-    }
+	protected void showMainView() {
+		addStyleName(ValoTheme.UI_WITH_MENU);
+		setContent(new MainScreen(SabbUI.this));
+		getNavigator().navigateTo(getNavigator().getState());
+	}
 
-	/**
-	 * @return the seasonService
-	 */
-	public SeasonService getSeasonService() {
-		return seasonService;
+	public static SabbUI get() {
+		return (SabbUI) UI.getCurrent();
 	}
 
 	/**
-	 * @return the categoryService
+	 * @return the seasonView
 	 */
-	public CategoryService getCategoryService() {
-		return categoryService;
+	public SeasonView getSeasonView() {
+		return seasonView;
 	}
 
 	/**
-	 * @return the associationService
+	 * @return the associationView
 	 */
-	public AssociationService getAssociationService() {
-		return associationService;
+	public AssociationView getAssociationView() {
+		return associationView;
 	}
 
 	/**
-	 * @return the teamService
+	 * @return the teamView
 	 */
-	public TeamService getTeamService() {
-		return teamService;
+	public TeamView getTeamView() {
+		return teamView;
+	}
+
+	/**
+	 * @return the categoryView
+	 */
+	public CategoryView getCategoryView() {
+		return categoryView;
+	}
+
+	/**
+	 * @return the matchView
+	 */
+	public MatchView getMatchView() {
+		return matchView;
 	}
 
 }

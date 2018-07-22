@@ -1,34 +1,39 @@
 package fr.sabb.application.ui.screen.administration.category;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.Grid;
 
 import fr.sabb.application.data.object.Category;
 import fr.sabb.application.service.category.CategoryService;
-import fr.sabb.application.ui.SabbUI;
-import fr.sabb.application.ui.screen.administration.CommonForm;
-import fr.sabb.application.ui.screen.administration.CommonView;
+import fr.sabb.application.ui.screen.CommonForm;
+import fr.sabb.application.ui.screen.CommonView;
 
+@Component
 public class CategoryView extends CommonView<Category> {
+
+	@Autowired
+	private CategoryService service;
 
 	public static final String VIEW_NAME = "Gestion des categories";
 
+	public CategoryView() {
+		super();
+	}
 
-    public CategoryView(SabbUI ui) {
-    	super(ui);
-    }
-
-    @Override
-    public void enter(ViewChangeEvent event) {
-    	super.enter(event);
-    }
+	@Override
+	public void enter(ViewChangeEvent event) {
+		super.enter(event);
+	}
 
 	/**
 	 * @return the service
 	 */
-    @Override
+	@Override
 	public CategoryService getService() {
-		return ui.getCategoryService();
+		return service;
 	}
 
 	@Override

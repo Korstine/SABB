@@ -6,7 +6,7 @@ import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.TextField;
 
 import fr.sabb.application.data.object.Category;
-import fr.sabb.application.ui.screen.administration.CommonForm;
+import fr.sabb.application.ui.screen.CommonForm;
 
 public class CategoryForm extends CommonForm<Category> {
 	
@@ -37,5 +37,11 @@ public class CategoryForm extends CommonForm<Category> {
 	@Override
 	public Binder<Category> getBinder() {
 		return binder;
+	}
+
+
+	@Override
+	public String getValidationExceptionMessage() {
+		return null;
 	}
 }

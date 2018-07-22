@@ -1,9 +1,16 @@
 package fr.sabb.application.ui.screen;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.navigator.Navigator;
+import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
+import com.vaadin.spring.annotation.SpringView;
+import com.vaadin.spring.annotation.ViewScope;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.HorizontalLayout;
 
@@ -12,12 +19,13 @@ import fr.sabb.application.ui.screen.administration.association.AssociationView;
 import fr.sabb.application.ui.screen.administration.category.CategoryView;
 import fr.sabb.application.ui.screen.administration.season.SeasonView;
 import fr.sabb.application.ui.screen.administration.team.TeamView;
+import fr.sabb.application.ui.screen.business.match.MatchView;
 import fr.sabb.application.ui.view.AboutView;
 import fr.sabb.application.ui.view.ErrorView;
 
 public class MainScreen extends HorizontalLayout {
     private Menu menu;
-
+    
     public MainScreen(SabbUI ui) {
 
         setStyleName("main-screen");
@@ -29,14 +37,16 @@ public class MainScreen extends HorizontalLayout {
         final Navigator navigator = new Navigator(ui, viewContainer);
         navigator.setErrorView(ErrorView.class);
         menu = new Menu(navigator);
-        menu.addView(new SeasonView(ui), SeasonView.VIEW_NAME,
+        menu.addView(ui.getSeasonView(), SeasonView.VIEW_NAME,
         		 SeasonView.VIEW_NAME, VaadinIcons.EDIT);
-        menu.addView(new CategoryView(ui), CategoryView.VIEW_NAME,
+        menu.addView(ui.getCategoryView(), CategoryView.VIEW_NAME,
         		CategoryView.VIEW_NAME, VaadinIcons.EDIT);
-        menu.addView(new AssociationView(ui), AssociationView.VIEW_NAME,
+        menu.addView(ui.getAssociationView(), AssociationView.VIEW_NAME,
         		AssociationView.VIEW_NAME, VaadinIcons.EDIT);
-        menu.addView(new TeamView(ui), TeamView.VIEW_NAME,
+        menu.addView(ui.getTeamView(), TeamView.VIEW_NAME,
         		TeamView.VIEW_NAME, VaadinIcons.EDIT);
+        menu.addView(ui.getMatchView(), MatchView.VIEW_NAME,
+        		MatchView.VIEW_NAME, VaadinIcons.LIST);
         menu.addView(new AboutView(), AboutView.VIEW_NAME, AboutView.VIEW_NAME,
         		VaadinIcons.INFO_CIRCLE);
 

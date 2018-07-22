@@ -1,17 +1,44 @@
 package fr.sabb.application.ui.screen.administration.team;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Component;
+
+import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.ui.Button;
 import com.vaadin.ui.Grid;
 
+import fr.sabb.application.business.MatchFillerBusiness;
 import fr.sabb.application.data.object.Team;
 import fr.sabb.application.service.SabbObjectService;
-import fr.sabb.application.ui.SabbUI;
-import fr.sabb.application.ui.screen.administration.CommonForm;
-import fr.sabb.application.ui.screen.administration.CommonView;
+import fr.sabb.application.service.assocation.AssociationService;
+import fr.sabb.application.service.category.CategoryService;
+import fr.sabb.application.service.season.SeasonService;
+import fr.sabb.application.service.team.TeamService;
+import fr.sabb.application.ui.screen.CommonForm;
+import fr.sabb.application.ui.screen.CommonView;
 
+@Component
 public class TeamView extends CommonView<Team> {
+	
+	@Autowired
+	private TeamService service;
+	
+	@Autowired
+	@Lazy
+	private CategoryService categoryService;
+	@Autowired
+	@Lazy
+	private AssociationService associationService;
+	@Autowired
+	@Lazy
+	private SeasonService seasonService;
+	
+	@Autowired
+	private MatchFillerBusiness matchFillerBusiness;
 
-	public TeamView(SabbUI ui) {
-		super(ui);
+	public TeamView() {
+		super();
 	}
 
 	public static final String VIEW_NAME = "Gestion des equipes";
@@ -23,7 +50,7 @@ public class TeamView extends CommonView<Team> {
 
 	@Override
 	public SabbObjectService<Team> getService() {
-		return ui.getTeamService();
+		return service;
 	}
 
 	@Override
@@ -33,7 +60,9 @@ public class TeamView extends CommonView<Team> {
 
 	@Override
 	public Team createItem() {
-		return new Team();
+		Team team = new Team();
+		team.setSeason(seasonService.getCurrentSeason());
+		return team;
 	}
 
 	@Override
@@ -43,7 +72,40 @@ public class TeamView extends CommonView<Team> {
 
 	@Override
 	public void setColumns(Grid<Team> grid) {
-		grid.setColumns("id", "name", "category", "association", "active");
+		grid.setColumns("id", "name", "category", "association", "active", "ffbbUniqueId");
+	}
+	
+	@Override
+	public void enter(ViewChangeEvent event) {
+		super.enter(event);
+	}
+
+	/**
+	 * @return the categoryService
+	 */
+	public CategoryService getCategoryService() {
+		return categoryService;
+	}
+
+	/**
+	 * @return the associationService
+	 */
+	public AssociationService getAssociationService() {
+		return associationService;
+	}
+
+	/**
+	 * @return the seasonService
+	 */
+	public SeasonService getSeasonService() {
+		return seasonService;
+	}
+
+	/**
+	 * @return the matchFillerBusiness
+	 */
+	public MatchFillerBusiness getMatchFillerBusiness() {
+		return matchFillerBusiness;
 	}
 
 }

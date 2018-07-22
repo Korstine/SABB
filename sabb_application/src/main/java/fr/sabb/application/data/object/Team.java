@@ -8,6 +8,8 @@ public class Team extends SabbObject {
 	private Category category;
 	private Season season;
 	private boolean active;
+	private String ffbbUniqueId;
+	
 	/**
 	 * @return the id
 	 */
@@ -79,6 +81,18 @@ public class Team extends SabbObject {
 	 */
 	public void setActive(boolean active) {
 		this.active = active;
+	}
+	/**
+	 * @return the ffbbUniqueId
+	 */
+	public String getFfbbUniqueId() {
+		return ffbbUniqueId;
+	}
+	/**
+	 * @param ffbbUniqueId the ffbbUniqueId to set
+	 */
+	public void setFfbbUniqueId(String ffbbUniqueId) {
+		this.ffbbUniqueId = ffbbUniqueId;
 	}
 	
 }

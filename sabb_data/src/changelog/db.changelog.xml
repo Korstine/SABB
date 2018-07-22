@@ -101,5 +101,55 @@
                              referencedColumnNames="id"
                              referencedTableName="category"/>
     </changeSet>
+    
+    <changeSet id="create_table_match" author="FRO">
+        <createTable schemaName="sabb" tableName="match">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="id_team" type="int">
+            	<constraints nullable="false"/>
+            </column>
+            <column name="match_date" type="timestamp">
+            	<constraints nullable="false"/>
+            </column>
+            <column name="opponent" type="varchar(150)">
+            	<constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableSchemaName="sabb" baseColumnNames="id_team"
+                             baseTableName="match"
+                             constraintName="fk_match_team"
+                             referencedTableSchemaName="sabb"
+                             referencedColumnNames="id"
+                             referencedTableName="team"/>
+    </changeSet>
+    
+    <changeSet id="add_column_match_home_id_ffbb" author="FRO">
+    	<addColumn schemaName="sabb" tableName="match">
+    		<column name="id_ffbb" type="int">
+            	<constraints nullable="false"/>
+            </column>
+            <column name="home" type="boolean" defaultValueBoolean="false">
+            	<constraints nullable="false"/>
+            </column>
+    	</addColumn>
+    </changeSet>
+    
+    <changeSet id="add_column_team_ffbb_unique_id" author="FRO">
+    	<addColumn schemaName="sabb" tableName="team">
+    		<column name="ffbb_unique_id" type="varchar(50)"/>
+    	</addColumn>
+    </changeSet>
+    
+    <changeSet id="add_unique_constraint_match" author="FRO">
+    	<addUniqueConstraint columnNames="id_ffbb, id_team" schemaName="sabb" tableName="match"/>
+    </changeSet>
+    
+    <changeSet id="add_column_association_name_ffbb" author="FRO">
+    	<addColumn schemaName="sabb" tableName="association">
+    		<column name="name_ffbb" type="varchar(150)"/>
+    	</addColumn>
+    </changeSet>
 
 </databaseChangeLog>

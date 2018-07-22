@@ -1,0 +1,991 @@
+<html lang="fr">
+<head>
+<title>F&eacute;d&eacute;ration Fran&ccedil;aise de Basketball</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="fr" />
+<style type="text/css">html{background:#e7e7e7 url("http://habillagesite.ffbb.com/");background-attachment:fixed;no-repeat}.conteneur{height:38px;width:80px;white-space:nowrap;text-align:center;margin-left:5px;margin-right:5px;background-color:white;float:left}.helper{display:inline-block;height:100%;vertical-align:middle}img.logo{vertical-align:middle;max-height:38px;max-width:80px}</style>
+<script type="text/javascript" src="/js/resultat.js?JSVersion=1.0"></script>
+<link rel="stylesheet" type="text/css" href="/css/resultat.css?CSSVersion=1.0">
+</head>
+<body>
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td align="center">
+<table width="985" cellpadding="0" cellspacing="0" border="0" id="COL0">
+<tr>
+<td width="985" valign="top">
+<table width="985" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td align="center" width="204" bgcolor="#ffffff"><a href="http://www.ffbb.com"> <img src="/images/logo.png" border="0">
+</a></td>
+<td width="728" bgcolor="#ffffff" align="right"></td>
+</tr>
+<tr>
+<td valign="top" colspan="2">
+<table class="full bgHeader" height="320">
+<tr>
+<td width="585" height="51" class="vTop resetP">
+<table width="585" height="51" class="full resetP bgDarkGrey">
+<tr>
+<td><a class="btnMenu home" href="http://www.ffbb.com/"></a> <span class="separateurMenu"><img src="/images/separateur.png" alt="" /></span> <a class="btnMenu" href="http://www.ffbb.com/" data-name="menu_jouer">Jouer</a> <span class="separateurMenu"><img src="/images/separateur.png" alt="" /></span> <a class="btnMenu" href="http://www.ffbb.com/3X3/" data-name="menu_3x3">3X3</a> <span class="separateurMenu"><img src="/images/separateur.png" alt="" /></span> <a class="btnMenu" href="http://resultats.ffbb.com/" data-name="menu_competitions">Comp&eacute;titions</a> <span class="separateurMenu"><img src="/images/separateur.png" alt="" /></span> <a class="btnMenu" href="http://www.ffbb.com/edf/" data-name="menu_equipes">&Eacute;quipes de France</a> <span class="separateurMenu"><img src="/images/separateur.png" alt="" /></span> <a class="btnMenu" href="http://www.ffbb.com/ffbb/listes-actus" data-name="menu_ffbb">FFBB</a></td>
+</tr>
+</table>
+</td>
+<td class="vTop txtRight" width="290"><a class="dblock fright" href="https://billetterie.ffbb.com/fr&utm_source=site_resultats&utm_support=banniere&utm_campaign=resultats_home" target="_blank"> <img src="/images/menuBilletterie.png" alt="" />
+</a> <a class="dblock fright menuStore" href="http://www.ffbbstore.com/" target="_blank"> <img src="/images/menuStore.png" alt="" />
+</a></td>
+</tr>
+<tr class="toHide advert">
+<td colspan="2" width="985" valign="top" align="center" height="220">
+<script type="text/javascript">/*<![CDATA[*/if(getInternetExplorerVersion()==-1){var adlSite="basketfrance";var adlZone="ros";var adlKv="";var adlHasDcopt=false;var adlPro=window.location.protocal=="https:"?"https:":"http:";document.write('<script type="text/javascript" src="'+adlPro+"//js.himediads.com/js?lang=fr&s="+adlSite+"&z="+adlZone+"&d="+Math.floor(Math.random()*10000000000)+'"><\/script>')}else{getIEMessage();document.write("<a href='http://rd.himediads.com/fr/jump/basketfrance/ros;sz=728x90;tile=2;ord=' target='_blank'><img src='http://rd.himediads.com/fr/ad/basketfrance/ros;sz=728x90;tile=2;ord=?'  width='728' height='90' alt='' /> </a>")}/*]]>*/</script>
+<script type="text/javascript">if(getInternetExplorerVersion()==-1){if(typeof getAdLinkAdTag=="function"){getAdLinkAdTag("728x90")}}</script>
+<noscript>
+<a href="http://rd.himediads.com/fr/jump/basketfrance/ros;sz=728x90;tile=2;ord=" target="_blank"><img src="http://rd.himediads.com/fr/ad/basketfrance/ros;sz=728x90;tile=2;ord=?" width="728" height="90" alt="" /> </a>
+</noscript>
+</td>
+</tr>
+<tr class="toHide" style="display:none">
+<td valign="top" colspan="2" height="275" width="985">
+<table class="sousMenu full txtLeft bgSousMenu" id="menu_jouer">
+<tr>
+<td class="vTop" width="50"></td>
+<td class="vTop">
+<table class="pt15 whiteMenu sousMenu2 selected" style="display:block">
+<tr>
+<td valign="top" width="220"><span class="uppercase titre-whiteMenu">en club</span>
+<ul class="pl">
+<li class="expand main"><a href="http://www.ffbb.com/">Jeunes (3 &agrave;
+11 ans)</a>
+<ul>
+<li><a href="http://www.ffbb.com/jouer/jeunes/babybasket">BabyBasket
+(3 &agrave; 5 ans)</a></li>
+<li><a href="http://www.ffbb.com/jouer/jeunes/minibasket">MiniBasket
+(6 &agrave; 11 ans)</a></li>
+</ul></li>
+<li><a href="http://www.ffbb.com/jouer/ados">Ados
+(12 &agrave; 18 ans)</a></li>
+<li><a href="http://www.ffbb.com/jouer/adultes">Adultes
+(+ de 18 ans)</a></li>
+</ul></td>
+<td valign="top" width="220"><span class="uppercase titre-whiteMenu">hors club</span>
+<ul>
+<li><a href="http://www.ffbb.com/3X3/listes-actus">Le
+3x3</a></li>
+<li><a href="http://www.ffbb.com/les-autres-pratiques">Les
+autres pratiques</a></li>
+<li><a href="http://www.ffbb.com/jouer/ecole-universite">De
+l'&eacute;cole &agrave; l'universit&eacute;</a></li>
+<li><a href="http://www.ffbb.com/jouer/camp-ete">Nos
+camps d'&eacute;t&eacute;</a></li>
+</ul></td>
+<td valign="top" width="220"><span class="uppercase titre-whiteMenu">trouver...</span>
+<ul>
+<li><a href="http://www.ffbb.com/jouer/trouver-un-club">Un
+club</a></li>
+<li><a href="http://www.ffbb.com/jouer/trouver-un-tournoi">Un
+tournoi</a></li>
+<li><a href="http://www.ffbb.com/jouer/trouver-un-playground">Un
+playground</a></li>
+<li><a href="http://www.ffbb.com/jouer/trouver-une-salle">Une
+salle</a></li>
+</ul></td>
+<td valign="top">
+<ul class="uppercase">
+<li><a href="http://www.ffbb.com/jouer/regles">Les
+r&egrave;gles</a></li>
+<li><a href="http://www.ffbb.com/jouer/sport-adapte-et-handibasket">Sport
+adapt&eacute; et HandiBasket</a></li>
+<li><a href="http://www.ffbb.com/faq-foire-aux-questions">FAQ</a></li>
+</ul>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr class="toHide" style="display:none">
+<td valign="top" colspan="2" height="275" width="985">
+<table class="sousMenu full txtLeft bgSousMenu" id="menu_3x3">
+<tr>
+<td class="vTop" width="50"></td>
+<td class="vTop">
+<table class="pt15 whiteMenu sousMenu2 selected" style="display:block">
+<tr>
+<td valign="top" width="220">
+<ul class="uppercase">
+<li><a href="http://www.ffbb.com/3X3/listes-actus">actus</a></li>
+<li><a href="http://www.ffbb.com/3X3/photos-videos">photos
+&amp; videos</a></li>
+<li><a href="http://www.ffbb.com/3x3/trouver-un-tournoi">trouver
+un tournoi de 3x3</a></li>
+<li><a href="http://www.ffbb.com/3x3/trouver-un-playground">trouver
+un playground</a></li>
+</ul>
+</td>
+<td valign="top" width="220">
+<ul class="uppercase">
+<li><a href="http://www.ffbb.com/les-regles">les
+r&egrave;gles</a></li>
+<li><a href="http://www.ffbb.com/devenir-officiel-3X3">devenir
+officiel 3x3</a></li>
+<li><a href="http://www.ffbb.com/">organiser
+un tournoi</a></li>
+</ul>
+</td>
+<td valign="top" width="400"><span class="uppercase titre-whiteMenu">&eacute;quipes
+de france 3x3</span>
+<table class="pt15 whiteMenu sousMenu2 selected" style="display:block">
+<tr>
+<td valign="top" width="195">
+<ul>
+<li class="expand main"><a href="http://www.ffbb.com/">Masculin</a>
+<ul>
+<li><a href="http://www.ffbb.com/">Groupe
+France</a></li>
+<li><a href="http://www.ffbb.com/">Programme
+&amp; R&eacute;sultats</a></li>
+<li><a href="http://www.ffbb.com/">Derni&egrave;res
+campagnes</a></li>
+<li><a href="http://www.ffbb.com/">Palmar&egrave;s</a></li>
+</ul></li>
+<li class="expand main"><a href="http://www.ffbb.com/">F&eacute;minine</a>
+<ul>
+<li><a href="http://www.ffbb.com/">Groupe
+France</a></li>
+<li><a href="http://www.ffbb.com/">Programme
+&amp; R&eacute;sultats</a></li>
+<li><a href="http://www.ffbb.com/">Derni&egrave;res
+campagnes</a></li>
+<li><a href="http://www.ffbb.com/">Palmar&egrave;s</a></li>
+</ul></li>
+<li class="expand main"><a href="http://www.ffbb.com/">Mixte</a>
+<ul>
+<li><a href="http://www.ffbb.com/">Groupe
+France</a></li>
+<li><a href="http://www.ffbb.com/">Programme
+&amp; R&eacute;sultats</a></li>
+<li><a href="http://www.ffbb.com/">Derni&egrave;res
+campagnes</a></li>
+<li><a href="http://www.ffbb.com/">Palmar&egrave;s</a></li>
+</ul></li>
+</ul>
+</td>
+<td valign="top" width="195">
+<ul>
+<li class="expand main"><a href="http://www.ffbb.com/">U18 Masculin</a>
+<ul>
+<li><a href="http://www.ffbb.com/">Groupe
+France</a></li>
+<li><a href="http://www.ffbb.com/">Programme
+&amp; R&eacute;sultats</a></li>
+<li><a href="http://www.ffbb.com/">Derni&egrave;res
+campagnes</a></li>
+<li><a href="http://www.ffbb.com/">Palmar&egrave;s</a></li>
+</ul></li>
+<li class="expand main"><a href="http://www.ffbb.com/">U18
+F&eacute;minine</a>
+<ul>
+<li><a href="http://www.ffbb.com/">Groupe
+France</a></li>
+<li><a href="http://www.ffbb.com/">Programme
+&amp; R&eacute;sultats</a></li>
+<li><a href="http://www.ffbb.com/">Derni&egrave;res
+campagnes</a></li>
+<li><a href="http://www.ffbb.com/">Palmar&egrave;s</a></li>
+</ul></li>
+<li class="expand main"><a href="http://www.ffbb.com/">U18 Mixte</a>
+<ul>
+<li><a href="http://www.ffbb.com/">Groupe
+France</a></li>
+<li><a href="http://www.ffbb.com/">Programme
+&amp; R&eacute;sultats</a></li>
+<li><a href="http://www.ffbb.com/">Derni&egrave;res
+campagnes</a></li>
+<li><a href="http://www.ffbb.com/">Palmar&egrave;s</a></li>
+</ul></li>
+</ul>
+</td>
+</tr>
+</table></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr class="toHide" style="display:none">
+<td valign="top" colspan="2" height="275" width="985">
+<table class="sousMenu full txtLeft bgSousMenu" id="menu_competitions">
+<tr>
+<td class="vTop" width="10"></td>
+<td class="vTop">
+<table class="pt15 whiteMenu sousMenu2 selected" style="display:block">
+<tr>
+<td valign="top" width="100"><span class="uppercase titre-whiteMenu">pro</span>
+<ul>
+<li><a href="http://resultats.ffbb.com/championnat/b5e6211d64b0.html">Pro
+A</a></li>
+<li><a href="http://resultats.ffbb.com/championnat/b5e6211d64af.html">Pro
+B</a></li>
+<li><a href="http://resultats.ffbb.com/championnat/b5e6211d64ba.html">Pro
+A Espoirs</a></li>
+<li><a href="http://resultats.ffbb.com/championnat/684fd645e.html">LFB</a></li>
+</ul></td>
+<td valign="top" width="220"><span class="uppercase titre-whiteMenu">championnats
+nationaux</span>
+<table class="pt15 whiteMenu sousMenu2 selected" style="display:block" width="390">
+<tr>
+<td valign="top" width="195">
+<ul>
+<li class="expand main"><a href="http://www.ffbb.com/">Nationale
+Masculine 1</a>
+<ul>
+<li><a href="http://www.ffbb.com/competition/listes-actus-nm1">Actus</a></li>
+<li><a href="http://www.ffbb.com/competitions/nm1/clubs">Clubs</a></li>
+<li><a href="http://resultats.ffbb.com/championnat/b5e6211dc45c.html">R&eacute;sultats</a></li>
+<li><a href="http://www.ffbb.com/">Classement</a></li>
+<li><a href="http://www.ffbb.com/">
+Ev&egrave;nements</a></li>
+<li><a href="http://www.ffbb.com/competition/equipe/stats/nm1">Stats
+&eacute;quipes</a></li>
+<li><a href="http://www.ffbb.com/competition/joueurs/stats/nm1">Stats
+joueurs</a></li>
+</ul></li>
+<li><a href="http://resultats.ffbb.com/championnat/b5e6211da108.html">Nationale
+masculine 2</a></li>
+<li><a href="http://resultats.ffbb.com/championnat/b5e6211da10e.html">Nationale
+masculine 3</a></li>
+<li><a href="http://resultats.ffbb.com/championnat/b5e6211d9571.html">Nationale
+masculine U20</a></li>
+<li><a href="http://resultats.ffbb.com/championnat/b5e6211da128.html">Nationale
+masculine U18</a></li>
+<li><a href="http://resultats.ffbb.com/championnat/b5e6211dc403.html">Nationale
+masculine U17</a></li>
+<li><a href="http://www.ffbb.com/">Nationale
+masculine U15</a></li>
+</ul>
+</td>
+<td valign="top" width="195">
+<ul>
+<li class="expand main"><a href="http://www.ffbb.com/">Ligue
+F&eacute;minine 2</a>
+<ul>
+<li><a href="http://www.ffbb.com/competition/listes-actus-lf2">Actus</a></li>
+<li><a href="http://resultats.ffbb.com/championnat/b5e6211d62e1.html">R&eacute;sultats</a></li>
+<li><a href="http://www.ffbb.com/">Classement</a></li>
+<li><a href="http://www.ffbb.com/">
+Ev&egrave;nements</a></li>
+<li><a href="http://www.ffbb.com/competition/equipe/stats/lf2">Stats
+&eacute;quipes</a></li>
+<li><a href="http://www.ffbb.com/competition/joueurs/stats/lf2">Stats
+joueuses</a></li>
+</ul></li>
+<li><a href="http://resultats.ffbb.com/championnat/138ed9b292.html">Nationale
+F&eacute;minine 1</a></li>
+<li><a href="http://resultats.ffbb.com/championnat/b5e6211da115.html">Nationale
+F&eacute;minine 2</a></li>
+<li><a href="http://resultats.ffbb.com/championnat/b5e6211da114.html">Nationale
+F&eacute;minine 3</a></li>
+<li><a href="http://www.ffbb.com/">Nationale
+F&eacute;minine U20</a></li>
+<li><a href="http://resultats.ffbb.com/championnat/773690c22.html">Nationale
+F&eacute;minine 1 U17</a></li>
+<li><a href="http://resultats.ffbb.com/championnat/b5e6211da116.html">Nationale
+F&eacute;minine 2 U17</a></li>
+<li><a href="http://resultats.ffbb.com/championnat/b5e6211dc402.html">Nationale
+F&eacute;minine U15</a></li>
+</ul>
+</td>
+</tr>
+</table></td>
+<td valign="top" width="220"><span class="uppercase titre-whiteMenu">coupe de
+france</span>
+<ul>
+<li><a href="http://www.ffbb.com/liste-actus-coup-de-france">Actus</a></li>
+<li><a href="http://www.ffbb.com">Calendriers
+&amp; R&eacute;sultats</a></li>
+<li><a href="http://www.ffbb.com">Palmar&egrave;s</a></li>
+<li><a href="http://www.ffbb.com">Finales</a></li>
+</ul></td>
+<td valign="top" width="220">
+<ul>
+<li><a href="http://resultats.ffbb.com/ligues.html">Championnats
+r&eacute;gionaux</a></li>
+<li><a href="http://resultats.ffbb.com/comites.html">Championnats
+d&eacute;partementaux</a></li>
+<li><a href="http://resultats.ffbb.com/organisation/14061046d6.html">HandiBasket</a></li>
+</ul>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr class="toHide" style="display:none">
+<td valign="top" colspan="2" height="275" width="985">
+<table class="sousMenu full txtLeft bgSousMenu" id="menu_equipes">
+<tr>
+<td class="vTop" width="10"></td>
+<td class="vTop">
+<table class="pt15 whiteMenu sousMenu2 selected" style="display:block">
+<tr>
+<td valign="top"><span class="uppercase titre-whiteMenu">&eacute;quipe
+de france masculine</span>
+<ul class="pl">
+<li><a href="http://www.ffbb.com/edf/equipes-france-masculines-actus">Actus</a></li>
+<li><a href="http://www.ffbb.com/equipe-de-france-masculine">Groupe
+France</a></li>
+<li><a href="http://www.ffbb.com/edf/programme-et-resultats">Programme
+&amp; R&eacute;sultats</a></li>
+<li><a href="http://www.ffbb.com/edf/videos-equipe-masculine">Vid&eacute;os</a></li>
+<li><a href="http://www.ffbb.com/edf/album-photos-equipe-masculine">Photos</a></li>
+<li class="expand main"><a href="http://www.ffbb.com/">Historique</a>
+<ul>
+<li><a href="http://www.ffbb.com/edf/equipe-de-france-masculine-tous-les-joueurs">Tous
+les joueurs</a></li>
+<li><a href="http://www.ffbb.com/edf/equipe-de-france-masculine-tous-les-matches">Tous
+les matches</a></li>
+<li><a href="http://www.ffbb.com/edf/les-derniere-campagne">Derni&egrave;res
+campagnes</a></li>
+<li><a href="http://www.ffbb.com/equipe-de-france-masculine-palmares">Palmar&egrave;s</a></li>
+</ul></li>
+<li class="expand main"><a href="http://www.ffbb.com">Amicales des
+Internationaux</a>
+<ul>
+<li><a href="http://www.ffbb.com">Actus</a></li>
+<li><a href="http://www.ffbb.com/equipes-de-france/amicale-des-internationaux/presentation">Pr&eacute;sentation</a></li>
+<li><a href="http://www.ffbb.com/equipes-de-france/amicale-des-internationaux/activites">Activit&eacute;s</a></li>
+<li><a href="http://www.dailymotion.com/group/LegendesduBasketfrancais">Vid&eacute;os
+l&eacute;gendes du basket</a></li>
+<li><a href="http://www.ffbb.com/equipes-de-france/amicale-des-internationaux/contacts">Contacts</a></li>
+</ul></li>
+</ul></td>
+<td valign="top"><span class="uppercase titre-whiteMenu">&eacute;quipe
+de france f&eacute;minine</span>
+<ul class="pl">
+<li><a href="http://www.ffbb.com/edf/equipes-france-feminine-actus">Actus</a></li>
+<li><a href="http://www.ffbb.com/">Groupe
+France</a></li>
+<li><a href="http://www.ffbb.com/edf/feminine-programme-et-resultats">Programme
+&amp; R&eacute;sultats</a></li>
+<li><a href="http://www.ffbb.com/edf/videos-equipe-de-france-feminine">Vid&eacute;os</a></li>
+<li><a href="http://www.ffbb.com/edf/album-photos-equipe-de-france-feminine">Photos</a></li>
+<li><a href="http://www.ffbb.com/">Inside
+l'&eacute;quipe de France</a></li>
+<li class="expand main"><a href="/">Historique</a>
+<ul>
+<li><a href="http://www.ffbb.com/">Toutes
+les joueuses</a></li>
+<li><a href="http://www.ffbb.com/edf/equipe-de-france-feminine-tous-les-matches">Tous
+les matches</a></li>
+<li><a href="http://www.ffbb.com/edf/feminine-les-derniere-campagne">Derni&egrave;res
+campagnes</a></li>
+<li><a href="http://www.ffbb.com/equipe-de-france-feminine-palmares">Palmar&egrave;s</a></li>
+</ul></li>
+</ul></td>
+<td valign="top"><span class="uppercase titre-whiteMenu">&eacute;quipes
+de france jeunes</span>
+<ul class="pl">
+<li><a href="http://www.ffbb.com/edf/equipes-france-jeunes-actus">Actus</a></li>
+<li><a href="http://www.ffbb.com/edf/album-photos-equipe-de-france-jeunes">Photos</a></li>
+<li class="expand main"><a href="http://www.ffbb.com/">U21 masculin</a>
+<ul>
+<li><a href="http://www.ffbb.com/">Groupe
+France</a></li>
+<li><a href="http://www.ffbb.com/edf/u21m/programme-et-resultats">Programme
+&amp; r&eacute;sultats</a></li>
+<li><a href="http://www.ffbb.com/edf/u21m-les-derniere-campagne">Les
+derni&egrave;res campagnes</a></li>
+<li><a href="http://www.ffbb.com">Palmar&egrave;s</a></li>
+</ul></li>
+<li class="expand main"><a href="http://www.ffbb.com/">U21 f&eacute;minine</a>
+<ul>
+<li><a href="http://www.ffbb.com/">Groupe
+France</a></li>
+<li><a href="http://www.ffbb.com/edf/u21f/programme-et-resultats">Programme
+&amp; r&eacute;sultats</a></li>
+<li><a href="http://www.ffbb.com/edf/u21f-les-derniere-campagne">Les
+derni&egrave;res campagnes</a></li>
+<li><a href="http://www.ffbb.com/">Palmar&egrave;s</a></li>
+</ul></li>
+<li class="expand main"><a href="http://www.ffbb.com/">U20 masculin</a>
+<ul>
+<li><a href="http://www.ffbb.com/">Groupe
+France</a></li>
+<li><a href="http://www.ffbb.com/edf/u20m/programme-et-resultats">Programme
+&amp; r&eacute;sultats</a></li>
+<li><a href="http://www.ffbb.com/edf/u20m-les-derniere-campagne">Les
+derni&egrave;res campagnes</a></li>
+<li><a href="http://www.ffbb.com/">Palmar&egrave;s</a></li>
+</ul></li>
+<li class="expand main"><a href="http://www.ffbb.com/">U20 f&eacute;minine</a>
+<ul>
+<li><a href="http://www.ffbb.com/">Groupe
+France</a></li>
+<li><a href="http://www.ffbb.com/edf/u20f/programme-et-resultats">Programme
+&amp; r&eacute;sultats</a></li>
+<li><a href="http://www.ffbb.com/edf/u20f-les-derniere-campagne">Les
+derni&egrave;res campagnes</a></li>
+<li><a href="http://www.ffbb.com/">Palmar&egrave;s</a></li>
+</ul></li>
+<li class="expand main"><a href="http://www.ffbb.com/">U19 masculin</a>
+<ul>
+<li><a href="http://www.ffbb.com/">Groupe
+France</a></li>
+<li><a href="http://www.ffbb.com/edf/u19m/programme-et-resultats">Programme
+&amp; r&eacute;sultats</a></li>
+<li><a href="http://www.ffbb.com/edf/u19m-les-derniere-campagne">Les
+derni&egrave;res campagnes</a></li>
+<li><a href="http://www.ffbb.com/">Palmar&egrave;s</a></li>
+</ul></li>
+<li class="expand main"><a href="http://www.ffbb.com/">U19 f&eacute;minine</a>
+<ul>
+<li><a href="http://www.ffbb.com/">Groupe
+France</a></li>
+<li><a href="http://www.ffbb.com/edf/u19f/programme-et-resultats">Programme
+&amp; r&eacute;sultats</a></li>
+<li><a href="http://www.ffbb.com/edf/u19f-les-derniere-campagne">Les
+derni&egrave;res campagnes</a></li>
+<li><a href="http://www.ffbb.com/">Palmar&egrave;s</a></li>
+</ul></li>
+<li class="expand main"><a href="http://www.ffbb.com/">U18 masculin</a>
+<ul>
+<li><a href="http://www.ffbb.com/">Groupe
+France</a></li>
+<li><a href="http://www.ffbb.com/edf/u18m/programme-et-resultats">Programme
+&amp; r&eacute;sultats</a></li>
+<li><a href="http://www.ffbb.com/edf/u18m-les-derniere-campagne">Les
+derni&egrave;res campagnes</a></li>
+<li><a href="http://www.ffbb.com/">Palmar&egrave;s</a></li>
+</ul></li>
+<li class="expand main"><a href="http://www.ffbb.com/">U18 f&eacute;minine</a>
+<ul>
+<li><a href="http://www.ffbb.com/">Groupe
+France</a></li>
+<li><a href="http://www.ffbb.com/edf/u18f/programme-et-resultats">Programme
+&amp; r&eacute;sultats</a></li>
+<li><a href="http://www.ffbb.com/edf/u18f-les-derniere-campagne">Les
+derni&egrave;res campagnes</a></li>
+<li><a href="http://www.ffbb.com/">Palmar&egrave;s</a></li>
+</ul></li>
+<li class="expand main"><a href="http://www.ffbb.com/">U17 masculin</a>
+<ul>
+<li><a href="http://www.ffbb.com/">Groupe
+France</a></li>
+<li><a href="http://www.ffbb.com/edf/u17m/programme-et-resultats">Programme
+&amp; r&eacute;sultats</a></li>
+<li><a href="http://www.ffbb.com/edf/u17m-les-derniere-campagne">Les
+derni&egrave;res campagnes</a></li>
+<li><a href="http://www.ffbb.com/">Palmar&egrave;s</a></li>
+</ul></li>
+<li class="expand main"><a href="http://www.ffbb.com/">U17 f&eacute;minine</a>
+<ul>
+<li><a href="http://www.ffbb.com/">Groupe
+France</a></li>
+<li><a href="http://www.ffbb.com/edf/u17f/programme-et-resultats">Programme
+&amp; r&eacute;sultats</a></li>
+<li><a href="http://www.ffbb.com/edf/u17f-les-derniere-campagne">Les
+derni&egrave;res campagnes</a></li>
+<li><a href="http://www.ffbb.com/">Palmar&egrave;s</a></li>
+</ul></li>
+<li class="expand main"><a href="http://www.ffbb.com/">U16 masculin</a>
+<ul>
+<li><a href="http://www.ffbb.com/">Groupe
+France</a></li>
+<li><a href="http://www.ffbb.com/edf/u16m/programme-et-resultats">Programme
+&amp; r&eacute;sultats</a></li>
+<li><a href="http://www.ffbb.com/edf/u16m-les-derniere-campagne">Les
+derni&egrave;res campagnes</a></li>
+<li><a href="http://www.ffbb.com/">Palmar&egrave;s</a></li>
+</ul></li>
+<li class="expand main"><a href="http://www.ffbb.com/">U16 f&eacute;minine</a>
+<ul>
+<li><a href="http://www.ffbb.com/">Groupe
+France</a></li>
+<li><a href="http://www.ffbb.com/edf/u16f/programme-et-resultats">Programme
+&amp; r&eacute;sultats</a></li>
+<li><a href="http://www.ffbb.com/edf/u16f-les-derniere-campagne">Les
+derni&egrave;res campagnes</a></li>
+<li><a href="http://www.ffbb.com/">Palmar&egrave;s</a></li>
+</ul></li>
+<li class="expand main"><a href="http://www.ffbb.com/">U15 masculin</a>
+<ul>
+<li><a href="http://www.ffbb.com/">Groupe
+France</a></li>
+<li><a href="http://www.ffbb.com/edf/u15m/programme-et-resultats">Programme
+&amp; r&eacute;sultats</a></li>
+<li><a href="http://www.ffbb.com/edf/u15m-les-derniere-campagne">Les
+derni&egrave;res campagnes</a></li>
+</ul></li>
+<li class="expand main"><a href="http://www.ffbb.com/">U15 f&eacute;minine</a>
+<ul>
+<li><a href="http://www.ffbb.com/">Groupe
+France</a></li>
+<li><a href="http://www.ffbb.com/edf/u15f/programme-et-resultats">Programme
+&amp; r&eacute;sultats</a></li>
+<li><a href="http://www.ffbb.com/edf/u15f-les-derniere-campagne">Les
+derni&egrave;res campagnes</a></li>
+</ul></li>
+</ul></td>
+<td valign="top" width="140"><span class="uppercase titre-whiteMenu">&eacute;quipe
+de france 3x3</span>
+<ul>
+<li><a href="http://www.ffbb.com/">Toutes
+les &eacute;quipes de France 3x3</a></li>
+</ul></td>
+<td valign="top" width="160">
+<ul class="uppercase">
+<li><a href="http://www.ffbb.com/goodies">goodies</a></li>
+<li><a href="http://www.ffbb.com/edf/billetterie">billetterie</a></li>
+</ul>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr class="toHide" style="display:none">
+<td valign="top" colspan="2" height="265" width="985">
+<table class="sousMenu full txtLeft bgSousMenu" id="menu_ffbb">
+<tr>
+<td class="size1of5" valign="top">
+<table class="full bgMediumGrey">
+<tr>
+<td class="uppercase titre-sousMenu btnMenu2 selected" data-name="menu_federation"><span>f&eacute;d&eacute;ration</span></td>
+</tr>
+<tr>
+<td class="uppercase titre-sousMenu btnMenu2" data-name="menu_dtbn"><span>dtbn</span></td>
+</tr>
+<tr>
+<td class="uppercase titre-sousMenu btnMenu2" data-name="menu_infbb"><span>institut de
+formation - infbb</span></td>
+</tr>
+<tr>
+<td class="uppercase titre-sousMenu btnMenu2" data-name="menu_patrimoine"><span>patrimoine</span></td>
+</tr>
+<tr>
+<td class="uppercase titre-sousMenu btnMenu2" data-name="menu_actus"><span>actus</span></td>
+</tr>
+</table>
+</td>
+<td class="vTop">
+<table class="pt15 whiteMenu sousMenu2 selected" id="menu_federation" style="display:block">
+<tr>
+<td valign="top" width="164" class="pl"><span class="uppercase titre-whiteMenu">Le Basket en
+France et la FFBB</span>
+<ul>
+<li><a href="http://www.ffbb.com/ffbb/presentation-generale">Pr&eacute;sentation
+g&eacute;n&eacute;rale</a></li>
+<li><a href="http://www.ffbb.com/ffbb/politique-federale">Politique
+f&eacute;d&eacute;rale</a></li>
+<li><a href="http://www.ffbb.com/ffbb/statistiques-licences" class="coupe-menu">Statistiques licences</a></li>
+<li class="expand main"><a href="http://www.ffbb.com/">Instances
+politiques</a>
+<ul>
+<li><a href="http://www.ffbb.com/ffbb/comite-directeur">Le
+Comit&eacute; Directeur</a></li>
+<li><a href="http://www.ffbb.com/ffbb/bureau-federal">Le
+Bureau F&eacute;d&eacute;ral</a></li>
+<li><a href="http://www.ffbb.com/ffbb/presidents">Les
+Pr&eacute;sidets</a></li>
+<li><a href="http://www.ffbb.com/ffbb/conseil-honneur">Le
+Conseil d'Honneur</a></li>
+</ul></li>
+<li><a href="http://www.ffbb.com/">Commissions
+et Missions</a></li>
+<li><a href="http://www.ffbb.com/ffbb/assemblees-generales">Assembl&eacute;es
+G&eacute;n&eacute;rales</a></li>
+<li class="expand main"><a href="http://www.ffbb.com/">Administration
+f&eacute;d&eacute;rale</a>
+<ul>
+<li><a href="http://www.ffbb.com/ffbb/direction-generale">La
+Direction G&eacute;n&eacute;rale</a></li>
+<li><a href="http://www.ffbb.com/">L'Organigramme</a></li>
+<li><a href="http://www.ffbb.com/">Recrutement</a></li>
+</ul></li>
+</ul>
+<ul>
+<li><a href="http://www.ffbb.com/ffbb/reglements">Nos
+r&egrave;glements</a></li>
+<li><a href="http://www.ffbb.com/ffbb/partenaires">Nos
+Partenaires</a></li>
+<li><a href="http://www.ffbb.com/ffbb/programme-ffbb-citoyen">Programme
+FFBB Citoyen</a></li>
+<li><a href="http://www.ffbb.com/ffbb/calendriers-et-evenements">Calendrier
+et &eacute;v&eacute;nements</a></li>
+<li><a href="http://www.ffbb.com/ffbb/basketball-magazine">BasketBall
+Magazine</a></li>
+</ul></td>
+<td valign="top" width="164"><span class="uppercase titre-whiteMenu">Joueurs</span>
+<ul>
+<li><a href="http://www.ffbb.com/ffbb/joueurs/licences">Licences</a></li>
+<li><a href="http://www.ffbb.com/ffbb/dirigeants/gerer/imprimes">Imprim&eacute;s</a></li>
+<li><a href="http://www.ffbb.com/ffbb/reglements">R&egrave;glements</a></li>
+<li><a href="http://www.ffbb.com/">Assurances</a></li>
+<li><a href="http://www.ffbb.com/jouer/camp-ete">Camps
+d'&eacute;t&eacute;</a></li>
+<li><a href="http://www.ffbb.com/ffbb/dirigeants/sinformer/sante">Sant&eacute;
+(M&eacute;dical, Dopage...)</a></li>
+<li><a href="http://www.ffbb.com/ffbb/dirigeants/sinformer/paris-sportifs">Paris
+sportifs</a></li>
+</ul></td>
+<td valign="top" width="174"><span class="uppercase titre-whiteMenu">Dirigeants</span>
+<ul>
+<li class="expand main"><a href="http://www.ffbb.com/">G&eacute;rer</a>
+<ul>
+<li><a href="http://www.ffbb.com/ffbb/dirigeants/gerer/fbi-extranet">FBI
+- Extranet</a></li>
+<li><a href="http://www.ffbb.com/ffbb/dirigeants/gerer/imprimes">Imprim&eacute;s</a></li>
+<li><a href="http://www.ffbb.com/ffbb/reglements">R&egrave;glements</a></li>
+<li><a href="http://www.ffbb.com/ffbb/dirigeants/gerer/assurances">Assurances</a></li>
+<li><a href="http://www.ffbb.com/">Juridique</a></li>
+<li><a href="http://www.ffbb.com/ffbb/dirigeants/gerer/collaboration-entre-clubs" class="feminine-sub-menu">Collaboration entre
+clubs</a></li>
+<li><a href="http://www.ffbb.com/ffbb/dirigeants/gerer/logos">Logos</a></li>
+</ul></li>
+<li class="expand main"><a href="http://www.ffbb.com/">D&eacute;velopper</a>
+<ul>
+<li><a href="http://www.ffbb.com/">Formations</a></li>
+<li><a href="http://www.ffbb.com/ffbb/dirigeants/developper/labels-federaux">Labels
+f&eacute;d&eacute;raux</a></li>
+<li><a href="http://www.ffbb.com/ffbb/dirigeants/developper/mini-jeunes">Basket
+Mini et jeunes</a></li>
+<li><a href="http://www.ffbb.com/">Scolaire</a></li>
+<li><a href="http://www.ffbb.com/">Challenge
+du licenci&eacute;</a></li>
+<li><a href="http://www.ffbb.com/ffbb/dirigeants/developper/challenge-esprit-sportif">Challenge
+de l'Esprit Sportif</a></li>
+</ul></li>
+<li class="expand main"><a href="http://www.ffbb.com/">S'informer</a>
+<ul>
+<li><a href="http://www.ffbb.com/ffbb/dirigeants/sinformer/pv">PV</a></li>
+<li><a href="http://www.ffbb.com/">Notes</a></li>
+<li><a href="http://www.ffbb.com/ffbb/dirigeants/sinformer/iffbb">iFFBB</a></li>
+<li><a href="http://www.ffbb.com/ffbb/dirigeants/sinformer/salles-et-terrains">Salles
+et Terrains</a></li>
+<li><a href="http://www.ffbb.com/ffbb/dirigeants/sinformer/agents-sportifs">Agents
+sportifs</a></li>
+<li><a href="http://www.ffbb.com/ffbb/dirigeants/sinformer/paris-sportifs">Paris
+sportifs</a></li>
+<li><a href="http://www.ffbb.com/ffbb/dirigeants/sinformer/sante">Dopage</a></li>
+</ul></li>
+<li><a href="http://www.ffbb.com/ffbb/dirigeants/passion-club" class="coupe-menu">Passion Club</a></li>
+</ul></td>
+<td valign="top"><span class="uppercase titre-whiteMenu">Techniciens</span>
+<ul>
+<li class="expand main"><a href="http://www.ffbb.com/">Devenir technicien</a>
+<ul>
+<li><a href="http://www.ffbb.com/">les
+diff&eacute;rents m&eacute;tiers</a></li>
+<li><a href="http://www.ffbb.com/">les
+dipl&ocirc;mes</a></li>
+</ul></li>
+<li class="expand main"><a href="http://www.ffbb.com/">Se former</a>
+<ul>
+<li><a href="http://www.ffbb.com/">les
+stages</a></li>
+<li><a href="http://www.ffbb.com/">les
+formations</a></li>
+<li><a href="http://www.ffbb.com/">la
+documentation</a></li>
+</ul></li>
+<li class="expand main"><a href="http://www.ffbb.com/">S'informer</a>
+<ul>
+<li><a href="http://www.ffbb.com/ffbb/techniciens/sinformer/statut-de-lentraineur-faq">Statut
+de l'entra&icirc;neur</a></li>
+<li><a href="http://www.ffbb.com/ffbb/dirigeants/developper/mini-jeunes">Basket
+Mini et Jeunes</a></li>
+<li><a href="http://www.ffbb.com/ffbb/dirigeants/sinformer/agents-sportifs">Agents
+sportifs</a></li>
+<li><a href="http://www.ffbb.com/ffbb/dirigeants/sinformer/paris-sportifs">Paris
+sportifs</a></li>
+<li><a href="http://www.ffbb.com/ffbb/dirigeants/sinformer/sante">Dopage</a></li>
+</ul></li>
+</ul> <span class="uppercase titre-whiteMenu">Officiels</span>
+<ul>
+<li class="expand main"><a href="http://www.ffbb.com/">Arbitres</a>
+<ul>
+<li><a href="http://www.ffbb.com/ffbb/officiels/arbitres/devenir-arbitre">Devenir
+arbitre</a></li>
+<li><a href="http://www.ffbb.com/ffbb/reglements">R&egrave;glements</a></li>
+<li><a href="http://www.ffbb.com/ffbb/officiels/arbitres/charte-arbitrage">Charte
+de l'arbitrage</a></li>
+<li><a href="http://www.ffbb.com/ffbb/officiels/arbitres/repartiteurs">R&eacute;partiteurs</a></li>
+<li><a href="http://extranet.ffbb.com/fbi/connexion.do">D&eacute;signations</a></li>
+<li><a href="http://www.ffbb.com/">Documents
+Officiels</a></li>
+<li><a href="http://www.ffbb.com/ffbb/officiels/arbitres/journees-arbitrage">Journ&eacute;es
+de l'arbitrage</a></li>
+</ul></li>
+<li class="expand main"><a href="http://www.ffbb.com/">OTM</a>
+<ul>
+<li><a href="http://www.ffbb.com/formations/formations-federales">Formations</a></li>
+<li><a href="http://www.ffbb.com/ffbb/officiels/otm/statut" class="feminine-sub-menu">Statut de l'OTM</a></li>
+<li><a href="http://www.ffbb.com/ffbb/officiels/otm/e-marque" class="feminine-sub-menu">e-Marque</a></li>
+</ul></li>
+<li class="expand main"><a href="http://www.ffbb.com/">Statisticiens</a>
+<ul>
+<li><a href="http://www.ffbb.com/formations/formations-federales">Formations</a></li>
+</ul></li>
+</ul></td>
+</tr>
+</table>
+<table class="pt15 whiteMenu sousMenu2" id="menu_dtbn">
+<tr>
+<td valign="top" width="174" class="pl"><span class="uppercase titre-whiteMenu">Pr&eacute;sentation</span>
+<ul>
+<li><a href="http://www.ffbb.com/ffbb/DTBN/presentation">Mot
+du DTBN</a></li>
+</ul></td>
+<td valign="top" width="164"><span class="uppercase titre-whiteMenu">Le Parcours
+d'Excellence Sportive</span>
+<ul>
+<li><a href="http://www.ffbb.com/ffbb/dtbn/parcours-dexcellence-sportive/detection" class="ffbb-autres">La d&eacute;tection</a></li>
+<li class="expand main"><a href="http://www.ffbb.com/">Le Centre
+F&eacute;d&eacute;ral</a>
+<ul>
+<li><a href="http://www.ffbb.com/ffbb/dtbn/parcours-dexcellence-sportive/centre-federal/presentation-du-centre-federal">La
+pr&eacute;sentation</a></li>
+<li><a href="http://www.ffbb.com/ffbb/dtbn/parcours-dexcellence-sportive/centre-federal/organigramme">L'organigramme</a></li>
+<li><a href="http://www.ffbb.com/ffbb/dtbn/parcours-dexcellence-sportive/centre-federal/direction-des-programmes">La
+direction des programmes</a></li>
+<li><a href="http://www.ffbb.com/ffbb/dtbn/parcours-dexcellence-sportive/centre-federal/le-double-projet">Le
+double projet</a></li>
+<li><a href="http://www.ffbb.com/ffbb/dtbn/parcours-dexcellence-sportive/centre-federal/infrastructures">Les
+infrastructures</a></li>
+<li><a href="http://www.ffbb.com/ffbb/dtbn/parcours-dexcellence-sportive/centre-federal/intergrer-le-cfbb">Int&eacute;grer
+le CFBB</a></li>
+<li><a href="http://www.ffbb.com/ffbb/dtbn/parcours-dexcellence-sportive/centre-federal/effectifs">Les
+effectifs</a></li>
+<li><a href="http://www.ffbb.com/ffbb/dtbn/parcours-dexcellence-sportive/centre-federal/les-anciens-pensionnaires">Les
+anciens pensionnaires</a></li>
+<li><a href="http://www.ffbb.com/photos/centre-f-d-ral">Photos</a></li>
+</ul></li>
+<li><a href="http://www.ffbb.com/" class="ffbb-autres active">Les p&ocirc;les
+espoirs</a></li>
+<li><a href="http://www.ffbb.com/" class="ffbb-autres active">Les centres de
+formation et d'entrainement</a></li>
+</ul></td>
+<td valign="top" width="164"><span class="uppercase titre-whiteMenu">Conseillers
+Techniques</span>
+<ul>
+<li><a href="http://www.ffbb.com/ffbb/DTBN/CTS/presentation" class="ffbb-autres">Les CTS</a></li>
+<li><a href="http://www.ffbb.com/" class="ffbb-autres active">Les CTF</a></li>
+</ul></td>
+</tr>
+</table>
+<table class="pt15 whiteMenu sousMenu2" id="menu_infbb">
+<tr>
+<td valign="top" width="164" class="pl"><span class="uppercase titre-whiteMenu">Pr&eacute;sentation</span>
+<ul>
+<li><a href="http://www.ffbb.com/ffbb/infbb/presentation/presentation-infbb">Présentation
+de la INFBB</a></li>
+</ul></td>
+<td valign="top" width="164"><span class="uppercase titre-whiteMenu">Notre
+catalogue de formations</span>
+<ul>
+<li><a href="http://www.ffbb.com/formations/formations-federales">Formations</a></li>
+<li><a href="http://www.ffbb.com/formations/formations-en-ligne">E-learning</a></li>
+<li><a href="http://www.canal-sport.fr/fr/basketball">Web
+TV</a></li>
+</ul></td>
+<td valign="top" width="164"><span class="uppercase titre-whiteMenu">La Taxe
+d'Apprentissage</span>
+<ul>
+<li><a href="http://www.ffbb.com/ffbb/infbb/taxe/la-Taxe-dapprentissage">la
+Taxe d’apprentissage</a></li>
+</ul></td>
+</tr>
+</table>
+<table class="pt15 whiteMenu sousMenu2" id="menu_patrimoine">
+<tr>
+<td valign="top" width="164" class="pl"><span class="uppercase titre-whiteMenu">Mus&eacute;es
+du basket</span>
+<ul class="one-fifth-patrimoine">
+<li><a href="http://www.ffbb.com/ffbb/patrimoine/musees-du-basket/musee-du-basket">Le
+Mus&eacute;e du Basket</a></li>
+<li><a href="http://museevirtuel.basketfrance.com/">Le
+Mus&eacute;e virtuel</a></li>
+<li><a href="http://www.ffbb.com/ffbb/patrimoine/musees-du-basket/espace-museal">L’espace
+mus&eacute;al de la FFBB</a></li>
+<li><a href="http://www.ffbb.com/ffbb/patrimoine/musees-du-basket/expositions">Les
+expos itin&eacute;rantes</a></li>
+</ul>
+<ul>
+<li><a href="http://www.ffbb.com/actus/patrimoine" class="ffbb-autres">Actus patrimoine</a></li>
+</ul></td>
+<td valign="top" width="164"><span class="uppercase titre-whiteMenu">centre de
+recherche</span>
+<ul>
+<li><a href="http://www.ffbb.com/ffbb/patrimoine/centre-de-recherche/informations-pratiques">Informations
+pratiques</a></li>
+<li><a href="http://www.ffbb.com/ffbb/patrimoine/centre-de-recherche/catalogue">Catalogue</a></li>
+<li><a href="http://www.ffbb.com/ffbb/patrimoine/centre-de-recherche/les-collections-numerisees-bnf">Collections
+numérisées - BnF</a></li>
+<li><a href="http://www.ffbb.com/photos/patrimoine">Photos</a></li>
+</ul></td>
+<td valign="top" width="164"><span class="uppercase titre-whiteMenu">prix de la
+rue de tr&eacute;vise</span>
+<ul>
+<li><a href="http://www.ffbb.com/ffbb/patrimoine/prix-de-la-rue-de-trevise/presentation">Pr&eacute;sentation</a></li>
+<li><a href="http://www.ffbb.com/ffbb/patrimoine/prix-de-la-rue-de-trevise/appel-candidatures">Appel
+&agrave; candidatures</a></li>
+<li><a href="http://www.ffbb.com/ffbb/patrimoine/prix-de-la-rue-de-trevise/laureats">Laur&eacute;ats</a></li>
+</ul></td>
+<td valign="top" width="164"><span class="uppercase titre-whiteMenu">acad&eacute;mie
+du basket</span>
+<ul>
+<li><a href="http://www.ffbb.com/ffbb/patrimoine/academie-du-basket/transmettre-et-honorer">Transmettre
+et honorer</a></li>
+<li><a href="http://www.ffbb.com/ffbb/patrimoine/academie-du-basket/academiciens">Acad&eacute;miciens</a></li>
+</ul> <span class="uppercase titre-whiteMenu">L&eacute;gendes
+du Basket</span>
+<ul>
+<li><a href="http://www.ffbb.com/ffbb/patrimoine/legendes-du-basket/les-recompenses" class="ffbb-autres">R&eacute;compenses</a></li>
+<li><a href="http://www.dailymotion.com/group/LegendesduBasketfrancais" class="ffbb-autres">Vid&eacute;os
+l&eacute;gendes du basket</a></li>
+</ul></td>
+</tr>
+</table>
+<table class="pt15 whiteMenu sousMenu2" id="menu_actus">
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<form id="iloaForm" name="iloaForm" method="POST" action="go" ENCTYPE="multipart/form-data">
+<table class="fond_page full">
+<tr>
+<td valign="top" class="pad3">
+<table>
+<tr>
+<td><img src="/images/menuGaucheTitre.png"></td>
+</tr>
+<tr>
+<td><iframe width="100%" id="idIframeMenu" src="../../menu.html" scrolling="no" height="500" marginheight="0" marginwidth="0" frameborder="0" onload="changeSize(this)"></iframe></td>
+</tr>
+</table>
+</td>
+<td valign="top">
+<table class="fond_contenu">
+<tr>
+<td id="idTableClub"><table class="cadre"><tr><td colspan="2" class="titre-bloc" align="center"><a href="../../organisation/21ea.html">SAINT ANDRE BASKET BALL - PDL0044072 - Club</a></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td width="100">Compétitions : </td><td class="customSelect2"><select id="idCompetitionsSelect" onchange="changerRencontresResultatsEquipe(this)"><option value="b5e6211e9bcd21ea">Coupe : Coupe de Loire-Atlantique Séniors Masculins</option><option value="b5e6211e9c35b5e6211f971821ea">Championnat : Départementale 3 Seniors Masculin - Poule A</option><option value="b5e6211e9bf8b5e6211f962421ea">Championnat : Départementale U11 Masculin - D2 - Poule D</option><option value="b5e6211e9bf6b5e6211f95f221ea">Championnat : Départementale U13 Masculin - D2 - Poule B</option><option value="b5e6211e9bf3b5e6211f95c721ea">Championnat : Départementale U15 Masculin - D2 - Poule E</option><option value="b5e6211e9be3b5e6211f958221ea">Championnat : Départementale U20 Masculin - D2 - Poule A</option><option value="b5e6211e9bb8b5e6211f950f21ea">Championnat : Départementale 2 Seniors Féminin - Poule A</option><option value="b5e6211e9bf9b5e6211f966521ea">Championnat : Départementale U11 Féminin - D2 - Poule B</option><option value="b5e6211e9bf7b5e6211f962321ea">Championnat : Départementale U13 Féminin - D1 - Poule A</option><option value="b5e6211e9bf4b5e6211f95da21ea">Championnat : Départementale U15 Féminin - D2 - Poule B</option><option value="b5e6211e9bf1b5e6211f95b221ea">Championnat : Départementale U18 Féminin - D2 - Poule B</option></select><script type="text/javascript">var classementsResultatsEquipe = new Object();classementsResultatsEquipe["b5e6211e9bcd21ea"]="b5e6211e9bcdb5e6211f9551";classementsResultatsEquipe["b5e6211e9c35b5e6211f971821ea"]="b5e6211e9c35b5e6211f9718";classementsResultatsEquipe["b5e6211e9bf8b5e6211f962421ea"]="b5e6211e9bf8b5e6211f9624";classementsResultatsEquipe["b5e6211e9bf6b5e6211f95f221ea"]="b5e6211e9bf6b5e6211f95f2";classementsResultatsEquipe["b5e6211e9bf3b5e6211f95c721ea"]="b5e6211e9bf3b5e6211f95c7";classementsResultatsEquipe["b5e6211e9be3b5e6211f958221ea"]="b5e6211e9be3b5e6211f9582";classementsResultatsEquipe["b5e6211e9bb8b5e6211f950f21ea"]="b5e6211e9bb8b5e6211f950f";classementsResultatsEquipe["b5e6211e9bf9b5e6211f966521ea"]="b5e6211e9bf9b5e6211f9665";classementsResultatsEquipe["b5e6211e9bf7b5e6211f962321ea"]="b5e6211e9bf7b5e6211f9623";classementsResultatsEquipe["b5e6211e9bf4b5e6211f95da21ea"]="b5e6211e9bf4b5e6211f95da";classementsResultatsEquipe["b5e6211e9bf1b5e6211f95b221ea"]="b5e6211e9bf1b5e6211f95b2";</script></td></tr><tr><td align="right" colspan="6"><a href="javascript:afficherOfficiels()" class="tableau">Afficher les renseignements arbitres, officiels et n° de rencontre</a></td></tr></table></td>
+</tr>
+<tr>
+<td><iframe width="100%" id="idIframeSalle" scrolling="no" marginheight="0" marginwidth="0" frameborder="0" onload="changeSize(this)"> </iframe></td>
+</tr>
+<tr>
+<td><iframe width="100%" id="idIframeRencontres" scrolling="no" marginheight="0" marginwidth="0" frameborder="0" onload="changeSize(this)"> </iframe></td>
+</tr>
+<tr>
+<td><iframe width="100%" id="idIframeClassements" scrolling="no" marginheight="0" marginwidth="0" frameborder="0" onload="changeSize(this)"> </iframe></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td valign="top" width="220"><script type="text/javascript">if(typeof getAdLinkAdTag=="function"){getAdLinkAdTag("220x220",undefined,undefined,undefined,undefined,undefined,"220x220")}</script>
+<noscript>
+<a href="http://rd.himediads.com/fr/jump/basketfrance/ros;sz=300x250;tile=1;ord=" target="_blank"><img src="http://rd.himediads.com/fr/ad/basketfrance/ros;sz=300x250;tile=1;ord=?" width="220" height="220" alt="" /> </a>
+</noscript></td>
+</tr>
+<tr>
+<td colspan="2"></td>
+</tr>
+</table>
+</form>
+<table cellpadding="0" cellspacing="0" border="0" class="bgWhite full">
+<tr>
+<td>
+<table class="full cadre">
+<tbody>
+<tr>
+<td width="460">
+<div class="bgGrey brad pad3">
+<div class="conteneur">
+<span class="helper"></span><a class="dinblock" href="https://rmcsport.bfmtv.com/basket/" target="_blank"><img src="/images/rmc_sport.png" alt="RMC Sport" class="logo"></a>
+</div>
+<div class="conteneur">
+<span class="helper"></span><a class="dinblock" href="https://www.caisse-epargne.fr/" target="_blank"><img src="/images/cde_a1_p.png" alt="Caisse d'Epargne" class="logo"></a>
+</div>
+<div class="conteneur">
+<span class="helper"></span> <a class="dinblock" href="https://www.nike.com/fr/fr_fr/c/jordan" target="_blank"><img src="/images/jordan-small.png" alt="Jordan" class="logo"></a>
+</div>
+<div class="conteneur">
+<span class="helper"></span><a class="dinblock" href="http://www.sfr.fr/" target="_blank"><img src="/images/sfr_logo2014_exe_rvb.png" alt="SFR" class="logo"></a>
+</div>
+<div class="conteneur">
+<span class="helper"></span><a class="dinblock" href="https://entreprise.maif.fr/entreprise/engages-pour-la-culture-le-sport/sport-esprit-dethique" target="_blank"><img src="/images/maif.png" alt="SFR" class="logo"></a>
+</div>
+</div>
+</td>
+<td>&nbsp;</td>
+<td width="460">
+<div class="bgGrey brad pad3">
+<div class="conteneur">
+<span class="helper"></span><a class="dinblock" href="http://franceolympique.com/" target="_blank"><img src="/images/partenaireOlympique.png" alt=""></a>
+</div>
+<div class="conteneur">
+<span class="helper"></span><a class="dinblock" href="http://www.sports.gouv.fr/" target="_blank"><img src="/images/partenaireRepublique.png" alt=""></a>
+</div>
+<div class="conteneur">
+<span class="helper"></span> <a class="dinblock" href="http://www.lnb.fr/" target="_blank"><img src="/images/partenaireLnb.png" alt=""></a>
+</div>
+<div class="conteneur">
+<span class="helper"></span> <a class="dinblock" href="http://www.basketlfb.com/" target="_blank"><img src="/images/LogoLFB2016-small.png" alt=""></a>
+</div>
+<div class="conteneur">
+<span class="helper"></span> <a class="dinblock" href="http://www.fiba.com/" target="_blank"><img src="/images/partenaireFiba.png" alt=""></a>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<table class="full">
+<tbody>
+<tr>
+<td width="460" class="titre-bloc txtCenter">&copy;
+Copyright F&eacute;d&eacute;ration Fran&ccedil;aise de
+BasketBall. Tous droits r&eacute;serv&eacute;s.</td>
+<td class="titre-bloc txtCenter"><a href="http://www.ffbb.com/mentions-legales">Mentions
+l&eacute;gales</a></td>
+<td class="titre-bloc txtCenter"><a href="http://www.ffbb.com/nous-contacter">Contacts</a></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<script type="text/javascript">var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");document.write(unescape("%3Cscript src='"+gaJsHost+"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));</script>
+<script type="text/javascript">try{var pageTracker=_gat._getTracker("UA-11450009-2");pageTracker._setDomainName(".ffbb.com");pageTracker._trackPageview()}catch(err){}</script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">var Main={initMenuNav:function(){var a=false;$(".sousMenu").hover(function(){a=true;$(this).closest("tr").fadeIn();$(this).fadeIn()},function(){$(this).stop(true,true).fadeOut(function(){$(".bgHeader").find(".toHide.advert").show()});$(".btnMenu.selected").removeClass("selected")});$(".btnMenu2").on("click",function(){var c=$(this),b=$(this).data("name");$(".sousMenu2.selected").fadeOut(function(){$(this).removeClass("selected");$("#"+b).fadeIn(function(){$(this).addClass("selected")})});$(".btnMenu2.selected").removeClass("selected");$(this).addClass("selected")});$("li.expand").on("click","a",function(c){c.preventDefault();var b=$(this).closest("li.main");if(b.hasClass("expanded")){b.removeClass("expanded");if(!$(this).parent().hasClass("main")){window.location=$(this).attr("href")}}else{b.addClass("expanded")}})},init:function(){Main.initMenuNav()}};$(function(){Main.init()});</script>
+<script type="text/javascript">loadRencontresResultatsEquipe();</script>
+</body>
+</html>

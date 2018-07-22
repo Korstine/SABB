@@ -6,8 +6,8 @@ import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.TextField;
 
 import fr.sabb.application.data.object.Association;
-import fr.sabb.application.ui.screen.administration.CommonForm;
-import fr.sabb.application.ui.screen.administration.CommonView;
+import fr.sabb.application.ui.screen.CommonForm;
+import fr.sabb.application.ui.screen.CommonView;
 
 public class AssociationForm extends CommonForm<Association> {
 
@@ -16,12 +16,13 @@ private Binder<Association> binder = new Binder<>(Association.class);
 	private TextField name = new TextField("Club");
 	private CheckBox active = new CheckBox("Active");
 	private CheckBox main = new CheckBox("Club principal");
+	private TextField nameFfbb = new TextField("Nommage FFBB");
 	
 	public AssociationForm(CommonView<Association> view) {
 		super(view);
 		setSizeUndefined();
 	    HorizontalLayout buttons = new HorizontalLayout(save, delete);
-	    addComponents(name, main, active, buttons);
+	    addComponents(name, nameFfbb, main, active, buttons);
 	    
 	    binder.bindInstanceFields(this);
 	}
@@ -34,6 +35,11 @@ private Binder<Association> binder = new Binder<>(Association.class);
 	@Override
 	public TextField getDefaultSelectAll() {
 		return name;
+	}
+
+	@Override
+	public String getValidationExceptionMessage() {
+		return null;
 	}
 
 }

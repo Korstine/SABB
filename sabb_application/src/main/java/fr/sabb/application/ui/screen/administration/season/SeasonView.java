@@ -1,40 +1,44 @@
 package fr.sabb.application.ui.screen.administration.season;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
-import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.ui.Grid;
 
 import fr.sabb.application.data.object.Season;
 import fr.sabb.application.service.season.SeasonService;
-import fr.sabb.application.ui.SabbUI;
-import fr.sabb.application.ui.screen.administration.CommonForm;
-import fr.sabb.application.ui.screen.administration.CommonView;
+import fr.sabb.application.ui.screen.CommonForm;
+import fr.sabb.application.ui.screen.CommonView;
 
-@SpringView
-public class SeasonView  extends CommonView<Season> {
+@Component
+public class SeasonView extends CommonView<Season> {
 
-    /**
+	@Autowired
+	SeasonService service;
+
+	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 2729510873919363830L;
 
 	public static final String VIEW_NAME = "Gestion des saisons";
 
-    public SeasonView(SabbUI ui) {
-    	super(ui);
-    }
+	public SeasonView() {
+		super();
+	}
 
-    @Override
-    public void enter(ViewChangeEvent event) {
-    	super.enter(event);
-    }
-    
+	@Override
+	public void enter(ViewChangeEvent event) {
+		super.enter(event);
+	}
+
 	/**
 	 * @return the service
 	 */
-    @Override
+	@Override
 	public SeasonService getService() {
-		return ui.getSeasonService();
+		return service;
 	}
 
 	@Override
@@ -59,8 +63,8 @@ public class SeasonView  extends CommonView<Season> {
 
 	@Override
 	public void setColumns(Grid<Season> grid) {
-		grid.setColumns("id","name","active");
-		
+		grid.setColumns("id", "name", "active");
+
 	}
-    
+
 }
