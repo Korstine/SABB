@@ -9,6 +9,7 @@ public class Team extends SabbObject {
 	private Season season;
 	private boolean active;
 	private String ffbbUniqueId;
+	private int sort;
 	
 	/**
 	 * @return the id
@@ -93,6 +94,18 @@ public class Team extends SabbObject {
 	 */
 	public void setFfbbUniqueId(String ffbbUniqueId) {
 		this.ffbbUniqueId = ffbbUniqueId;
+	}
+	/**
+	 * @return the sort
+	 */
+	public int getSort() {
+		return sort;
+	}
+	/**
+	 * @param sort the sort to set
+	 */
+	public void setSort(int sort) {
+		this.sort = sort;
 	}
 	
 }

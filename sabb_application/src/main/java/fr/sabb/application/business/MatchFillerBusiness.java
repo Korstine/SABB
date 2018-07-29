@@ -69,7 +69,7 @@ public class MatchFillerBusiness {
 					}
 					break;
 				case 6:
-					if (!match.isHome()) {
+					if (match.isHome()) {
 						match.setOpponent(e.text());
 					}
 					break;

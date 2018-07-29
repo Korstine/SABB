@@ -58,7 +58,7 @@ public class CategoryView extends CommonView<Category> {
 
 	@Override
 	public void setColumns(Grid<Category> grid) {
-		grid.setColumns("id", "name", "active");
+		grid.setColumns("id", "name", "autobind", "active");
 	}
 
 }

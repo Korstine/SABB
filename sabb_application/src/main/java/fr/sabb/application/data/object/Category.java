@@ -5,6 +5,7 @@ public class Category extends SabbObject {
 	private int id;
 	private String name;
 	private boolean active;
+	private boolean autobind;
 	/**
 	 * @return the id
 	 */
@@ -44,6 +45,18 @@ public class Category extends SabbObject {
 	
 	public String toString() {
 		return this.name;
+	}
+	/**
+	 * @return the autobind
+	 */
+	public boolean isAutobind() {
+		return autobind;
+	}
+	/**
+	 * @param autobind the autobind to set
+	 */
+	public void setAutobind(boolean autobind) {
+		this.autobind = autobind;
 	}
 	
 }

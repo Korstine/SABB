@@ -151,5 +151,72 @@
     		<column name="name_ffbb" type="varchar(150)"/>
     	</addColumn>
     </changeSet>
+    
+    <changeSet id="add_column_season_ref_year" author="FRO">
+    	<addColumn schemaName="sabb" tableName="season">
+    		<column name="reference_year" type="int"/>
+    	</addColumn>
+    </changeSet>
+    
+    <changeSet id="create_table_licensee" author="FRO">
+        <createTable schemaName="sabb" tableName="licensee">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="id_team" type="int">
+            	<constraints nullable="false"/>
+            </column>
+            <column name="id_category" type="int">
+            	<constraints nullable="false"/>
+            </column>
+            <column name="name" type="varchar(150)">
+            	<constraints nullable="false"/>
+            </column>
+            <column name="firstname" type="varchar(150)">
+            	<constraints nullable="false"/>
+            </column>
+            <column name="mail" type="varchar(150)">
+            </column>
+            <column name="phone" type="varchar(10)">
+            </column>
+            <column name="adress" type="varchar(300)">
+            	<constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableSchemaName="sabb" baseColumnNames="id_team"
+                             baseTableName="licensee"
+                             constraintName="fk_licensee_team"
+                             referencedTableSchemaName="sabb"
+                             referencedColumnNames="id"
+                             referencedTableName="team"/>
+		<addForeignKeyConstraint baseTableSchemaName="sabb" baseColumnNames="id_category"
+                             baseTableName="licensee"
+                             constraintName="fk_licensee_category"
+                             referencedTableSchemaName="sabb"
+                             referencedColumnNames="id"
+                             referencedTableName="category"/>                             
+    </changeSet>
+    
+    <changeSet id="add_constraint_column_season_ref_year" author="FRO">
+    	<addNotNullConstraint schemaName="sabb" tableName="season" columnName="reference_year"/>
+    </changeSet>
+    
+    <changeSet id="drop_constraint_not_null_licensee_team" author="FRO">
+    	<dropNotNullConstraint schemaName="sabb" tableName="licensee" columnName="id_team"/>
+    </changeSet>
+    
+    <changeSet id="add_column_category_autobind" author="FRO">
+    	<addColumn schemaName="sabb" tableName="category">
+    		 <column name="autobind" type="boolean" defaultValueBoolean="false">
+            	<constraints nullable="false"/>
+            </column>
+    	</addColumn>
+    </changeSet>
+    
+    <changeSet id="add_column_team_sort" author="FRO">
+    	<addColumn schemaName="sabb" tableName="team">
+    		 <column name="sort" type="int"/>
+    	</addColumn>
+    </changeSet>
 
 </databaseChangeLog>

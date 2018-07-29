@@ -63,7 +63,7 @@ public class SeasonView extends CommonView<Season> {
 
 	@Override
 	public void setColumns(Grid<Season> grid) {
-		grid.setColumns("id", "name", "active");
+		grid.setColumns("id", "name", "referenceYear", "active");
 
 	}
 

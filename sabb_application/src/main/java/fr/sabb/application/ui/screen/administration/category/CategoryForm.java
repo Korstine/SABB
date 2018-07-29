@@ -15,6 +15,7 @@ public class CategoryForm extends CommonForm<Category> {
     
 	private TextField name = new TextField("Categorie");
 	private CheckBox active = new CheckBox("Active");
+	private CheckBox autobind = new CheckBox("Autobind");
 	
 	
 	public CategoryForm(CategoryView view) {
@@ -22,7 +23,7 @@ public class CategoryForm extends CommonForm<Category> {
 		
 		setSizeUndefined();
 	    HorizontalLayout buttons = new HorizontalLayout(save, delete);
-	    addComponents(name, active, buttons);
+	    addComponents(name, autobind, active, buttons);
 	    
 	    binder.bindInstanceFields(this);
 	}

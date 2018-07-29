@@ -15,7 +15,7 @@ import fr.sabb.application.data.object.Season;
 import fr.sabb.application.data.object.Team;
 
 @Mapper
-public interface MatchMapper extends SabbMapper {
+public interface MatchMapper extends SabbMapper<Match> {
 
 	@Select("SELECT * FROM sabb.match ORDER BY id")
 	@Results(value= {

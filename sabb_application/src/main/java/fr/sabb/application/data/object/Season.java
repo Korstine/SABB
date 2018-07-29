@@ -5,6 +5,7 @@ public class Season  extends SabbObject{
 	private int id;
 	private String name;
 	private boolean active;
+	private int referenceYear;
 	/**
 	 * @return the id
 	 */
@@ -43,6 +44,18 @@ public class Season  extends SabbObject{
 	
 	public String toString() {
 		return this.name + (this.active ? "(Active)" : "");
+	}
+	/**
+	 * @return the referenceYear
+	 */
+	public int getReferenceYear() {
+		return referenceYear;
+	}
+	/**
+	 * @param referenceYear the referenceYear to set
+	 */
+	public void setReferenceYear(int referenceYear) {
+		this.referenceYear = referenceYear;
 	}
 	
 }

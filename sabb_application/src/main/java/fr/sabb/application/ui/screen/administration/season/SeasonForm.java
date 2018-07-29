@@ -1,6 +1,7 @@
 package fr.sabb.application.ui.screen.administration.season;
 
 import com.vaadin.data.Binder;
+import com.vaadin.data.converter.StringToIntegerConverter;
 import com.vaadin.ui.CheckBox;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.TextField;
@@ -13,6 +14,7 @@ public class SeasonForm extends CommonForm<Season> {
 	private Binder<Season> binder = new Binder<>(Season.class);
     
 	private TextField name = new TextField("Saison");
+	private TextField referenceYear = new TextField("Année de référence");
 	private CheckBox active = new CheckBox("Active");
 	
 	
@@ -21,7 +23,8 @@ public class SeasonForm extends CommonForm<Season> {
 		
 		setSizeUndefined();
 	    HorizontalLayout buttons = new HorizontalLayout(save, delete);
-	    addComponents(name, active, buttons);
+	    addComponents(name, referenceYear, active, buttons);
+	    binder.forField(referenceYear).withConverter(new StringToIntegerConverter("")).bind(Season::getReferenceYear,Season::setReferenceYear);
 	    binder.bindInstanceFields(this);
 	}
 	

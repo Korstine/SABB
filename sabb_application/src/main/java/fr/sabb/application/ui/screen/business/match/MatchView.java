@@ -3,7 +3,9 @@ package fr.sabb.application.ui.screen.business.match;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.Grid;
+import com.vaadin.ui.HorizontalLayout;
 
 import fr.sabb.application.data.object.Match;
 import fr.sabb.application.service.SabbObjectService;
@@ -47,6 +49,15 @@ public class MatchView extends CommonView<Match> {
 	@Override
 	public void setColumns(Grid<Match> grid) {
 		grid.setColumns("id", "opponent", "matchDate", "idFFBB", "home");
+	}
+	
+	@Override
+	public void enter(ViewChangeEvent event) {
+		super.enter(event);
+		HorizontalLayout formLayout = null;
+
+			formLayout = new HorizontalLayout(new MatchFilter(grid));
+		addComponent(formLayout);
 	}
 
 }

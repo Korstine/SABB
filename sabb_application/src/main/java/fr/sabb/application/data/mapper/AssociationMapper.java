@@ -13,7 +13,7 @@ import org.apache.ibatis.annotations.Update;
 import fr.sabb.application.data.object.Association;
 
 @Mapper
-public interface AssociationMapper extends SabbMapper{
+public interface AssociationMapper extends SabbMapper<Association> {
 
 	@Select("SELECT * FROM sabb.association ORDER BY id")
 	@Results(value= {

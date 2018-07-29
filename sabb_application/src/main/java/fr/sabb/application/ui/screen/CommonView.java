@@ -20,7 +20,7 @@ public abstract class CommonView<T extends SabbObject> extends CssLayout impleme
 	 */
 	private static final long serialVersionUID = 262342928460737393L;
 
-	private Grid<T> grid = getGrid();
+	protected Grid<T> grid = getGrid();
 	private CommonForm<T> form;
 
 	public CommonView() {
@@ -81,7 +81,7 @@ public abstract class CommonView<T extends SabbObject> extends CssLayout impleme
 		List<T> items = getService().getAll();
 		grid.setItems(items);
 	}
-
+	
 	/**
 	 * @return the service
 	 */
