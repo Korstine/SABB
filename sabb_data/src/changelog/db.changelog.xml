@@ -218,5 +218,49 @@
     		 <column name="sort" type="int"/>
     	</addColumn>
     </changeSet>
-
+    
+    <changeSet id="add_column_licensee_num" author="FRO">
+    	<addColumn schemaName="sabb" tableName="licensee">
+    		 <column name="num_licensee" type="varchar(12)"/>
+    	</addColumn>
+    	<addUniqueConstraint columnNames="num_licensee" schemaName="sabb" tableName="licensee"/>
+    </changeSet>
+    
+    <changeSet id="add_columns_licensee_sex_birth" author="FRO">
+    	<addColumn schemaName="sabb" tableName="licensee">
+    		 <column name="sex" type="varchar(1)">
+            	<constraints nullable="false"/>
+            </column>
+            <column name="date_of_birth" type="timestamp">
+            	<constraints nullable="false"/>
+            </column>
+    	</addColumn>
+    </changeSet>
+    
+    <changeSet id="add_column_sex" author="FRO">
+    	<addColumn schemaName="sabb" tableName="team">
+    		 <column name="sex" type="varchar(1)"/>
+    	</addColumn>
+    </changeSet>
+    
+     <changeSet id="create_table_sub_category" author="FRO">
+        <createTable schemaName="sabb" tableName="sub_category">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="id_category" type="int">
+            	<constraints nullable="false"/>
+            </column>
+            <column name="name" type="varchar(10)">
+            	<constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableSchemaName="sabb" baseColumnNames="id_category"
+                             baseTableName="sub_category"
+                             constraintName="fk_sub_category_category"
+                             referencedTableSchemaName="sabb"
+                             referencedColumnNames="id"
+                             referencedTableName="category"/>
+    </changeSet>
+    
 </databaseChangeLog>

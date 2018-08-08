@@ -53,11 +53,12 @@ public class MatchView extends CommonView<Match> {
 	
 	@Override
 	public void enter(ViewChangeEvent event) {
-		super.enter(event);
+		
 		HorizontalLayout formLayout = null;
 
 			formLayout = new HorizontalLayout(new MatchFilter(grid));
 		addComponent(formLayout);
+		super.enter(event);
 	}
 
 }

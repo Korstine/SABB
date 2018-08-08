@@ -1,5 +1,7 @@
 package fr.sabb.application.data.object;
 
+import javax.validation.constraints.Pattern;
+
 public class Team extends SabbObject {
 
 	private int id;
@@ -10,6 +12,9 @@ public class Team extends SabbObject {
 	private boolean active;
 	private String ffbbUniqueId;
 	private int sort;
+	
+	@Pattern(regexp = "^[F|M]$")
+	private String sex;
 	
 	/**
 	 * @return the id
@@ -106,6 +111,18 @@ public class Team extends SabbObject {
 	 */
 	public void setSort(int sort) {
 		this.sort = sort;
+	}
+	/**
+	 * @return the sex
+	 */
+	public String getSex() {
+		return sex;
+	}
+	/**
+	 * @param sex the sex to set
+	 */
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 	
 }

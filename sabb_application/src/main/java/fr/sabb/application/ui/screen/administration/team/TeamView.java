@@ -72,7 +72,7 @@ public class TeamView extends CommonView<Team> {
 
 	@Override
 	public void setColumns(Grid<Team> grid) {
-		grid.setColumns("id", "name", "category", "sort","association", "active", "ffbbUniqueId");
+		grid.setColumns("id", "name", "category", "sex", "sort","association", "active", "ffbbUniqueId");
 	}
 	
 	@Override

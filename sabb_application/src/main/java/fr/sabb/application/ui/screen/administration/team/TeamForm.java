@@ -30,6 +30,7 @@ public class TeamForm extends CommonForm<Team> {
 	private CheckBox active = new CheckBox("Active");
 	private TextField ffbbUniqueId = new TextField("Identifiant FFB");
 	private TextField sort = new TextField("Ordre");
+	private TextField sex = new TextField("Sexe");
 
 	public TeamForm(TeamView view) {
 		super(view);
@@ -69,7 +70,7 @@ public class TeamForm extends CommonForm<Team> {
 		addComponent(reloadMatchs);
 
 		HorizontalLayout selectors = new HorizontalLayout(selectCategory, selectAssociation, selectSeason);
-		addComponents(name, selectors, sort, ffbbUniqueId, active, buttons);
+		addComponents(name, selectors, sort, sex, ffbbUniqueId, active, buttons);
 		binder.forField(sort).withConverter(new StringToIntegerConverter("")).bind(Team::getSort,Team::setSort);
 		binder.bindInstanceFields(this);
 	}

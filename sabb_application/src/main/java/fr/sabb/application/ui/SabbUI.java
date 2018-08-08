@@ -17,7 +17,9 @@ import fr.sabb.application.ui.screen.MainScreen;
 import fr.sabb.application.ui.screen.administration.association.AssociationView;
 import fr.sabb.application.ui.screen.administration.category.CategoryView;
 import fr.sabb.application.ui.screen.administration.season.SeasonView;
+import fr.sabb.application.ui.screen.administration.subcategory.SubCategoryView;
 import fr.sabb.application.ui.screen.administration.team.TeamView;
+import fr.sabb.application.ui.screen.business.licensee.LicenseeView;
 import fr.sabb.application.ui.screen.business.match.MatchView;
 
 @SpringUI
@@ -34,6 +36,10 @@ public class SabbUI extends UI {
 	private CategoryView categoryView;
 	@Autowired
 	private MatchView matchView;
+	@Autowired
+	private LicenseeView licenseeView;
+	@Autowired
+	private SubCategoryView subCategoryView;
 
 	@Override
 	protected void init(VaadinRequest vaadinRequest) {
@@ -86,6 +92,20 @@ public class SabbUI extends UI {
 	 */
 	public MatchView getMatchView() {
 		return matchView;
+	}
+
+	/**
+	 * @return the licenseeView
+	 */
+	public LicenseeView getLicenseeView() {
+		return licenseeView;
+	}
+
+	/**
+	 * @return the subCategoryView
+	 */
+	public SubCategoryView getSubCategoryView() {
+		return subCategoryView;
 	}
 
 }

@@ -39,8 +39,7 @@ public interface MatchMapper extends SabbMapper<Match> {
 	})
 	Match getMatch(Match match);
 	
-	@Select("SELECT * FROM sabb.team WHERE id=#{idTeam}")
-	Team getTeam(int idTeam);
+	
 	
 	@Insert("INSERT INTO sabb.match(opponent,id_team,match_date,id_ffbb,home) VAlUES(#{opponent}, #{team.id}, #{matchDate}, #{idFFBB}, #{home})")
 	void insert(Match match);

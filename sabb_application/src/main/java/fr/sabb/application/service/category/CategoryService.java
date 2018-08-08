@@ -5,7 +5,9 @@ import java.util.List;
 import fr.sabb.application.data.object.Category;
 import fr.sabb.application.service.SabbObjectService;
 
-public interface CategoryService extends SabbObjectService<Category>{
+public interface CategoryService extends SabbObjectService<Category> {
 
 	List<Category> getAllActive();
+
+	Category getCategoryBySubCategoryName(String subCategoryName);
 }
