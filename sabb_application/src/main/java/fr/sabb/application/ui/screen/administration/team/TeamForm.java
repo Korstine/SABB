@@ -60,7 +60,7 @@ public class TeamForm extends CommonForm<Team> {
 		Button reloadMatchs = new Button("Recharger les matchs");
 		reloadMatchs.addClickListener(e -> {
 			try {
-				view.getMatchFillerBusiness().test(getItem());
+				view.getMatchFillerBusiness().reloadGameFromFFBB(getItem());
 			} catch (ValidationException ex) {
 				reloadMatchs.setComponentError(new UserError(ex.getMessage()));
 			}catch (Exception ex) {

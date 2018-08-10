@@ -1,6 +1,7 @@
 package fr.sabb.application.ui.screen.business.licensee;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
@@ -11,6 +12,7 @@ import com.vaadin.ui.Upload;
 import fr.sabb.application.data.object.Licensee;
 import fr.sabb.application.service.SabbObjectService;
 import fr.sabb.application.service.licensee.LicenseeService;
+import fr.sabb.application.service.team.TeamService;
 import fr.sabb.application.ui.screen.CommonForm;
 import fr.sabb.application.ui.screen.CommonView;
 
@@ -18,6 +20,10 @@ import fr.sabb.application.ui.screen.CommonView;
 public class LicenseeView extends CommonView<Licensee>{
 	@Autowired
 	private LicenseeService licenseeService;
+	
+	@Autowired
+	@Lazy
+	private TeamService teamService;
 	
 	public static final String VIEW_NAME = "List des Licencies";
 	@Override
@@ -32,12 +38,12 @@ public class LicenseeView extends CommonView<Licensee>{
 
 	@Override
 	public CommonForm<Licensee> getForm() {
-		return null;
+		return new LicenseeForm(this);
 	}
 
 	@Override
 	public Licensee createItem() {
-		return null;
+		return new Licensee();
 	}
 
 	@Override
@@ -47,7 +53,7 @@ public class LicenseeView extends CommonView<Licensee>{
 
 	@Override
 	public void setColumns(Grid<Licensee> grid) {
-		grid.setColumns("numLicensee", "name", "firstname", "phone", "mail", "adress");
+		grid.setColumns("numLicensee", "name", "firstname", "team", "phone", "mail", "adress");
 	}
 	
 	@Override
@@ -60,6 +66,13 @@ public class LicenseeView extends CommonView<Licensee>{
 		
 this.licenseeService.fillDBWithCsvFile("C:/Users/flori/Downloads/M01_qualifies_complet_L_E_P_V (1).csv");
 		super.enter(event);
+	}
+
+	/**
+	 * @return the teamService
+	 */
+	public TeamService getTeamService() {
+		return teamService;
 	}
 
 }

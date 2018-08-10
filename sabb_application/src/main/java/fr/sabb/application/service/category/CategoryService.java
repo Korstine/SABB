@@ -9,5 +9,5 @@ public interface CategoryService extends SabbObjectService<Category> {
 
 	List<Category> getAllActive();
 
-	Category getCategoryBySubCategoryName(String subCategoryName);
+	Category getCategoryBySubCategoryName(String subCategoryName, String sex);
 }

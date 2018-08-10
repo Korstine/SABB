@@ -5,6 +5,7 @@ public class SubCategory extends SabbObject{
 	private int id;
 	private Category category;
 	private String name;
+	private String sex;
 	/**
 	 * @return the id
 	 */
@@ -40,6 +41,18 @@ public class SubCategory extends SabbObject{
 	 */
 	public void setName(String name) {
 		this.name = name;
+	}
+	/**
+	 * @return the sex
+	 */
+	public String getSex() {
+		return sex;
+	}
+	/**
+	 * @param sex the sex to set
+	 */
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 	
 }

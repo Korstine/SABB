@@ -1,5 +1,10 @@
 package fr.sabb.application.service.team;
 
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,12 +14,16 @@ import fr.sabb.application.data.mapper.TeamMapper;
 import fr.sabb.application.data.object.Season;
 import fr.sabb.application.data.object.Team;
 import fr.sabb.application.service.SabbObjectServiceImpl;
+import fr.sabb.application.service.season.SeasonService;
 
 @Service
 public class TeamServiceImpl extends SabbObjectServiceImpl<Team>implements TeamService{
 	
 	@Autowired
 	TeamMapper mapper;
+	
+	@Autowired
+	private SeasonService seasonService;
 
 	@Override
 	public SabbMapper<Team> getMapper() {
@@ -27,6 +36,16 @@ public class TeamServiceImpl extends SabbObjectServiceImpl<Team>implements TeamS
 			throw new ValidationException();
 		}
 		super.updateOrInsert(team);
+	}
+
+	@Override
+	public List<Team> getAllActiveForCurrentSeason() {
+		return this.getAll().stream().filter(Team::isActive).filter(t -> t.getSeason().getId() == seasonService.getCurrentSeason().getId()).collect(Collectors.toList());
+	}
+
+	@Override
+	public Team getFirstTeamForCategory(int idCategory) {
+		return this.getAllActiveForCurrentSeason().stream().filter(t -> t.getCategory().getId() == idCategory).sorted(Comparator.comparing(Team::getSort)).findFirst().orElse(null);
 	}
 
 }

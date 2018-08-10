@@ -52,7 +52,7 @@ public class SubCategoryView extends CommonView<SubCategory> {
 
 	@Override
 	public void setColumns(Grid<SubCategory> grid) {
-		grid.setColumns("id", "name", "category");
+		grid.setColumns("id", "name", "category", "sex");
 	}
 
 	/**

@@ -124,5 +124,12 @@ public class Team extends SabbObject {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return  name;
+	}
 	
 }

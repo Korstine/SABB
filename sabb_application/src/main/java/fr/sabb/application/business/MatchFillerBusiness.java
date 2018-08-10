@@ -28,7 +28,7 @@ public class MatchFillerBusiness {
 	private Team team;
 	private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyyHH:mm");
 
-	public void test(Team team) throws Exception {
+	public void reloadGameFromFFBB(Team team) throws Exception {
 
 		this.team = team;
 		if (this.team.getFfbbUniqueId() == null) {

@@ -42,11 +42,14 @@ public abstract class CommonView<T extends SabbObject> extends CssLayout impleme
 
 		grid.setItems(gridItems);
 		
-		Button addItemBtn = new Button(getButtonName());
-		addItemBtn.addClickListener(e -> {
-			grid.asSingleSelect().clear();
-			form.setItem(createItem());
-		});
+		Button addItemBtn = null;
+		if (getButtonName() != null) {
+			addItemBtn = new Button(getButtonName());
+			addItemBtn.addClickListener(e -> {
+				grid.asSingleSelect().clear();
+				form.setItem(createItem());
+			});
+		}
 
 		HorizontalLayout formLayout = null;
 		if (form != null) {
@@ -60,7 +63,12 @@ public abstract class CommonView<T extends SabbObject> extends CssLayout impleme
 				}
 			});
 
-			formLayout = new HorizontalLayout(addItemBtn, form);
+			if (addItemBtn == null) {
+				formLayout = new HorizontalLayout(form);
+			} else {
+				formLayout = new HorizontalLayout(addItemBtn, form);
+			}
+			
 		}
 		
 		VerticalLayout layout;

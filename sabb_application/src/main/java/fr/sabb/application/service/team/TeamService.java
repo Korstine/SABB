@@ -1,9 +1,14 @@
 package fr.sabb.application.service.team;
 
-import fr.sabb.application.data.object.Season;
+import java.util.List;
+
 import fr.sabb.application.data.object.Team;
 import fr.sabb.application.service.SabbObjectService;
 
 public interface TeamService extends SabbObjectService<Team>{
+
+	List<Team> getAllActiveForCurrentSeason();
+
+	Team getFirstTeamForCategory(int idCategory);
 
 }

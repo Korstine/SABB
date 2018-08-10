@@ -14,6 +14,7 @@ public class SubCategoryForm  extends CommonForm<SubCategory>{
 
 	private TextField name = new TextField("Sous Category");
 	private ListSelect<Category> selectCategory = new ListSelect<>("Category");
+	private TextField sex = new TextField("Sexe");
 
 	public SubCategoryForm(SubCategoryView view) {
 		super(view);
@@ -29,7 +30,7 @@ public class SubCategoryForm  extends CommonForm<SubCategory>{
 		});
 
 		HorizontalLayout selectors = new HorizontalLayout(selectCategory);
-		addComponents(name, selectors, buttons);
+		addComponents(name, selectors, sex, buttons);
 		binder.bindInstanceFields(this);
 	}
 

@@ -7,12 +7,8 @@ import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.StringTokenizer;
 
-import org.omg.CORBA.OMGVMCID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,8 +17,10 @@ import fr.sabb.application.data.mapper.LicenseeMapper;
 import fr.sabb.application.data.mapper.SabbMapper;
 import fr.sabb.application.data.object.Category;
 import fr.sabb.application.data.object.Licensee;
+import fr.sabb.application.data.object.Team;
 import fr.sabb.application.service.SabbObjectServiceImpl;
 import fr.sabb.application.service.category.CategoryService;
+import fr.sabb.application.service.team.TeamService;
 
 @Service
 public class LicenseeServiceImpl extends SabbObjectServiceImpl<Licensee> implements LicenseeService {
@@ -32,6 +30,9 @@ public class LicenseeServiceImpl extends SabbObjectServiceImpl<Licensee> impleme
 
 	@Autowired
 	private CategoryService categoryService;
+
+	@Autowired
+	private TeamService teamService;
 
 	@Override
 	public SabbMapper<Licensee> getMapper() {
@@ -58,9 +59,17 @@ public class LicenseeServiceImpl extends SabbObjectServiceImpl<Licensee> impleme
 		licensee.setNumLicensee(fields[15]);
 		licensee.setPhone(getPhone(fields[18], fields[19], fields[20]));
 		licensee.setMail(fields[21]);
-		licensee.setCategory(this.getCategory(fields[12]));
+		licensee.setCategory(this.getCategory(fields[12], licensee.getSex()));
+		licensee.setTeam(getTeam(licensee.getCategory()));
 		licensee.setDateOfBirth(getDateOfBirth(fields[14]));
 		this.upsert(licensee);
+	}
+
+	private Team getTeam(Category category) {
+		if (category != null && category.isAutobind()) {
+			return teamService.getFirstTeamForCategory(category.getId());
+		}
+		return null;
 	}
 
 	private Timestamp getDateOfBirth(String dateStr) {
@@ -77,19 +86,19 @@ public class LicenseeServiceImpl extends SabbObjectServiceImpl<Licensee> impleme
 
 	private String getPhone(String phoneDom, String phoneWork, String phoneMobile) {
 		if (!phoneMobile.isEmpty()) {
-			return phoneMobile.replace(" ", "").replaceAll(".", "");
+			return phoneMobile.replace(" ", "").replaceAll("\\.", "");
 		}
 		if (!phoneWork.isEmpty()) {
-			return phoneWork.replace(" ", "").replaceAll(".", "");
+			return phoneWork.replace(" ", "").replaceAll("\\.", "");
 		}
 		if (!phoneDom.isEmpty()) {
-			return phoneDom.replace(" ", "").replaceAll(".", "");
+			return phoneDom.replace(" ", "").replaceAll("\\.", "");
 		}
 		return null;
 	}
 
-	private Category getCategory(String categoryStr) {
-		return this.categoryService.getCategoryBySubCategoryName(categoryStr);
+	private Category getCategory(String categoryStr, String sex) {
+		return this.categoryService.getCategoryBySubCategoryName(categoryStr, sex);
 	}
 
 	private void upsert(Licensee licensee) {

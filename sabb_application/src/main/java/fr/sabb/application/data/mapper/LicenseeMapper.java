@@ -17,7 +17,8 @@ public interface LicenseeMapper extends SabbMapper<Licensee> {
 
 	@Select("SELECT * FROM sabb.licensee ORDER BY id")
 	@Results({ @Result(property = "team", column = "id_team", one = @One(select = "getTeam")),
-			@Result(property = "category", column = "id_category", one = @One(select = "getCategory")) })
+			@Result(property = "category", column = "id_category", one = @One(select = "getCategory")),
+			@Result(property = "numLicensee", column = "num_licensee")})
 	List<Licensee> getAll();
 	
 	@Select("SELECT * FROM sabb.licensee where num_licensee=#{numLicensee}")

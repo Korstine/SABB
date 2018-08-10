@@ -263,4 +263,10 @@
                              referencedTableName="category"/>
     </changeSet>
     
+    <changeSet id="add_sub_category_column_sex" author="FRO">
+    	<addColumn schemaName="sabb" tableName="sub_category">
+    		 <column name="sex" type="varchar(1)"/>
+    	</addColumn>
+    </changeSet>
+    
 </databaseChangeLog>
