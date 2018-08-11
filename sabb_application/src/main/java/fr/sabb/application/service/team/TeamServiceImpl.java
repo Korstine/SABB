@@ -1,6 +1,5 @@
 package fr.sabb.application.service.team;
 
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Service;
 import fr.sabb.application.ValidationException;
 import fr.sabb.application.data.mapper.SabbMapper;
 import fr.sabb.application.data.mapper.TeamMapper;
-import fr.sabb.application.data.object.Season;
 import fr.sabb.application.data.object.Team;
 import fr.sabb.application.service.SabbObjectServiceImpl;
 import fr.sabb.application.service.season.SeasonService;

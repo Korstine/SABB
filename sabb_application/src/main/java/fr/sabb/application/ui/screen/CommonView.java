@@ -29,6 +29,7 @@ public abstract class CommonView<T extends SabbObject> extends CssLayout impleme
 
 	@Override
 	public void enter(ViewChangeEvent event) {
+		removeAllComponents();
 		form = getForm();
 
 		List<T> gridItems = getService().getAll();

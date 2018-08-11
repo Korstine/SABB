@@ -21,6 +21,7 @@ import fr.sabb.application.ui.screen.administration.subcategory.SubCategoryView;
 import fr.sabb.application.ui.screen.administration.team.TeamView;
 import fr.sabb.application.ui.screen.business.licensee.LicenseeView;
 import fr.sabb.application.ui.screen.business.match.MatchView;
+import fr.sabb.application.ui.screen.business.transport.TransportView;
 
 @SpringUI
 @Theme("valo")
@@ -40,6 +41,8 @@ public class SabbUI extends UI {
 	private LicenseeView licenseeView;
 	@Autowired
 	private SubCategoryView subCategoryView;
+	@Autowired
+	private TransportView transportView;
 
 	@Override
 	protected void init(VaadinRequest vaadinRequest) {
@@ -106,6 +109,13 @@ public class SabbUI extends UI {
 	 */
 	public SubCategoryView getSubCategoryView() {
 		return subCategoryView;
+	}
+
+	/**
+	 * @return the transportView
+	 */
+	public TransportView getTransportView() {
+		return transportView;
 	}
 
 }

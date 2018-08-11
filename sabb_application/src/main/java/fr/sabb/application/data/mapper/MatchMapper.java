@@ -30,16 +30,9 @@ public interface MatchMapper extends SabbMapper<Match> {
 	
 	@Select("SELECT * FROM sabb.match WHERE id_ffbb=#{idFFBB} AND id_team=#{team.id}")
 	@Results(value= {
-			@Result(property="id", column="id"),
-			@Result(property="opponent", column="opponent"),
-			@Result(property="matchDate", column="match_date"),
-			@Result(property="team", column="id_team", one=@One(select="getTeam")),
-			@Result(property="idFFBB", column="id_ffbb"),
-			@Result(property="home", column="home"),
+			@Result(property="team", column="id_team", one=@One(select="getTeam"))
 	})
 	Match getMatch(Match match);
-	
-	
 	
 	@Insert("INSERT INTO sabb.match(opponent,id_team,match_date,id_ffbb,home) VAlUES(#{opponent}, #{team.id}, #{matchDate}, #{idFFBB}, #{home})")
 	void insert(Match match);

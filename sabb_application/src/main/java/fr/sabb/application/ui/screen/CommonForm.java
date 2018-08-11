@@ -19,27 +19,29 @@ public abstract class CommonForm<T extends SabbObject> extends FormLayout {
 
 	public Button save = new Button("Save");
 	public Button delete = new Button("Delete");
-	
+
 	public CommonForm(CommonView<T> view) {
 		this.view = view;
-		
+
 		save.setStyleName(ValoTheme.BUTTON_PRIMARY);
-	    save.setClickShortcut(KeyCode.ENTER);
-	    
-	    save.addClickListener(e -> this.save());
-	    delete.addClickListener(e -> this.delete());
-	    
+		save.setClickShortcut(KeyCode.ENTER);
+
+		save.addClickListener(e -> this.save());
+		delete.addClickListener(e -> this.delete());
+
 	}
 
 	public abstract Binder<T> getBinder();
-	
+
 	public abstract TextField getDefaultSelectAll();
 
 	public void setItem(T item) {
 		this.item = item;
 		getBinder().setBean(item);
 		setVisible(true);
-		getDefaultSelectAll().selectAll();
+		if (getDefaultSelectAll() != null) {
+			getDefaultSelectAll().selectAll();
+		}
 	}
 
 	/**
@@ -76,6 +78,6 @@ public abstract class CommonForm<T extends SabbObject> extends FormLayout {
 	public Button getDelete() {
 		return delete;
 	}
-	
+
 	public abstract String getValidationExceptionMessage();
 }

@@ -22,6 +22,7 @@ import fr.sabb.application.ui.screen.administration.subcategory.SubCategoryView;
 import fr.sabb.application.ui.screen.administration.team.TeamView;
 import fr.sabb.application.ui.screen.business.licensee.LicenseeView;
 import fr.sabb.application.ui.screen.business.match.MatchView;
+import fr.sabb.application.ui.screen.business.transport.TransportView;
 import fr.sabb.application.ui.view.AboutView;
 import fr.sabb.application.ui.view.ErrorView;
 
@@ -53,6 +54,8 @@ public class MainScreen extends HorizontalLayout {
         		MatchView.VIEW_NAME, VaadinIcons.LIST);
         menu.addView(ui.getLicenseeView(), LicenseeView.VIEW_NAME,
         		LicenseeView.VIEW_NAME, VaadinIcons.LIST);
+        menu.addView(ui.getTransportView(), TransportView.VIEW_NAME,
+        		TransportView.VIEW_NAME, VaadinIcons.LIST);
         menu.addView(new AboutView(), AboutView.VIEW_NAME, AboutView.VIEW_NAME,
         		VaadinIcons.INFO_CIRCLE);
 

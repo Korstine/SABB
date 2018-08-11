@@ -97,4 +97,17 @@ public class Match extends SabbObject {
 		this.home = home;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		if (this.isHome()) {
+			return String.format("%s - %s", this.team.getName(), this.getOpponent());
+		} else {
+			return String.format("%s - %s", this.getOpponent(), this.getTeam().getName());
+		}
+		
+	}
+
 }
