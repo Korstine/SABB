@@ -8,6 +8,7 @@ import com.vaadin.ui.Grid;
 
 import fr.sabb.application.data.object.Category;
 import fr.sabb.application.service.category.CategoryService;
+import fr.sabb.application.ui.screen.CommonFilter;
 import fr.sabb.application.ui.screen.CommonForm;
 import fr.sabb.application.ui.screen.CommonView;
 
@@ -60,5 +61,11 @@ public class CategoryView extends CommonView<Category> {
 	public void setColumns(Grid<Category> grid) {
 		grid.setColumns("id", "name", "autobind", "active");
 	}
+
+	@Override
+	public CommonFilter getFilter() {
+		return null;
+	}
+
 
 }

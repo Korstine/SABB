@@ -31,6 +31,9 @@ public class TeamForm extends CommonForm<Team> {
 	private TextField ffbbUniqueId = new TextField("Identifiant FFB");
 	private TextField sort = new TextField("Ordre");
 	private TextField sex = new TextField("Sexe");
+	private CheckBox ctc = new CheckBox("CTC");
+	private TextField excelReference = new TextField("Reference Excel");
+	private TextField excelReferenceCtc = new TextField("Reference Excel CTC");
 
 	public TeamForm(TeamView view) {
 		super(view);
@@ -67,10 +70,12 @@ public class TeamForm extends CommonForm<Team> {
 				ex.printStackTrace();
 			}
 		});
-		addComponent(reloadMatchs);
 
-		HorizontalLayout selectors = new HorizontalLayout(selectCategory, selectAssociation, selectSeason);
-		addComponents(name, selectors, sort, sex, ffbbUniqueId, active, buttons);
+		HorizontalLayout firstLine = new HorizontalLayout(name, reloadMatchs);
+		HorizontalLayout secondLine = new HorizontalLayout(selectCategory, selectAssociation, selectSeason);
+		HorizontalLayout thirdLine = new HorizontalLayout(sort, sex, ffbbUniqueId);
+		HorizontalLayout fourthLine = new HorizontalLayout(active, ctc, excelReference, excelReferenceCtc);
+		addComponents(firstLine, secondLine, thirdLine, fourthLine, buttons);
 		binder.forField(sort).withConverter(new StringToIntegerConverter("")).bind(Team::getSort,Team::setSort);
 		binder.bindInstanceFields(this);
 	}

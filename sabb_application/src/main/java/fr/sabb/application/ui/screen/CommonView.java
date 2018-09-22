@@ -30,6 +30,13 @@ public abstract class CommonView<T extends SabbObject> extends CssLayout impleme
 	@Override
 	public void enter(ViewChangeEvent event) {
 		removeAllComponents();
+		
+		/** FILTER */
+		if (this.getFilter() != null) {
+			addComponent(new HorizontalLayout(this.getFilter()));
+		}
+		
+		
 		form = getForm();
 
 		List<T> gridItems = getService().getAll();
@@ -103,5 +110,7 @@ public abstract class CommonView<T extends SabbObject> extends CssLayout impleme
 	public abstract String getButtonName();
 
 	public abstract void setColumns(Grid<T> grid);
+	
+	public abstract CommonFilter getFilter();
 
 }

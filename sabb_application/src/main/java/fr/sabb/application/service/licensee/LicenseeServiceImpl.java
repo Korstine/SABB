@@ -8,6 +8,8 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -111,5 +113,10 @@ public class LicenseeServiceImpl extends SabbObjectServiceImpl<Licensee> impleme
 		} catch (ValidationException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public List<Licensee> getAllByTeam(Team team) {
+		return this.getAll().stream().filter(l-> l.getTeam() != null).filter(l -> l.getTeam().getId() == team.getId()).collect(Collectors.toList());
 	}
 }

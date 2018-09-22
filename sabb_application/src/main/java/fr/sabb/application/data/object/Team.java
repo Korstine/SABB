@@ -12,6 +12,9 @@ public class Team extends SabbObject {
 	private boolean active;
 	private String ffbbUniqueId;
 	private int sort;
+	private boolean ctc;
+	private String excelReference;
+	private String excelReferenceCtc;
 	
 	@Pattern(regexp = "^[F|M]$")
 	private String sex;
@@ -123,6 +126,44 @@ public class Team extends SabbObject {
 	 */
 	public void setSex(String sex) {
 		this.sex = sex;
+	}
+	
+	/**
+	 * @return the ctc
+	 */
+	public boolean isCtc() {
+		return ctc;
+	}
+	/**
+	 * @param ctc the ctc to set
+	 */
+	public void setCtc(boolean ctc) {
+		this.ctc = ctc;
+	}
+	/**
+	 * @return the excelReference
+	 */
+	public String getExcelReference() {
+		return excelReference;
+	}
+	/**
+	 * @param excelReference the excelReference to set
+	 */
+	public void setExcelReference(String excelReference) {
+		this.excelReference = excelReference;
+	}
+	
+	/**
+	 * @return the excelReferenceCtc
+	 */
+	public String getExcelReferenceCtc() {
+		return excelReferenceCtc;
+	}
+	/**
+	 * @param excelReferenceCtc the excelReferenceCtc to set
+	 */
+	public void setExcelReferenceCtc(String excelReferenceCtc) {
+		this.excelReferenceCtc = excelReferenceCtc;
 	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()

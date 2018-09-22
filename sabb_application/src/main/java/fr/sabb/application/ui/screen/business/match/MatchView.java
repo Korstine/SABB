@@ -3,13 +3,13 @@ package fr.sabb.application.ui.screen.business.match;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.Grid;
-import com.vaadin.ui.HorizontalLayout;
 
+import fr.sabb.application.business.PlanningSheetGeneratorBusiness;
 import fr.sabb.application.data.object.Match;
 import fr.sabb.application.service.SabbObjectService;
 import fr.sabb.application.service.match.MatchService;
+import fr.sabb.application.ui.screen.CommonFilter;
 import fr.sabb.application.ui.screen.CommonForm;
 import fr.sabb.application.ui.screen.CommonView;
 
@@ -18,6 +18,8 @@ public class MatchView extends CommonView<Match> {
 
 	@Autowired
 	private MatchService matchService;
+	@Autowired
+	private PlanningSheetGeneratorBusiness planningSheetGeneratorBusiness;
 	
 	public static final String VIEW_NAME = "List des Rencontres";
 	
@@ -48,17 +50,12 @@ public class MatchView extends CommonView<Match> {
 
 	@Override
 	public void setColumns(Grid<Match> grid) {
-		grid.setColumns("id", "opponent", "matchDate", "idFFBB", "home");
+		grid.setColumns("id", "opponent", "matchDate", "team", "idFFBB", "home");
 	}
 	
 	@Override
-	public void enter(ViewChangeEvent event) {
-		
-		HorizontalLayout formLayout = null;
-
-			formLayout = new HorizontalLayout(new MatchFilter(grid));
-		addComponent(formLayout);
-		super.enter(event);
+	public CommonFilter getFilter() {
+		return new MatchFilter(grid, planningSheetGeneratorBusiness);
 	}
 
 }

@@ -5,8 +5,11 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.server.UserError;
+import com.vaadin.ui.Button;
 import com.vaadin.ui.Grid;
 
+import fr.sabb.application.ValidationException;
 import fr.sabb.application.business.MatchFillerBusiness;
 import fr.sabb.application.data.object.Team;
 import fr.sabb.application.service.SabbObjectService;
@@ -14,6 +17,7 @@ import fr.sabb.application.service.assocation.AssociationService;
 import fr.sabb.application.service.category.CategoryService;
 import fr.sabb.application.service.season.SeasonService;
 import fr.sabb.application.service.team.TeamService;
+import fr.sabb.application.ui.screen.CommonFilter;
 import fr.sabb.application.ui.screen.CommonForm;
 import fr.sabb.application.ui.screen.CommonView;
 
@@ -71,12 +75,24 @@ public class TeamView extends CommonView<Team> {
 
 	@Override
 	public void setColumns(Grid<Team> grid) {
-		grid.setColumns("id", "name", "category", "sex", "sort","association", "active", "ffbbUniqueId");
+		grid.setColumns("id", "name", "category", "sex", "sort","association", "active", "ffbbUniqueId", "ctc", "excelReference", "excelReferenceCtc");
 	}
 	
 	@Override
 	public void enter(ViewChangeEvent event) {
 		super.enter(event);
+		
+		Button reloadMatchs = new Button("Recharger tous les matchs");
+		reloadMatchs.addClickListener(e -> {
+			try {
+				matchFillerBusiness.reloadGameFromFFBBForAllTeam();
+			} catch (ValidationException ex) {
+				reloadMatchs.setComponentError(new UserError(ex.getMessage()));
+			}catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		});
+		addComponent(reloadMatchs);
 	}
 
 	/**
@@ -105,6 +121,12 @@ public class TeamView extends CommonView<Team> {
 	 */
 	public MatchFillerBusiness getMatchFillerBusiness() {
 		return matchFillerBusiness;
+	}
+
+
+	@Override
+	public CommonFilter getFilter() {
+		return null;
 	}
 
 }

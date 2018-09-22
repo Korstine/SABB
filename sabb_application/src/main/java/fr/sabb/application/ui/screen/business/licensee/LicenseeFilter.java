@@ -9,8 +9,9 @@ import com.vaadin.ui.VerticalLayout;
 
 import fr.sabb.application.data.object.Licensee;
 import fr.sabb.application.data.object.Team;
+import fr.sabb.application.ui.screen.CommonFilter;
 
-public class LicenseeFilter extends VerticalLayout {
+public class LicenseeFilter extends CommonFilter {
 	private final Grid<Licensee> grid;
 	private final TextField nameFilter;
 	private final TextField teamField;

@@ -11,6 +11,7 @@ import fr.sabb.application.data.object.SubCategory;
 import fr.sabb.application.service.SabbObjectService;
 import fr.sabb.application.service.category.CategoryService;
 import fr.sabb.application.service.subcategory.SubCategoryService;
+import fr.sabb.application.ui.screen.CommonFilter;
 import fr.sabb.application.ui.screen.CommonForm;
 import fr.sabb.application.ui.screen.CommonView;
 
@@ -60,6 +61,12 @@ public class SubCategoryView extends CommonView<SubCategory> {
 	 */
 	public CategoryService getCategoryService() {
 		return categoryService;
+	}
+
+
+	@Override
+	public CommonFilter getFilter() {
+		return null;
 	}
 
 }

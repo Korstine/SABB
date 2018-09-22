@@ -3,12 +3,10 @@ package fr.sabb.application.business;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,12 +14,16 @@ import fr.sabb.application.ValidationException;
 import fr.sabb.application.data.object.Match;
 import fr.sabb.application.data.object.Team;
 import fr.sabb.application.service.match.MatchService;
+import fr.sabb.application.service.team.TeamService;
 
 @Component
 public class MatchFillerBusiness {
 
 	@Autowired
 	private MatchService matchService;
+	
+	@Autowired
+	private TeamService teamService;
 	
 	private int index = 0;
 	private String dateStr = null;
@@ -38,6 +40,16 @@ public class MatchFillerBusiness {
 		
 		doc.getElementsByClass("altern-2").stream().forEach(this::generateMatchFromFFBBElements);
 		doc.getElementsByClass("no-altern-2").stream().forEach(this::generateMatchFromFFBBElements);
+	}
+	
+	public void reloadGameFromFFBBForAllTeam() throws Exception {
+		teamService.getAllActiveForCurrentSeason().forEach(t -> {
+			try {
+				reloadGameFromFFBB(t);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		});
 	}
 	
 	private void generateMatchFromFFBBElements(Element matchElements) {
@@ -61,7 +73,7 @@ public class MatchFillerBusiness {
 					match.setMatchDate(Timestamp.valueOf(LocalDateTime.parse(dateStr + e.text(), formatter)));
 					break;
 				case 4:
-					if (e.text().startsWith(team.getAssociation().getNameFfbb())) {
+					if (e.text().contains(team.getAssociation().getNameFfbb())) {
 						match.setHome(true);
 					} else {
 						match.setHome(false);

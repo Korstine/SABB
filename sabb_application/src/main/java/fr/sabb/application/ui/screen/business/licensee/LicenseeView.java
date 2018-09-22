@@ -13,6 +13,7 @@ import fr.sabb.application.data.object.Licensee;
 import fr.sabb.application.service.SabbObjectService;
 import fr.sabb.application.service.licensee.LicenseeService;
 import fr.sabb.application.service.team.TeamService;
+import fr.sabb.application.ui.screen.CommonFilter;
 import fr.sabb.application.ui.screen.CommonForm;
 import fr.sabb.application.ui.screen.CommonView;
 
@@ -56,23 +57,16 @@ public class LicenseeView extends CommonView<Licensee>{
 		grid.setColumns("numLicensee", "name", "firstname", "team", "phone", "mail", "adress");
 	}
 	
-	@Override
-	public void enter(ViewChangeEvent event) {
-		
-		HorizontalLayout formLayout = null;
-
-			formLayout = new HorizontalLayout(new LicenseeFilter(grid));
-		addComponent(formLayout);
-		
-this.licenseeService.fillDBWithCsvFile("C:/Users/flori/Downloads/M01_qualifies_complet_L_E_P_V (1).csv");
-		super.enter(event);
-	}
-
 	/**
 	 * @return the teamService
 	 */
 	public TeamService getTeamService() {
 		return teamService;
+	}
+
+	@Override
+	public CommonFilter getFilter() {
+		return new LicenseeFilter(grid);
 	}
 
 }

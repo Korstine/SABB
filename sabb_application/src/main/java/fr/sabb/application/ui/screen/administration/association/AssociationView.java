@@ -8,6 +8,7 @@ import com.vaadin.ui.Grid;
 import fr.sabb.application.data.object.Association;
 import fr.sabb.application.service.SabbObjectService;
 import fr.sabb.application.service.assocation.AssociationService;
+import fr.sabb.application.ui.screen.CommonFilter;
 import fr.sabb.application.ui.screen.CommonForm;
 import fr.sabb.application.ui.screen.CommonView;
 
@@ -52,5 +53,11 @@ public class AssociationView  extends CommonView<Association> {
 	public void setColumns(Grid<Association> grid) {
 		grid.setColumns("id", "name", "nameFfbb", "main", "active");
 	}
+
+	@Override
+	public CommonFilter getFilter() {
+		return null;
+	}
+
 
 }

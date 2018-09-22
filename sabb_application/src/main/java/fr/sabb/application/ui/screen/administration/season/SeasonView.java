@@ -8,6 +8,7 @@ import com.vaadin.ui.Grid;
 
 import fr.sabb.application.data.object.Season;
 import fr.sabb.application.service.season.SeasonService;
+import fr.sabb.application.ui.screen.CommonFilter;
 import fr.sabb.application.ui.screen.CommonForm;
 import fr.sabb.application.ui.screen.CommonView;
 
@@ -66,5 +67,11 @@ public class SeasonView extends CommonView<Season> {
 		grid.setColumns("id", "name", "referenceYear", "active");
 
 	}
+
+	@Override
+	public CommonFilter getFilter() {
+		return null;
+	}
+
 
 }

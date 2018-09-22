@@ -308,5 +308,47 @@
 			referencedTableSchemaName="sabb" referencedColumnNames="id"
 			referencedTableName="licensee" />
 	</changeSet>
+	
+	<changeSet id="add_team_ctc_excel_ref" author="FRO">
+		<addColumn schemaName="sabb" tableName="team">
+			<column name="ctc" type="boolean"
+				defaultValueBoolean="false" />
+			<column name="excel_reference" type="varchar(3)" />
+		</addColumn>
+	</changeSet>
+	
+	<changeSet id="add_team_ctc_excel_ref_bis" author="FRO">
+		<addColumn schemaName="sabb" tableName="team">
+			<column name="excel_reference_ctc" type="varchar(3)" />
+		</addColumn>
+	</changeSet>
+	
+	<changeSet id="create_table_official" author="FRO">
+		<createTable schemaName="sabb" tableName="official">
+			<column name="id" type="int" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="id_match" type="int">
+				<constraints nullable="false" />
+			</column>
+			<column name="id_team_table" type="int" />
+			<column name="id_team_referee" type="int" />			
+		</createTable>
+		<addForeignKeyConstraint
+			baseTableSchemaName="sabb" baseColumnNames="id_match"
+			baseTableName="official" constraintName="fk_official_match"
+			referencedTableSchemaName="sabb" referencedColumnNames="id"
+			referencedTableName="match" />
+		<addForeignKeyConstraint
+			baseTableSchemaName="sabb" baseColumnNames="id_team_table"
+			baseTableName="official" constraintName="fk_official_team_table"
+			referencedTableSchemaName="sabb" referencedColumnNames="id"
+			referencedTableName="team" />
+		<addForeignKeyConstraint
+			baseTableSchemaName="sabb" baseColumnNames="id_team_referee"
+			baseTableName="official" constraintName="fk_official_team_referee"
+			referencedTableSchemaName="sabb" referencedColumnNames="id"
+			referencedTableName="team" />		
+	</changeSet>
 
 </databaseChangeLog>
