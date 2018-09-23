@@ -22,6 +22,8 @@ public interface MatchService  extends SabbObjectService<Match>{
 	Stream<Match> getAllMatchForCurrentSeasonByWeekOfYear(int year, int weekOfYear);
 
 	Stream<Match> getAllCTCMatchForCurrentSeasonByWeekOfYear(int year, int weekOfYear);
+	
+	Stream<Match> getAllHomeMainMatchForCurrentSeason();
 
 	Match getExtRencontreByOpponent(String opponent, Team team);
 }

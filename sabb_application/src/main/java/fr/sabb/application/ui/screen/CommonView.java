@@ -22,6 +22,7 @@ public abstract class CommonView<T extends SabbObject> extends CssLayout impleme
 
 	protected Grid<T> grid = getGrid();
 	private CommonForm<T> form;
+	protected CommonFilter<T> filter;
 
 	public CommonView() {
 		setSizeFull();
@@ -39,7 +40,7 @@ public abstract class CommonView<T extends SabbObject> extends CssLayout impleme
 		
 		form = getForm();
 
-		List<T> gridItems = getService().getAll();
+		List<T> gridItems = getItems();
 
 		setColumns(grid);
 
@@ -94,8 +95,12 @@ public abstract class CommonView<T extends SabbObject> extends CssLayout impleme
 	public abstract Grid<T> getGrid();
 
 	public void updateList() {
-		List<T> items = getService().getAll();
+		List<T> items = getItems();
 		grid.setItems(items);
+		if (getFilter() != null && getFilter().getDataProvider() != null) {
+			grid.setDataProvider(getFilter().getDataProvider());
+			grid.markAsDirty();
+		}
 	}
 	
 	/**
@@ -111,6 +116,10 @@ public abstract class CommonView<T extends SabbObject> extends CssLayout impleme
 
 	public abstract void setColumns(Grid<T> grid);
 	
-	public abstract CommonFilter getFilter();
+	public abstract CommonFilter<T> getFilter();
+	
+	public List<T> getItems() {
+		return getService().getAll();
+	}
 
 }

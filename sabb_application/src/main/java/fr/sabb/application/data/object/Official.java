@@ -4,7 +4,17 @@ public class Official extends SabbObject {
 	private int id;
 	private Match match;
 	private Team teamTable;
-	private Licensee teamReferee;
+	private Team teamReferee;
+	
+	public Official() {
+		super();
+	}
+	
+	
+	public Official(Match match) {
+		super();
+		this.match = match;
+	}
 	/**
 	 * @return the id
 	 */
@@ -44,14 +54,13 @@ public class Official extends SabbObject {
 	/**
 	 * @return the teamReferee
 	 */
-	public Licensee getTeamReferee() {
+	public Team getTeamReferee() {
 		return teamReferee;
 	}
 	/**
 	 * @param teamReferee the teamReferee to set
 	 */
-	public void setTeamReferee(Licensee teamReferee) {
+	public void setTeamReferee(Team teamReferee) {
 		this.teamReferee = teamReferee;
 	}
-	
 }

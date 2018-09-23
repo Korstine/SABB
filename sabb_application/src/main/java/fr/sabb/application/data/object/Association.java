@@ -7,6 +7,7 @@ public class Association extends SabbObject {
 	private boolean main;
 	private boolean active;
 	private String nameFfbb;
+	private String nameFfbbCtc;
 
 	/**
 	 * @return the id
@@ -84,6 +85,20 @@ public class Association extends SabbObject {
 	 */
 	public void setNameFfbb(String nameFfbb) {
 		this.nameFfbb = nameFfbb;
+	}
+
+	/**
+	 * @return the nameFfbbCtc
+	 */
+	public String getNameFfbbCtc() {
+		return nameFfbbCtc;
+	}
+
+	/**
+	 * @param nameFfbbCtc the nameFfbbCtc to set
+	 */
+	public void setNameFfbbCtc(String nameFfbbCtc) {
+		this.nameFfbbCtc = nameFfbbCtc;
 	}
 
 }

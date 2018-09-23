@@ -45,4 +45,11 @@ public class CategoryForm extends CommonForm<Category> {
 	public String getValidationExceptionMessage() {
 		return null;
 	}
+
+
+	@Override
+	public void clearAllFormFields() {
+		// TODO Auto-generated method stub
+		
+	}
 }

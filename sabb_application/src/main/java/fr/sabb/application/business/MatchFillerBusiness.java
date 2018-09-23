@@ -73,7 +73,7 @@ public class MatchFillerBusiness {
 					match.setMatchDate(Timestamp.valueOf(LocalDateTime.parse(dateStr + e.text(), formatter)));
 					break;
 				case 4:
-					if (e.text().contains(team.getAssociation().getNameFfbb())) {
+					if (e.text().contains(team.getAssociation().getNameFfbb()) || e.text().contains(team.getAssociation().getNameFfbbCtc())) {
 						match.setHome(true);
 					} else {
 						match.setHome(false);

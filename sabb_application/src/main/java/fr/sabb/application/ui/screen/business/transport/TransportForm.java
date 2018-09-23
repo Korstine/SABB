@@ -128,4 +128,10 @@ public class TransportForm extends CommonForm<Transport> {
 	public String getValidationExceptionMessage() {
 		return null;
 	}
+
+	@Override
+	public void clearAllFormFields() {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -95,4 +95,10 @@ public class TeamForm extends CommonForm<Team> {
 		return "Tous les champs sont obligatoires";
 	}
 
+	@Override
+	public void clearAllFormFields() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

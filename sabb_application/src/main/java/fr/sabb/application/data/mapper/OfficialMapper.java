@@ -24,7 +24,7 @@ public interface OfficialMapper  extends SabbMapper<Official> {
 			})
 	List<Official> getAll();
 
-	@Insert("INSERT INTO sabb.official(id_match,id_team_table,id_licensee_2) VAlUES(#{match.id}, #{teamTable.id},#{teamReferee.id})")
+	@Insert("INSERT INTO sabb.official(id_match,id_team_table,id_team_referee) VAlUES(#{match.id}, #{teamTable.id},#{teamReferee.id})")
 	void insert(Official official);
 
 	@Delete("DELETE FROM sabb.official WHERE id=#{id}")

@@ -9,10 +9,6 @@ import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.themes.ValoTheme;
 
-import fr.sabb.application.service.assocation.AssociationService;
-import fr.sabb.application.service.category.CategoryService;
-import fr.sabb.application.service.season.SeasonService;
-import fr.sabb.application.service.team.TeamService;
 import fr.sabb.application.ui.screen.MainScreen;
 import fr.sabb.application.ui.screen.administration.association.AssociationView;
 import fr.sabb.application.ui.screen.administration.category.CategoryView;
@@ -21,6 +17,7 @@ import fr.sabb.application.ui.screen.administration.subcategory.SubCategoryView;
 import fr.sabb.application.ui.screen.administration.team.TeamView;
 import fr.sabb.application.ui.screen.business.licensee.LicenseeView;
 import fr.sabb.application.ui.screen.business.match.MatchView;
+import fr.sabb.application.ui.screen.business.official.OfficialView;
 import fr.sabb.application.ui.screen.business.transport.TransportView;
 
 @SpringUI
@@ -43,6 +40,8 @@ public class SabbUI extends UI {
 	private SubCategoryView subCategoryView;
 	@Autowired
 	private TransportView transportView;
+	@Autowired
+	private OfficialView officialView;
 
 	@Override
 	protected void init(VaadinRequest vaadinRequest) {
@@ -116,6 +115,13 @@ public class SabbUI extends UI {
 	 */
 	public TransportView getTransportView() {
 		return transportView;
+	}
+
+	/**
+	 * @return the officialView
+	 */
+	public OfficialView getOfficialView() {
+		return officialView;
 	}
 
 }

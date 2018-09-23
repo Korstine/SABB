@@ -350,5 +350,11 @@
 			referencedTableSchemaName="sabb" referencedColumnNames="id"
 			referencedTableName="team" />		
 	</changeSet>
+	
+	<changeSet id="add_column_association_name_ffbb_ctc" author="FRO">
+		<addColumn schemaName="sabb" tableName="association">
+			<column name="name_ffbb_ctc" type="varchar(150)" />
+		</addColumn>
+	</changeSet>
 
 </databaseChangeLog>

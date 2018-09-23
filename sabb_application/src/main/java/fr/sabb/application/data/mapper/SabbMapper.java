@@ -41,13 +41,13 @@ public interface SabbMapper<T extends SabbObject> {
 	Category getCategory(int idCategory);
 	
 	@Select("SELECT * FROM sabb.match WHERE id=#{idMatch}")
-	@Results(value = {@Result(property = "team", column = "id_team", one = @One(select = "getTeam"))})
+	@Results(value = {@Result(property = "team", column = "id_team", one = @One(select = "getTeam")), @Result(property="matchDate", column="match_date"),})
 	Match getMatchById(int idMatch);
 	
 	@Select("SELECT * FROM sabb.licensee WHERE id=#{idLicensee}")
 	Licensee getLicensee(int idLicensee);
 	
 	@Select("SELECT * FROM sabb.association WHERE id=#{idAssociation}")
-	@Results(value = { @Result(property = "nameFfbb", column = "name_ffbb"), })
+	@Results(value = { @Result(property = "nameFfbb", column = "name_ffbb"), @Result(property="nameFfbbCtc", column="name_ffbb_ctc"), })
 	Association getAssociation(int idAssociation);
 }

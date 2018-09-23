@@ -76,4 +76,9 @@ public class MatchServiceImpl extends SabbObjectServiceImpl<Match> implements Ma
 	public Match getExtRencontreByOpponent(String opponent, Team team) {
 		return getAllExtMatchByTeam(team).stream().filter(m -> m.getOpponent().equals(opponent)).findFirst().orElse(null);
 	}
+
+	@Override
+	public Stream<Match> getAllHomeMainMatchForCurrentSeason() {
+		return this.getAll().stream().filter(m -> m.getTeam().getAssociation().isMain()).filter(m -> m.isHome()).filter(m -> m.getTeam().getSeason().isActive());
+	}
 }

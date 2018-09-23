@@ -11,7 +11,7 @@ import fr.sabb.application.data.object.Licensee;
 import fr.sabb.application.data.object.Team;
 import fr.sabb.application.ui.screen.CommonFilter;
 
-public class LicenseeFilter extends CommonFilter {
+public class LicenseeFilter extends CommonFilter<Licensee> {
 	private final Grid<Licensee> grid;
 	private final TextField nameFilter;
 	private final TextField teamField;
@@ -34,7 +34,7 @@ public class LicenseeFilter extends CommonFilter {
 	}
 
 	private void onNameFilterTextChange(HasValue.ValueChangeEvent<String> event) {
-		ListDataProvider<Licensee> dataProvider = (ListDataProvider<Licensee>) grid.getDataProvider();
+		dataProvider = (ListDataProvider<Licensee>) grid.getDataProvider();
 		dataProvider.setFilter(Licensee::getName, s -> caseInsensitiveContains(s, event.getValue()));
 	}
 

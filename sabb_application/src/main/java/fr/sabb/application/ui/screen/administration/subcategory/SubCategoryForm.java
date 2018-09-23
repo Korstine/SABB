@@ -48,4 +48,10 @@ public class SubCategoryForm  extends CommonForm<SubCategory>{
 	public String getValidationExceptionMessage() {
 		return "Tous les champs sont obligatoires";
 	}
+
+	@Override
+	public void clearAllFormFields() {
+		// TODO Auto-generated method stub
+		
+	}
 }

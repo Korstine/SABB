@@ -46,4 +46,11 @@ public class SeasonForm extends CommonForm<Season> {
 		return "Il ne doit y avoir qu'une seule saison d'active.";
 	}
 
+
+	@Override
+	public void clearAllFormFields() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

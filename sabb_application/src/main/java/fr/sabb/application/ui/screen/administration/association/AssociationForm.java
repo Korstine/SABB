@@ -17,12 +17,13 @@ private Binder<Association> binder = new Binder<>(Association.class);
 	private CheckBox active = new CheckBox("Active");
 	private CheckBox main = new CheckBox("Club principal");
 	private TextField nameFfbb = new TextField("Nommage FFBB");
+	private TextField nameFfbbCtc = new TextField("Nommage FFBB CTC");
 	
 	public AssociationForm(CommonView<Association> view) {
 		super(view);
 		setSizeUndefined();
 	    HorizontalLayout buttons = new HorizontalLayout(save, delete);
-	    addComponents(name, nameFfbb, main, active, buttons);
+	    addComponents(name, nameFfbb, nameFfbbCtc, main, active, buttons);
 	    
 	    binder.bindInstanceFields(this);
 	}
@@ -40,6 +41,12 @@ private Binder<Association> binder = new Binder<>(Association.class);
 	@Override
 	public String getValidationExceptionMessage() {
 		return null;
+	}
+
+	@Override
+	public void clearAllFormFields() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

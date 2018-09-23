@@ -20,7 +20,7 @@ import fr.sabb.application.data.object.Match;
 import fr.sabb.application.data.object.Team;
 import fr.sabb.application.ui.screen.CommonFilter;
 
-public class MatchFilter extends CommonFilter {
+public class MatchFilter extends CommonFilter<Match> {
 	private final Grid<Match> grid;
 	private final TextField nameFilter;
 	private final DateField dateField;
@@ -54,7 +54,7 @@ public class MatchFilter extends CommonFilter {
 	}
 
 	private void onNameFilterTextChange(HasValue.ValueChangeEvent<String> event) {
-		ListDataProvider<Match> dataProvider = (ListDataProvider<Match>) grid.getDataProvider();
+		dataProvider = (ListDataProvider<Match>) grid.getDataProvider();
 		dataProvider.setFilter(Match::getTeam, s -> caseInsensitiveContains(s, event.getValue()));
 	}
 
