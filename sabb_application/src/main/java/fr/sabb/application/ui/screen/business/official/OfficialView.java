@@ -12,6 +12,7 @@ import com.vaadin.ui.Grid;
 
 import fr.sabb.application.data.object.Official;
 import fr.sabb.application.service.SabbObjectService;
+import fr.sabb.application.service.licensee.LicenseeService;
 import fr.sabb.application.service.match.MatchService;
 import fr.sabb.application.service.official.OfficialService;
 import fr.sabb.application.service.team.TeamService;
@@ -30,6 +31,8 @@ public class OfficialView extends CommonView<Official> {
 	@Autowired
 	@Lazy
 	private MatchService matchService;
+	@Autowired
+	private LicenseeService licenseeService;
 	
 	public static final String VIEW_NAME = "List des Tables et Arbitrages";
 
@@ -61,7 +64,7 @@ public class OfficialView extends CommonView<Official> {
 
 	@Override
 	public void setColumns(Grid<Official> grid) {
-		grid.setColumns("match", "match.matchDate", "teamTable", "teamReferee");
+		grid.setColumns("match", "match.matchDate", "teamTable", "teamReferee", "licenseeTable1", "licenseeTable2", "licenseeReferee1", "licenseeReferee2");
 	}
 
 	@Override
@@ -82,5 +85,12 @@ public class OfficialView extends CommonView<Official> {
 	@Override
 	public List<Official> getItems() {
 		return matchService.getAllHomeMainMatchForCurrentSeason().sorted((m1, m2) -> m1.getMatchDate().compareTo(m2.getMatchDate())).map(officialService::getOfficialFromMatch).collect(Collectors.toList());
+	}
+
+	/**
+	 * @return the licenseeService
+	 */
+	public LicenseeService getLicenseeService() {
+		return licenseeService;
 	}
 }

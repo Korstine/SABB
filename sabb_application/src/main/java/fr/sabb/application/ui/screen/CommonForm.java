@@ -37,6 +37,7 @@ public abstract class CommonForm<T extends SabbObject> extends FormLayout {
 
 	public void setItem(T item) {
 		clearAllFormFields();
+		enterForm();
 		this.item = item;
 		getBinder().setBean(item);
 		setVisible(true);
@@ -83,4 +84,8 @@ public abstract class CommonForm<T extends SabbObject> extends FormLayout {
 	public abstract String getValidationExceptionMessage();
 	
 	public abstract void clearAllFormFields();
+	
+	public void enterForm() {
+		
+	}
 }

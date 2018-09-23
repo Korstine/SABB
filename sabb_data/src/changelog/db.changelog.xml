@@ -356,5 +356,34 @@
 			<column name="name_ffbb_ctc" type="varchar(150)" />
 		</addColumn>
 	</changeSet>
+	
+	<changeSet id="add_column_licensee_official" author="FRO">
+		<addColumn schemaName="sabb" tableName="official">
+			<column name="id_licensee_table_1" type="int" />
+			<column name="id_licensee_table_2" type="int" />
+			<column name="id_licensee_referee_1" type="int" />
+			<column name="id_licensee_referee_2" type="int" />			
+		</addColumn>
+		<addForeignKeyConstraint
+			baseTableSchemaName="sabb" baseColumnNames="id_licensee_table_1"
+			baseTableName="official" constraintName="fk_official_licensee_table_1"
+			referencedTableSchemaName="sabb" referencedColumnNames="id"
+			referencedTableName="licensee" />
+		<addForeignKeyConstraint
+			baseTableSchemaName="sabb" baseColumnNames="id_licensee_table_2"
+			baseTableName="official" constraintName="fk_official_licensee_table_2"
+			referencedTableSchemaName="sabb" referencedColumnNames="id"
+			referencedTableName="licensee" />	
+		<addForeignKeyConstraint
+			baseTableSchemaName="sabb" baseColumnNames="id_licensee_referee_1"
+			baseTableName="official" constraintName="fk_official_licensee_referee_1"
+			referencedTableSchemaName="sabb" referencedColumnNames="id"
+			referencedTableName="licensee" />
+		<addForeignKeyConstraint
+			baseTableSchemaName="sabb" baseColumnNames="id_licensee_referee_2"
+			baseTableName="official" constraintName="fk_official_licensee_referee_2"
+			referencedTableSchemaName="sabb" referencedColumnNames="id"
+			referencedTableName="licensee" />	
+	</changeSet>
 
 </databaseChangeLog>
