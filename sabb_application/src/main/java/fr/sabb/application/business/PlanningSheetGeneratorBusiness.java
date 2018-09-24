@@ -21,9 +21,12 @@ import org.springframework.stereotype.Component;
 
 import fr.sabb.application.data.object.Licensee;
 import fr.sabb.application.data.object.Match;
+import fr.sabb.application.data.object.Official;
 import fr.sabb.application.data.object.Transport;
 import fr.sabb.application.service.match.MatchService;
+import fr.sabb.application.service.official.OfficialService;
 import fr.sabb.application.service.transport.TransportService;
+import fr.sabb.application.utils.SheetUtils;
 
 @Component
 public class PlanningSheetGeneratorBusiness {
@@ -33,6 +36,9 @@ public class PlanningSheetGeneratorBusiness {
 
 	@Autowired
 	private TransportService transportService;
+
+	@Autowired
+	private OfficialService offcialService;
 
 	public void generateSABBWeeklySheet(LocalDate weeklyDate) {
 
@@ -84,7 +90,7 @@ public class PlanningSheetGeneratorBusiness {
 
 			if (null != workbook) {
 				XSSFSheet sheet = workbook.getSheetAt(0);
-				
+
 				setCellValuePlanning(workbook, sheet, "Date", getLiteralDate(weeklyDate));
 				Date date = Date.valueOf(weeklyDate);
 				Calendar calWeekly = Calendar.getInstance();
@@ -114,16 +120,11 @@ public class PlanningSheetGeneratorBusiness {
 		if (!match.getTeam().getAssociation().isMain()) {
 			return;
 		}
-		Transport transport = transportService.getTransportByMatch(match);
+		Transport transport = transportService.getTransportOrBarByMatch(match);
+		Official official = offcialService.getOfficialFromMatch(match);
 
-		if (transport == null) {
-			Match matchExt = matchService.getExtRencontreByOpponent(match.getOpponent(), match.getTeam());
-			if (matchExt != null) {
-				transport = transportService.getTransportByMatch(matchExt);
-			}
-		}
 		try {
-			setLineValuePlanning(match, workbook, sheet, transport);
+			setLineValuePlanning(match, workbook, sheet, transport, official);
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		}
@@ -148,7 +149,8 @@ public class PlanningSheetGeneratorBusiness {
 	/**
 	 * Fonction utilisée pour le remplissage d'une rencontre dans le fichier excel
 	 */
-	static void setLineValuePlanning(Match match, XSSFWorkbook workbook, XSSFSheet sheet, Transport transport) {
+	static void setLineValuePlanning(Match match, XSSFWorkbook workbook, XSSFSheet sheet, Transport transport,
+			Official official) {
 		int indexRow = getCellRowPlanning(workbook, match.getTeam().getExcelReference());
 		XSSFRow row = sheet.getRow(indexRow);
 
@@ -158,9 +160,22 @@ public class PlanningSheetGeneratorBusiness {
 				row.getCell(1).setCellValue("Saint André");
 				row.getCell(2).setCellValue(match.getOpponent());
 
-				row.getCell(4).setCellValue(toHeureFormat(match.getMatchDate()));
+				row.getCell(4).setCellValue(SheetUtils.toHeureFormat(match.getMatchDate()));
 
 				row.getCell(6).setCellValue("-");
+
+				if (official != null) {
+					row.getCell(7).setCellValue(String.format("%s - %s",
+							SheetUtils.formatFullLicenseeString(official.getLicenseeReferee1()),
+							SheetUtils.formatFullLicenseeString(official.getLicenseeReferee2())));
+							
+					
+					row.getCell(8).setCellValue(String.format("%s - %s",
+							SheetUtils.formatFullLicenseeString(official.getLicenseeTable1()),
+							SheetUtils.formatFullLicenseeString(official.getLicenseeTable2())));
+					
+				}
+
 				if (transport != null) {
 					row.getCell(9).setCellValue(getTransportCellContent(transport));
 				}
@@ -169,8 +184,8 @@ public class PlanningSheetGeneratorBusiness {
 				row.getCell(1).setCellValue(match.getOpponent());
 				row.getCell(2).setCellValue("-");
 
-				row.getCell(4).setCellValue("Départ : " + toHeureFormat(match.getMatchDate()) + " Match : "
-						+ toHeureFormat(match.getMatchDate()));
+				row.getCell(4).setCellValue("Départ : " + SheetUtils.toHeureFormat(match.getMatchDate()) + " Match : "
+						+ SheetUtils.toHeureFormat(match.getMatchDate()));
 				if (transport != null) {
 					row.getCell(6).setCellValue(getTransportCellContent(transport));
 				}
@@ -178,7 +193,7 @@ public class PlanningSheetGeneratorBusiness {
 
 			}
 
-			row.getCell(3).setCellValue(getDateToString(match.getMatchDate()));
+			row.getCell(3).setCellValue(SheetUtils.getDateToString(match.getMatchDate()));
 		}
 	}
 
@@ -211,8 +226,8 @@ public class PlanningSheetGeneratorBusiness {
 				row.getCell(2).setCellValue("-");
 			}
 
-			row.getCell(4).setCellValue(toHeureFormat(match.getMatchDate()));
-			row.getCell(3).setCellValue(getDateToString(match.getMatchDate()));
+			row.getCell(4).setCellValue(SheetUtils.toHeureFormat(match.getMatchDate()));
+			row.getCell(3).setCellValue(SheetUtils.getDateToString(match.getMatchDate()));
 		}
 	}
 
@@ -230,31 +245,14 @@ public class PlanningSheetGeneratorBusiness {
 		return result;
 	}
 
-	private static String toHeureFormat(Timestamp timestamp) {
-		Calendar cal = Calendar.getInstance();
-		cal.setTime(timestamp);
-		return cal.get(Calendar.HOUR_OF_DAY) + "h" + getDoubleDigitFormat(cal.get(Calendar.MINUTE));
-	}
-
 	private static String createFileName(LocalDate weeklyDate) {
 		String name = "Planning Weekend ";
 		return String.format("%s_%s_%s_%s", name, weeklyDate.getDayOfMonth(), weeklyDate.getMonth(),
 				weeklyDate.getYear());
 	}
 
-	private static String getDateToString(Timestamp timestamp) {
-		Calendar cal = Calendar.getInstance();
-		cal.setTime(timestamp);
-		return getDoubleDigitFormat(cal.get(Calendar.DAY_OF_MONTH)) + "/"
-				+ getDoubleDigitFormat(cal.get(Calendar.MONTH) + 1) + "/" + cal.get(Calendar.YEAR);
-	}
-
-	private static String getDoubleDigitFormat(int number) {
-		return number > 9 ? "" + number : "0" + number;
-	}
-	
 	private static String getLiteralDate(LocalDate weeklyDate) {
 		SimpleDateFormat sDF = new SimpleDateFormat("EEE dd MMM yyyy");
-        return sDF.format(Date.valueOf(weeklyDate));
+		return sDF.format(Date.valueOf(weeklyDate));
 	}
 }

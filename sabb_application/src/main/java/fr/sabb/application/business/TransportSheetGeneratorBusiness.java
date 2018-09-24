@@ -4,7 +4,9 @@ import java.awt.Color;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.ss.usermodel.BorderStyle;
@@ -29,6 +31,7 @@ import fr.sabb.application.data.object.Transport;
 import fr.sabb.application.service.licensee.LicenseeService;
 import fr.sabb.application.service.match.MatchService;
 import fr.sabb.application.service.transport.TransportService;
+import fr.sabb.application.utils.SheetUtils;
 
 @Component
 public class TransportSheetGeneratorBusiness {
@@ -46,13 +49,11 @@ public class TransportSheetGeneratorBusiness {
 		InputStream wrappedStream = null;
 
 		String fileName = team.getName();
-		List<Match> lrencAlreadyAdd = new ArrayList<>();
-		Boolean isRetour = Boolean.FALSE;
 
 		// Récupération de l'equipe en base
 		try {
 			wrappedStream = POIFSFileSystem.createNonClosingInputStream(new FileInputStream(
-					"C:/Users/flori/OneDrive/Basket/Saison 17-18/Transport/Template Feuille Transport.xlsx"));
+					"C:/Users/flori/OneDrive/Basket/Saison 18-19/Transport/Template Feuille Transport.xlsx"));
 			XSSFWorkbook workbook = new XSSFWorkbook(wrappedStream);
 
 			if (null != workbook) {
@@ -62,12 +63,14 @@ public class TransportSheetGeneratorBusiness {
 				licenseeService.getAllByTeam(team).forEach(l -> addLineValueTransportLicencie(workbook, sheet, l));
 
 				// Ajout des rencontres
-				matchService.getAllExtMatchByTeam(team).forEach(m -> addLineValueTransportRencontre(workbook, sheet, m,
-						lrencAlreadyAdd, transportService.getTransportByMatch(m)));
+				matchService.getAllMatchByTeam(team).stream()
+						.sorted((m1, m2) -> m1.getMatchDate().compareTo(m2.getMatchDate()))
+						.forEach(m -> addLineValueTransportRencontre(workbook, sheet, m,
+								transportService.getTransportOrBarByMatch(m)));
 
 				workbook.setSheetName(0, fileName);
 				workbook.write(new FileOutputStream(
-						"C:/Users/flori/OneDrive/Basket/Saison 17-18/Transport/" + fileName + ".xlsx"));
+						"C:/Users/flori/OneDrive/Basket/Saison 18-19/Transport/" + fileName + ".xlsx"));
 			}
 
 			if (null != wrappedStream) {
@@ -87,7 +90,7 @@ public class TransportSheetGeneratorBusiness {
 	 * @param isRetour
 	 */
 	static void addLineValueTransportRencontre(XSSFWorkbook workbook, XSSFSheet sheet, Match match,
-			List<Match> lrencAlreadyAdd, Transport transport) {
+			Transport transport) {
 		boolean retour = false;
 		if (retour) {
 			int bottom = getCellRow(workbook, "Rencontre");
@@ -108,7 +111,8 @@ public class TransportSheetGeneratorBusiness {
 		newRow.setHeightInPoints(bottomRow.getHeightInPoints());
 
 		if ((null != bottomRow) && (null != newRow)) {
-			newRow.createCell(0).setCellValue("TODO");
+			newRow.createCell(0).setCellValue(SheetUtils.getDateToString(match.getMatchDate()) + " "
+					+ SheetUtils.toHeureFormat(match.getMatchDate()));
 
 			if (match.isHome()) {
 				newRow.createCell(1).setCellValue("SAINT ANDRE BASKET BALL");
@@ -125,9 +129,9 @@ public class TransportSheetGeneratorBusiness {
 
 				newRow.createCell(3).setCellValue("");
 				newRow.createCell(4)
-						.setCellValue(String.format("%s - %s - %s", formatLicenseeString(transport.getLicensee1()),
-								formatLicenseeString(transport.getLicensee2()),
-								formatLicenseeString(transport.getLicensee3())));
+						.setCellValue(String.format("%s - %s - %s", SheetUtils.formatLicenseeString(transport.getLicensee1()),
+								SheetUtils.formatLicenseeString(transport.getLicensee2()),
+								SheetUtils.formatLicenseeString(transport.getLicensee3())));
 			}
 			sheet.addMergedRegion(new CellRangeAddress(newRow.getRowNum(), newRow.getRowNum(), 4, 5));
 
@@ -162,7 +166,10 @@ public class TransportSheetGeneratorBusiness {
 			} else {
 				cellStyle3.setFillPattern(FillPatternType.NO_FILL);
 			}
-			newRow.getCell(3).setCellStyle(cellStyle3);
+			if (newRow.getCell(3) != null) {
+				newRow.getCell(3).setCellStyle(cellStyle3);
+			}
+
 			XSSFCellStyle cellStyle4 = (XSSFCellStyle) bottomRow.getCell(4).getCellStyle();
 			if (!match.isHome()) {
 				cellStyle4.setFillForegroundColor(new XSSFColor(Color.LIGHT_GRAY));
@@ -171,9 +178,10 @@ public class TransportSheetGeneratorBusiness {
 				cellStyle4.setFillPattern(FillPatternType.NO_FILL);
 			}
 			cellStyle4.setBorderRight(BorderStyle.THICK);
-			newRow.getCell(4).setCellStyle(cellStyle4);
+			if (newRow.getCell(4) != null) {
+				newRow.getCell(4).setCellStyle(cellStyle3);
+			}
 		}
-		lrencAlreadyAdd.add(match);
 	}
 
 	static int getCellRow(XSSFWorkbook workbook, String cellName) {
@@ -213,13 +221,6 @@ public class TransportSheetGeneratorBusiness {
 			newRow.getCell(2).setCellStyle(bottomRow.getCell(2).getCellStyle());
 			newRow.getCell(3).setCellStyle(bottomRow.getCell(3).getCellStyle());
 		}
-	}
-
-	private static String formatLicenseeString(Licensee licensee) {
-		if (licensee == null) {
-			return "";
-		}
-		return String.format("%s. %s", licensee.getFirstname().substring(0, 1), licensee.getName());
 	}
 
 }

@@ -1,6 +1,9 @@
 package fr.sabb.application.ui.screen.business.licensee;
 
 import com.vaadin.data.Binder;
+import com.vaadin.data.converter.StringToIntegerConverter;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.DateTimeField;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.ListSelect;
 import com.vaadin.ui.TextField;
@@ -24,7 +27,11 @@ public class LicenseeForm extends CommonForm<Licensee> {
 	public LicenseeForm(LicenseeView view) {
 		super(view);
 		setSizeUndefined();
-		HorizontalLayout buttons = new HorizontalLayout(save, delete);
+		
+		Button reloadLicensee = new Button("Tmp");
+		reloadLicensee.addClickListener(e -> view.getLicenseeService().fillDBWithCsvFile("C:/Users/flori/OneDrive/Basket/Saison 18-19/M01_qualifies_complet_L_E_P_V.csv"));
+		
+		HorizontalLayout buttons = new HorizontalLayout(save, delete, reloadLicensee);
 
 		selectTeam.setItems(view.getTeamService().getAllActiveForCurrentSeason());
 		selectTeam.setRows(5);
@@ -62,7 +69,7 @@ public class LicenseeForm extends CommonForm<Licensee> {
 
 	@Override
 	public void clearAllFormFields() {
-		// TODO Auto-generated method stub
+		selectTeam.clear();
 		
 	}
 }

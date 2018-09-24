@@ -29,7 +29,7 @@ public class LicenseeFilter extends CommonFilter<Licensee> {
 	}
 
 	private void onTeamFilterTextChange(HasValue.ValueChangeEvent<String> event) {
-		ListDataProvider<Licensee> dataProvider = (ListDataProvider<Licensee>) grid.getDataProvider();
+		dataProvider = (ListDataProvider<Licensee>) grid.getDataProvider();
 		dataProvider.setFilter(Licensee::getTeam, s -> caseInsensitiveContains(s, event.getValue()));
 	}
 
@@ -39,7 +39,7 @@ public class LicenseeFilter extends CommonFilter<Licensee> {
 	}
 
 	private Boolean caseInsensitiveContains(Team where, String what) {
-		return where.getName().toLowerCase().contains(what.toLowerCase());
+		return where != null && where.getName().toLowerCase().contains(what.toLowerCase());
 	}
 
 	private Boolean caseInsensitiveContains(String where, String what) {

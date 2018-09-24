@@ -9,6 +9,6 @@ public interface TeamService extends SabbObjectService<Team>{
 
 	List<Team> getAllActiveForCurrentSeason();
 
-	Team getFirstTeamForCategory(int idCategory);
+	Team getFirstTeamForCategoryAndSex(int idCategory, String sex);
 
 }

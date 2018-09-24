@@ -6,5 +6,5 @@ import fr.sabb.application.service.SabbObjectService;
 
 public interface TransportService extends SabbObjectService<Transport>{
 
-	Transport getTransportByMatch(Match match);
+	Transport getTransportOrBarByMatch(Match match);
 }

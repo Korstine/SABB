@@ -29,6 +29,6 @@ public interface LicenseeMapper extends SabbMapper<Licensee> {
 	@Insert("INSERT INTO sabb.licensee(id_team, id_category, num_licensee, name, firstname, phone, mail, adress, date_of_birth, sex) VAlUES(#{team.id}, #{category.id}, #{numLicensee},  #{name}, #{firstname}, #{phone}, #{mail}, #{adress}, #{dateOfBirth}, #{sex})")
 	void insert(Licensee licensee);
 
-	@Update("UPDATE sabb.licensee SET id_category=#{category.id}, id_team=#{team.id}, num_licensee=#{numLicensee}, name=#{name}, firstname=#{firstname}, phone=#{phone}, mail=#{mail}, adress=#{adress}, date_of_birth=#{dateOfBirth}, sex=#{sex} WHERE id=#{id}")
+	@Update("UPDATE sabb.licensee SET id_category=#{category.id}, id_team=#{team.id}, num_licensee=#{numLicensee}, name=#{name}, firstname=#{firstname}, phone=#{phone}, mail=#{mail}, adress=#{adress}, sex=#{sex} WHERE id=#{id}")
 	void update(Licensee licensee);
 }

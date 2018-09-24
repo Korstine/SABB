@@ -16,6 +16,7 @@ import fr.sabb.application.service.team.TeamService;
 import fr.sabb.application.ui.screen.CommonFilter;
 import fr.sabb.application.ui.screen.CommonForm;
 import fr.sabb.application.ui.screen.CommonView;
+import fr.sabb.application.ui.screen.business.official.OfficialFilter;
 
 @Component
 public class LicenseeView extends CommonView<Licensee>{
@@ -64,9 +65,19 @@ public class LicenseeView extends CommonView<Licensee>{
 		return teamService;
 	}
 
+	/**
+	 * @return the licenseeService
+	 */
+	public LicenseeService getLicenseeService() {
+		return licenseeService;
+	}
+
 	@Override
 	public CommonFilter getFilter() {
-		return new LicenseeFilter(grid);
+		if (filter == null) {
+			filter = new LicenseeFilter(grid);
+		}
+		return filter;
 	}
 
 }

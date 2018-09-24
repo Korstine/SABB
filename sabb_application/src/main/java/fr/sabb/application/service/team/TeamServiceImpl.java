@@ -15,11 +15,11 @@ import fr.sabb.application.service.SabbObjectServiceImpl;
 import fr.sabb.application.service.season.SeasonService;
 
 @Service
-public class TeamServiceImpl extends SabbObjectServiceImpl<Team>implements TeamService{
-	
+public class TeamServiceImpl extends SabbObjectServiceImpl<Team> implements TeamService {
+
 	@Autowired
 	TeamMapper mapper;
-	
+
 	@Autowired
 	private SeasonService seasonService;
 
@@ -38,12 +38,16 @@ public class TeamServiceImpl extends SabbObjectServiceImpl<Team>implements TeamS
 
 	@Override
 	public List<Team> getAllActiveForCurrentSeason() {
-		return this.getAll().stream().filter(Team::isActive).filter(t -> t.getSeason().getId() == seasonService.getCurrentSeason().getId()).collect(Collectors.toList());
+		return this.getAll().stream().filter(Team::isActive)
+				.filter(t -> t.getSeason().getId() == seasonService.getCurrentSeason().getId())
+				.collect(Collectors.toList());
 	}
 
 	@Override
-	public Team getFirstTeamForCategory(int idCategory) {
-		return this.getAllActiveForCurrentSeason().stream().filter(t -> t.getCategory().getId() == idCategory).sorted(Comparator.comparing(Team::getSort)).findFirst().orElse(null);
+	public Team getFirstTeamForCategoryAndSex(int idCategory, String sex) {
+		return this.getAllActiveForCurrentSeason().stream().filter(t -> t.getCategory().getId() == idCategory)
+				.filter(t -> t.getSex().equals(sex)).sorted(Comparator.comparing(Team::getSort)).findFirst()
+				.orElse(null);
 	}
 
 }
