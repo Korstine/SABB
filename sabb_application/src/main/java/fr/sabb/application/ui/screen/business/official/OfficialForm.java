@@ -52,7 +52,6 @@ public class OfficialForm extends CommonForm<Official> {
 		});
 
 		HorizontalLayout h2 = new HorizontalLayout(teamTable, teamReferee);
-		HorizontalLayout h3 = new HorizontalLayout();
 
 		selectLicenseeTable1.setRows(5);
 		selectLicenseeTable1.addSelectionListener(e -> {
@@ -68,8 +67,8 @@ public class OfficialForm extends CommonForm<Official> {
 			}
 		});
 
-		h3.addComponent(selectLicenseeTable1);
-		h3.addComponent(selectLicenseeTable2);
+		h2.addComponent(selectLicenseeTable1);
+		h2.addComponent(selectLicenseeTable2);
 
 		selectLicenseeReferee1.setRows(5);
 		selectLicenseeReferee1.addSelectionListener(e -> {
@@ -85,10 +84,10 @@ public class OfficialForm extends CommonForm<Official> {
 			}
 		});
 
-		h3.addComponent(selectLicenseeReferee1);
-		h3.addComponent(selectLicenseeReferee2);
+		h2.addComponent(selectLicenseeReferee1);
+		h2.addComponent(selectLicenseeReferee2);
 
-		addComponents(h2, h3, buttons);
+		addComponents(h2, buttons);
 	}
 
 	@Override

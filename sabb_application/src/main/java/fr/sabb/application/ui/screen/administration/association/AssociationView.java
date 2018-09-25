@@ -8,6 +8,7 @@ import com.vaadin.ui.Grid;
 import fr.sabb.application.data.object.Association;
 import fr.sabb.application.service.SabbObjectService;
 import fr.sabb.application.service.assocation.AssociationService;
+import fr.sabb.application.service.licensee.LicenseeService;
 import fr.sabb.application.ui.screen.CommonFilter;
 import fr.sabb.application.ui.screen.CommonForm;
 import fr.sabb.application.ui.screen.CommonView;
@@ -17,6 +18,9 @@ public class AssociationView  extends CommonView<Association> {
 
 	@Autowired
 	private AssociationService service;
+	
+	@Autowired
+	private LicenseeService licenseeService;
 	
 	public AssociationView() {
 		super();
@@ -57,6 +61,13 @@ public class AssociationView  extends CommonView<Association> {
 	@Override
 	public CommonFilter getFilter() {
 		return null;
+	}
+
+	/**
+	 * @return the licenseeService
+	 */
+	public LicenseeService getLicenseeService() {
+		return licenseeService;
 	}
 
 

@@ -70,7 +70,7 @@ public class OfficialView extends CommonView<Official> {
 	@Override
 	public CommonFilter getFilter() {
 		if (filter == null) {
-			filter = new OfficialFilter(grid);
+			filter = new OfficialFilter(grid, teamService);
 		}
 		return filter;
 	}

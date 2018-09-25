@@ -15,6 +15,7 @@ public class Licensee extends SabbObject {
 	private String adress;
 	private Timestamp dateOfBirth;
 	private String sex;
+	private Association association;
 
 	/**
 	 * @return the id
@@ -184,6 +185,20 @@ public class Licensee extends SabbObject {
 	@Override
 	public String toString() {
 		return String.format("%s %s", firstname, name);
+	}
+
+	/**
+	 * @return the association
+	 */
+	public Association getAssociation() {
+		return association;
+	}
+
+	/**
+	 * @param association the association to set
+	 */
+	public void setAssociation(Association association) {
+		this.association = association;
 	}
 	
 }

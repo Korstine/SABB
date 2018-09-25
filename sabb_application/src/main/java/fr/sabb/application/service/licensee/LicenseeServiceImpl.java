@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import fr.sabb.application.ValidationException;
 import fr.sabb.application.data.mapper.LicenseeMapper;
 import fr.sabb.application.data.mapper.SabbMapper;
+import fr.sabb.application.data.object.Association;
 import fr.sabb.application.data.object.Category;
 import fr.sabb.application.data.object.Licensee;
 import fr.sabb.application.data.object.Team;
@@ -42,16 +43,16 @@ public class LicenseeServiceImpl extends SabbObjectServiceImpl<Licensee> impleme
 	}
 
 	@Override
-	public void fillDBWithCsvFile(String fileName) {
+	public void fillDBWithCsvFile(Association association, String fileName) {
 		try (BufferedReader bufferReader = new BufferedReader(new FileReader(fileName))) {
 			bufferReader.lines().filter(s -> !s.isEmpty() && !s.startsWith(";") && !s.contains("cd_org"))
-					.forEach(this::readLicenseeLine);
+					.forEach(l -> readLicenseeLine(l, association));
 		} catch (IOException ex) {
 			System.out.println("problème lors du parsage");
 		}
 	}
 
-	private void readLicenseeLine(String line) {
+	private void readLicenseeLine(String line, Association association) {
 		Licensee licensee = new Licensee();
 		String[] fields = line.split(";");
 		licensee.setName(fields[3]);
@@ -62,14 +63,19 @@ public class LicenseeServiceImpl extends SabbObjectServiceImpl<Licensee> impleme
 		licensee.setPhone(getPhone(fields[18], fields[19], fields[20]));
 		licensee.setMail(fields[21]);
 		licensee.setCategory(this.getCategory(fields[12], licensee.getSex()));
-		licensee.setTeam(getTeam(licensee.getCategory(), licensee.getSex()));
+		licensee.setTeam(getTeam(licensee.getCategory(), licensee.getSex(), association, licensee.getNumLicensee()));
 		licensee.setDateOfBirth(getDateOfBirth(fields[14]));
+		licensee.setAssociation(association);
 		this.upsert(licensee);
 	}
 
-	private Team getTeam(Category category, String sex) {
-		if (category != null && category.isAutobind()) {
-			return teamService.getFirstTeamForCategoryAndSex(category.getId(), sex);
+	private Team getTeam(Category category, String sex, Association association, String numLicence) {
+		if (category != null && association.isMain() && category.isAutobind()) {
+			Licensee oldLicensee = getAll().stream().filter(l -> l.getNumLicensee().equals(numLicence)).findFirst().orElse(null);
+			if (oldLicensee == null || oldLicensee.getTeam() == null) {
+				return teamService.getFirstTeamForCategoryAndSex(category.getId(), sex);
+			}
+			return null;
 		}
 		return null;
 	}
@@ -118,5 +124,16 @@ public class LicenseeServiceImpl extends SabbObjectServiceImpl<Licensee> impleme
 	@Override
 	public List<Licensee> getAllByTeam(Team team) {
 		return this.getAll().stream().filter(l-> l.getTeam() != null).filter(l -> l.getTeam().getId() == team.getId()).collect(Collectors.toList());
+	}
+	
+	@Override
+	public void updateOrInsert(Licensee licensee) throws ValidationException {
+		if (licensee.getTeam() != null && licensee.getCategory() == null) {
+			licensee.setCategory(licensee.getTeam().getCategory());
+		}
+		if (licensee.getTeam() != null && licensee.getSex() == null) {
+			licensee.setSex(licensee.getTeam().getSex());
+		}
+		super.updateOrInsert(licensee);
 	}
 }

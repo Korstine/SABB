@@ -386,4 +386,18 @@
 			referencedTableName="licensee" />	
 	</changeSet>
 
+	<changeSet id="licensee_drop_not_null_date_of_birth" author="FRO">
+		<dropNotNullConstraint schemaName="sabb" tableName="licensee" columnName="date_of_birth"/>
+	</changeSet>
+	
+	<changeSet id="licensee_add_column_association" author="FRO">
+		<addColumn schemaName="sabb" tableName="licensee">
+			<column name="id_association" type="int" />
+		</addColumn>
+		<addForeignKeyConstraint
+			baseTableSchemaName="sabb" baseColumnNames="id_association"
+			baseTableName="licensee" constraintName="fk_licensee_association"
+			referencedTableSchemaName="sabb" referencedColumnNames="id"
+			referencedTableName="association" />
+	</changeSet>
 </databaseChangeLog>

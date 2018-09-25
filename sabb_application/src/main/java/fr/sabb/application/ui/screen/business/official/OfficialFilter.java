@@ -7,24 +7,39 @@ import java.util.Calendar;
 
 import com.vaadin.data.HasValue;
 import com.vaadin.data.provider.ListDataProvider;
+import com.vaadin.event.selection.MultiSelectionEvent;
 import com.vaadin.ui.DateField;
 import com.vaadin.ui.Grid;
 import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.ListSelect;
 
 import fr.sabb.application.data.object.Official;
+import fr.sabb.application.data.object.Team;
+import fr.sabb.application.service.team.TeamService;
 import fr.sabb.application.ui.screen.CommonFilter;
 
 public class OfficialFilter extends CommonFilter<Official> {
 	private final Grid<Official> grid;
 	private final DateField dateField;
 	private LocalDate weeklySelected;
+	
+	private ListSelect<Team> selectTeam = new ListSelect<>("Team");
 
-	public OfficialFilter(Grid<Official> grid) {
+	public OfficialFilter(Grid<Official> grid, TeamService teamService) {
 		this.grid = grid;
 		dateField = new DateField();
 		dateField.setPlaceholder("Journée du...");
 		dateField.addValueChangeListener(this::onDateFilterChange);
-		HorizontalLayout filter = new HorizontalLayout(dateField);
+		
+		selectTeam.setItems(teamService.getAllActiveForCurrentSeason());
+		selectTeam.setRows(5);
+		selectTeam.addSelectionListener(e -> {
+			if (e.getFirstSelectedItem().isPresent()) {
+				onTeamFilterChange(e);
+			}
+		});
+		
+		HorizontalLayout filter = new HorizontalLayout(dateField, selectTeam);
 		addComponent(filter);
 	}
 
@@ -32,6 +47,12 @@ public class OfficialFilter extends CommonFilter<Official> {
 		this.weeklySelected = event.getValue();
 		dataProvider = (ListDataProvider<Official>) grid.getDataProvider();
 		dataProvider.setFilter(o -> o.getMatch().getMatchDate(), s -> dateContains(s, event.getValue()));
+	}
+	
+	private void onTeamFilterChange(MultiSelectionEvent<Team> e) {
+		Team team = e.getFirstSelectedItem().get();
+		dataProvider = (ListDataProvider<Official>) grid.getDataProvider();
+		dataProvider.setFilter(o -> o, o -> (o.getTeamTable() != null && o.getTeamTable().getId() == team.getId()) || (o.getTeamReferee() != null && o.getTeamReferee().getId() == team.getId()));
 	}
 
 	private Boolean dateContains(Timestamp s, LocalDate localDate) {

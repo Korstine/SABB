@@ -11,6 +11,7 @@ import com.vaadin.ui.Upload;
 
 import fr.sabb.application.data.object.Licensee;
 import fr.sabb.application.service.SabbObjectService;
+import fr.sabb.application.service.assocation.AssociationService;
 import fr.sabb.application.service.licensee.LicenseeService;
 import fr.sabb.application.service.team.TeamService;
 import fr.sabb.application.ui.screen.CommonFilter;
@@ -26,6 +27,10 @@ public class LicenseeView extends CommonView<Licensee>{
 	@Autowired
 	@Lazy
 	private TeamService teamService;
+	
+	@Autowired
+	@Lazy
+	private AssociationService associationService;
 	
 	public static final String VIEW_NAME = "List des Licencies";
 	@Override
@@ -50,12 +55,12 @@ public class LicenseeView extends CommonView<Licensee>{
 
 	@Override
 	public String getButtonName() {
-		return null;
+		return "Ajout d'un licencié";
 	}
 
 	@Override
 	public void setColumns(Grid<Licensee> grid) {
-		grid.setColumns("numLicensee", "name", "firstname", "team", "phone", "mail", "adress");
+		grid.setColumns("numLicensee", "name", "firstname", "team", "phone", "mail", "adress", "association");
 	}
 	
 	/**
@@ -70,6 +75,13 @@ public class LicenseeView extends CommonView<Licensee>{
 	 */
 	public LicenseeService getLicenseeService() {
 		return licenseeService;
+	}
+
+	/**
+	 * @return the associationService
+	 */
+	public AssociationService getAssociationService() {
+		return associationService;
 	}
 
 	@Override
