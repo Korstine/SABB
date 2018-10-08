@@ -9,6 +9,7 @@ import com.vaadin.ui.TextField;
 
 import fr.sabb.application.data.object.Licensee;
 import fr.sabb.application.data.object.Official;
+import fr.sabb.application.data.object.OfficialLicensee;
 import fr.sabb.application.data.object.Team;
 import fr.sabb.application.ui.screen.CommonForm;
 
@@ -18,10 +19,10 @@ public class OfficialForm extends CommonForm<Official> {
 
 	private ListSelect<Team> teamTable = new ListSelect<>("TeamTable");
 	private ListSelect<Team> teamReferee = new ListSelect<>("TeamReferee");
-	private ListSelect<Licensee> selectLicenseeTable1 = new ListSelect<>("Table 1");
-	private ListSelect<Licensee> selectLicenseeTable2 = new ListSelect<>("Table 2");
-	private ListSelect<Licensee> selectLicenseeReferee1 = new ListSelect<>("Arbitre 1");
-	private ListSelect<Licensee> selectLicenseeReferee2 = new ListSelect<>("Arbitre 2");
+	private ListSelect<OfficialLicensee> selectLicenseeTable1 = new ListSelect<>("Table 1");
+	private ListSelect<OfficialLicensee> selectLicenseeTable2 = new ListSelect<>("Table 2");
+	private ListSelect<OfficialLicensee> selectLicenseeReferee1 = new ListSelect<>("Arbitre 1");
+	private ListSelect<OfficialLicensee> selectLicenseeReferee2 = new ListSelect<>("Arbitre 2");
 
 	private OfficialView view;
 
@@ -56,14 +57,14 @@ public class OfficialForm extends CommonForm<Official> {
 		selectLicenseeTable1.setRows(5);
 		selectLicenseeTable1.addSelectionListener(e -> {
 			if (e.getFirstSelectedItem().isPresent()) {
-				getItem().setLicenseeTable1(e.getFirstSelectedItem().get());
+				getItem().setLicenseeTable1(e.getFirstSelectedItem().get().getLicensee());
 			}
 		});
 
 		selectLicenseeTable2.setRows(5);
 		selectLicenseeTable2.addSelectionListener(e -> {
 			if (e.getFirstSelectedItem().isPresent()) {
-				getItem().setLicenseeTable2(e.getFirstSelectedItem().get());
+				getItem().setLicenseeTable2(e.getFirstSelectedItem().get().getLicensee());
 			}
 		});
 
@@ -73,14 +74,14 @@ public class OfficialForm extends CommonForm<Official> {
 		selectLicenseeReferee1.setRows(5);
 		selectLicenseeReferee1.addSelectionListener(e -> {
 			if (e.getFirstSelectedItem().isPresent()) {
-				getItem().setLicenseeReferee1(e.getFirstSelectedItem().get());
+				getItem().setLicenseeReferee1(e.getFirstSelectedItem().get().getLicensee());
 			}
 		});
 
 		selectLicenseeReferee2.setRows(5);
 		selectLicenseeReferee2.addSelectionListener(e -> {
 			if (e.getFirstSelectedItem().isPresent()) {
-				getItem().setLicenseeReferee2(e.getFirstSelectedItem().get());
+				getItem().setLicenseeReferee2(e.getFirstSelectedItem().get().getLicensee());
 			}
 		});
 
@@ -114,14 +115,14 @@ public class OfficialForm extends CommonForm<Official> {
 	@Override
 	public void enterForm() {
 		if (getItem() != null && getItem().getTeamTable() != null) {
-			selectLicenseeTable1.setItems(view.getLicenseeService().getAllByTeam(getItem().getTeamTable()));
-			selectLicenseeTable2.setItems(view.getLicenseeService().getAllByTeam(getItem().getTeamTable()));
+			selectLicenseeTable1.setItems(view.getLicenseeService().getAllOfficialLicenseeByTeam(getItem().getTeamTable()));
+			selectLicenseeTable2.setItems(view.getLicenseeService().getAllOfficialLicenseeByTeam(getItem().getTeamTable()));
 			selectLicenseeTable1.markAsDirty();
 			selectLicenseeTable2.markAsDirty();
 		}
 		if (getItem() != null && getItem().getTeamReferee() != null) {
-			selectLicenseeReferee1.setItems(view.getLicenseeService().getAllByTeam(getItem().getTeamReferee()));
-			selectLicenseeReferee2.setItems(view.getLicenseeService().getAllByTeam(getItem().getTeamReferee()));
+			selectLicenseeReferee1.setItems(view.getLicenseeService().getAllOfficialLicenseeByTeam(getItem().getTeamReferee()));
+			selectLicenseeReferee2.setItems(view.getLicenseeService().getAllOfficialLicenseeByTeam(getItem().getTeamReferee()));
 			selectLicenseeReferee1.markAsDirty();
 			selectLicenseeReferee2.markAsDirty();
 		}

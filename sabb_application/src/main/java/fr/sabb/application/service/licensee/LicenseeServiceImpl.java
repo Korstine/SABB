@@ -20,6 +20,7 @@ import fr.sabb.application.data.mapper.SabbMapper;
 import fr.sabb.application.data.object.Association;
 import fr.sabb.application.data.object.Category;
 import fr.sabb.application.data.object.Licensee;
+import fr.sabb.application.data.object.OfficialLicensee;
 import fr.sabb.application.data.object.Team;
 import fr.sabb.application.service.SabbObjectServiceImpl;
 import fr.sabb.application.service.category.CategoryService;
@@ -36,6 +37,9 @@ public class LicenseeServiceImpl extends SabbObjectServiceImpl<Licensee> impleme
 
 	@Autowired
 	private TeamService teamService;
+	
+	@Autowired
+	private OfficialConverter officialConverter;
 
 	@Override
 	public SabbMapper<Licensee> getMapper() {
@@ -135,5 +139,10 @@ public class LicenseeServiceImpl extends SabbObjectServiceImpl<Licensee> impleme
 			licensee.setSex(licensee.getTeam().getSex());
 		}
 		super.updateOrInsert(licensee);
+	}
+
+	@Override
+	public List<OfficialLicensee> getAllOfficialLicenseeByTeam(Team team) {
+		return this.getAllByTeam(team).stream().map(this.officialConverter::convertLicensee).collect(Collectors.toList());
 	}
 }

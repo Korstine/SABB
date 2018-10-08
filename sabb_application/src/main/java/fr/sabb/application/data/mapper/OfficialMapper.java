@@ -36,5 +36,5 @@ public interface OfficialMapper  extends SabbMapper<Official> {
 
 	@Update("UPDATE sabb.official SET id_match=#{match.id}, id_team_table=#{teamTable.id}, id_team_referee=#{teamReferee.id}, id_licensee_table_1=#{licenseeTable1.id}, id_licensee_table_2=#{licenseeTable2.id}, id_licensee_referee_1=#{licenseeReferee1.id}, id_licensee_referee_2=#{licenseeReferee2.id}  WHERE id=#{id}")
 	void update(Official official);
-
+	
 }
