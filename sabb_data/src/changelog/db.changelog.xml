@@ -400,4 +400,17 @@
 			referencedTableSchemaName="sabb" referencedColumnNames="id"
 			referencedTableName="association" />
 	</changeSet>
+	
+	<changeSet id="add_team_referee_replacment_label" author="FRO">
+		<addColumn schemaName="sabb" tableName="team">
+			<column name="referee_replacment_label" type="varchar(50)"/>
+		</addColumn>
+	</changeSet>
+	
+	<changeSet id="add_team_has_official_referee" author="FRO">
+		<addColumn schemaName="sabb" tableName="team">
+			<column name="has_official_referee" type="boolean"
+				defaultValueBoolean="false" />
+		</addColumn>
+	</changeSet>
 </databaseChangeLog>

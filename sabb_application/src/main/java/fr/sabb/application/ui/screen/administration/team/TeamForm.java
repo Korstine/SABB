@@ -34,6 +34,8 @@ public class TeamForm extends CommonForm<Team> {
 	private CheckBox ctc = new CheckBox("CTC");
 	private TextField excelReference = new TextField("Reference Excel");
 	private TextField excelReferenceCtc = new TextField("Reference Excel CTC");
+	private CheckBox hasOfficialReferee = new CheckBox("Officiel");
+	private TextField refereeReplacmentLabel = new TextField("Label de remplacement");
 
 	public TeamForm(TeamView view) {
 		super(view);
@@ -75,7 +77,8 @@ public class TeamForm extends CommonForm<Team> {
 		HorizontalLayout secondLine = new HorizontalLayout(selectCategory, selectAssociation, selectSeason);
 		HorizontalLayout thirdLine = new HorizontalLayout(sort, sex, ffbbUniqueId);
 		HorizontalLayout fourthLine = new HorizontalLayout(active, ctc, excelReference, excelReferenceCtc);
-		addComponents(firstLine, secondLine, thirdLine, fourthLine, buttons);
+		HorizontalLayout fiveLine = new HorizontalLayout(hasOfficialReferee, refereeReplacmentLabel);
+		addComponents(firstLine, secondLine, thirdLine, fourthLine, fiveLine, buttons);
 		binder.forField(sort).withConverter(new StringToIntegerConverter("")).bind(Team::getSort,Team::setSort);
 		binder.bindInstanceFields(this);
 	}

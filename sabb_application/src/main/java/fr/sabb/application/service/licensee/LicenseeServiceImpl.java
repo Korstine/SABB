@@ -79,7 +79,7 @@ public class LicenseeServiceImpl extends SabbObjectServiceImpl<Licensee> impleme
 			if (oldLicensee == null || oldLicensee.getTeam() == null) {
 				return teamService.getFirstTeamForCategoryAndSex(category.getId(), sex);
 			}
-			return null;
+			return oldLicensee.getTeam();
 		}
 		return null;
 	}
@@ -144,5 +144,10 @@ public class LicenseeServiceImpl extends SabbObjectServiceImpl<Licensee> impleme
 	@Override
 	public List<OfficialLicensee> getAllOfficialLicenseeByTeam(Team team) {
 		return this.getAllByTeam(team).stream().map(this.officialConverter::convertLicensee).collect(Collectors.toList());
+	}
+
+	@Override
+	public List<OfficialLicensee> getAllOfficialLicenseeSorted() {
+		return this.getAll().stream().sorted((l1,l2) -> l1.getName().compareTo(l2.getName())).map(this.officialConverter::convertLicensee).collect(Collectors.toList());
 	}
 }

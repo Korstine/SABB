@@ -15,6 +15,8 @@ public class Team extends SabbObject {
 	private boolean ctc;
 	private String excelReference;
 	private String excelReferenceCtc;
+	private String refereeReplacmentLabel;
+	private boolean hasOfficialReferee;
 	
 	@Pattern(regexp = "^[F|M]$")
 	private String sex;
@@ -164,6 +166,31 @@ public class Team extends SabbObject {
 	 */
 	public void setExcelReferenceCtc(String excelReferenceCtc) {
 		this.excelReferenceCtc = excelReferenceCtc;
+	}
+	
+	/**
+	 * @return the refereeReplacmentLabel
+	 */
+	public String getRefereeReplacmentLabel() {
+		return refereeReplacmentLabel;
+	}
+	/**
+	 * @param refereeReplacmentLabel the refereeReplacmentLabel to set
+	 */
+	public void setRefereeReplacmentLabel(String refereeReplacmentLabel) {
+		this.refereeReplacmentLabel = refereeReplacmentLabel;
+	}
+	/**
+	 * @return the hasOfficialReferee
+	 */
+	public boolean isHasOfficialReferee() {
+		return hasOfficialReferee;
+	}
+	/**
+	 * @param hasOfficialReferee the hasOfficialReferee to set
+	 */
+	public void setHasOfficialReferee(boolean hasOfficialReferee) {
+		this.hasOfficialReferee = hasOfficialReferee;
 	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()

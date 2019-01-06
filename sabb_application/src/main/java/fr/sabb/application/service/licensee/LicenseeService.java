@@ -16,4 +16,6 @@ public interface LicenseeService extends SabbObjectService<Licensee> {
 
 	List<OfficialLicensee> getAllOfficialLicenseeByTeam(Team team);
 
+	List<OfficialLicensee> getAllOfficialLicenseeSorted();
+
 }

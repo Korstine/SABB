@@ -28,16 +28,18 @@ public interface TeamMapper extends SabbMapper<Team> {
 			@Result(property = "ffbbUniqueId", column = "ffbb_unique_id"),
 			@Result(property = "sort", column = "sort"),
 			@Result(property = "excelReference", column = "excel_reference"),
-			@Result(property = "excelReferenceCtc", column = "excel_reference_ctc")})
+			@Result(property = "excelReferenceCtc", column = "excel_reference_ctc"),
+			@Result(property = "refereeReplacmentLabel", column = "referee_replacment_label"),
+			@Result(property = "hasOfficialReferee", column = "has_official_referee")})
 	List<Team> getAll();
 
-	@Insert("INSERT INTO sabb.team(name,id_season,id_category,id_association,active, ffbb_unique_id,sort, sex, ctc, excel_reference, excel_reference_ctc) VAlUES(#{name}, #{season.id},#{category.id},#{association.id}, #{active}, #{ffbbUniqueId}, #{sort}, #{sex}, #{ctc}, #{excelReference}, #{excelReferenceCtc})")
+	@Insert("INSERT INTO sabb.team(name,id_season,id_category,id_association,active, ffbb_unique_id,sort, sex, ctc, excel_reference, excel_reference_ctc, referee_replacment_label, has_official_referee) VAlUES(#{name}, #{season.id},#{category.id},#{association.id}, #{active}, #{ffbbUniqueId}, #{sort}, #{sex}, #{ctc}, #{excelReference}, #{excelReferenceCtc}, #{refereeReplacmentLabel}, #{hasOfficialReferee})")
 	void insert(Team team);
 
 	@Delete("DELETE FROM sabb.team WHERE id=#{id}")
 	void delete(Team team);
 
-	@Update("UPDATE sabb.team SET name=#{name}, active=#{active}, id_season=#{season.id},id_category=#{category.id},id_association=#{association.id}, ffbb_unique_id=#{ffbbUniqueId}, sort=#{sort}, sex=#{sex}, ctc=#{ctc}, excel_reference=#{excelReference}, excel_reference_ctc=#{excelReferenceCtc} WHERE id=#{id}")
+	@Update("UPDATE sabb.team SET name=#{name}, active=#{active}, id_season=#{season.id},id_category=#{category.id},id_association=#{association.id}, ffbb_unique_id=#{ffbbUniqueId}, sort=#{sort}, sex=#{sex}, ctc=#{ctc}, excel_reference=#{excelReference}, excel_reference_ctc=#{excelReferenceCtc}, referee_replacment_label=#{refereeReplacmentLabel}, has_official_referee=#{hasOfficialReferee} WHERE id=#{id}")
 	void update(Team team);
 
 }

@@ -75,7 +75,7 @@ public class TeamView extends CommonView<Team> {
 
 	@Override
 	public void setColumns(Grid<Team> grid) {
-		grid.setColumns("id", "name", "category", "sex", "sort","association", "active", "ffbbUniqueId", "ctc", "excelReference", "excelReferenceCtc");
+		grid.setColumns("id", "name", "category", "sex", "sort","association", "active", "ffbbUniqueId", "ctc", "excelReference", "excelReferenceCtc", "refereeReplacmentLabel","hasOfficialReferee");
 	}
 	
 	@Override

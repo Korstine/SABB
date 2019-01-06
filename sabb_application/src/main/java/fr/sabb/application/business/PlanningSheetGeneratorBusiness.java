@@ -164,10 +164,12 @@ public class PlanningSheetGeneratorBusiness {
 
 				row.getCell(6).setCellValue("-");
 
+				if (match.getTeam().isHasOfficialReferee()) {
+					row.getCell(7).setCellValue("Officiels");
+				}
+				
 				if (official != null) {
-					row.getCell(7).setCellValue(String.format("%s - %s",
-							SheetUtils.formatFullLicenseeString(official.getLicenseeReferee1()),
-							SheetUtils.formatFullLicenseeString(official.getLicenseeReferee2())));
+					row.getCell(7).setCellValue(getLicenseeReferee(official));
 							
 					
 					row.getCell(8).setCellValue(String.format("%s - %s",
@@ -195,6 +197,15 @@ public class PlanningSheetGeneratorBusiness {
 
 			row.getCell(3).setCellValue(SheetUtils.getDateToString(match.getMatchDate()));
 		}
+	}
+
+	private static String getLicenseeReferee(Official official) {
+		if (official.getTeamReferee().getRefereeReplacmentLabel() != null) {
+			return official.getTeamReferee().getRefereeReplacmentLabel();
+		}
+		return String.format("%s - %s",
+				SheetUtils.formatFullLicenseeString(official.getLicenseeReferee1()),
+				SheetUtils.formatFullLicenseeString(official.getLicenseeReferee2()));
 	}
 
 	private static String getTransportCellContent(Transport transport) {
