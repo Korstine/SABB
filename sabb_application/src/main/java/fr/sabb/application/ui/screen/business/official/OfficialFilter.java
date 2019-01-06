@@ -32,7 +32,7 @@ public class OfficialFilter extends CommonFilter<Official> {
 		dateField.addValueChangeListener(this::onDateFilterChange);
 		
 		selectTeam.setItems(teamService.getAllActiveForCurrentSeason());
-		selectTeam.setRows(5);
+		selectTeam.setRows(1);
 		selectTeam.addSelectionListener(e -> {
 			if (e.getFirstSelectedItem().isPresent()) {
 				onTeamFilterChange(e);

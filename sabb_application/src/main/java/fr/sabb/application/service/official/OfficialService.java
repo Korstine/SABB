@@ -10,4 +10,6 @@ public interface OfficialService  extends SabbObjectService<Official>{
 	Official getOfficialFromMatch(Match match);
 	
 	int countLicenseeOfficialNumber(Licensee licensee);
+	
+	void unvalidAllOfficialForCurrentSeason();
 }

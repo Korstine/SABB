@@ -9,6 +9,8 @@ public interface SabbObjectService<T> {
 
 	List<T> getAll();
 	
+	List<T> getAllWithCaching();
+	
 	void updateOrInsert(T t) throws ValidationException;
 	
 	void delete(T t);

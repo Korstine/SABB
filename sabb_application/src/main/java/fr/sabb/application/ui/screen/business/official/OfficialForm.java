@@ -32,6 +32,9 @@ public class OfficialForm extends CommonForm<Official> {
 	private OfficialView view;
 	
 	private boolean isAllLicenseeTable1Checked = false;
+	private boolean isAllLicenseeTable2Checked = false;
+	private boolean isAllLicenseeReferee1Checked = false;
+	private boolean isAllLicenseeReferee2Checked = false;
 
 	public OfficialForm(OfficialView view) {
 		super(view);
@@ -83,6 +86,11 @@ public class OfficialForm extends CommonForm<Official> {
 			}
 		});
 		
+		allLicenseeTable2.addValueChangeListener(e -> {
+			isAllLicenseeTable2Checked = e.getValue();
+			enterForm();
+		});
+		
 		VerticalLayout vtable2 = new VerticalLayout(allLicenseeTable2, selectLicenseeTable2);
 
 		h2.addComponent(vtable1);
@@ -95,6 +103,11 @@ public class OfficialForm extends CommonForm<Official> {
 			}
 		});
 		
+		allLicenseeReferee1.addValueChangeListener(e -> {
+			isAllLicenseeReferee1Checked = e.getValue();
+			enterForm();
+		});
+		
 		VerticalLayout vreferee1 = new VerticalLayout(allLicenseeReferee1, selectLicenseeReferee1);
 
 		selectLicenseeReferee2.setRows(5);
@@ -102,6 +115,11 @@ public class OfficialForm extends CommonForm<Official> {
 			if (e.getFirstSelectedItem().isPresent()) {
 				getItem().setLicenseeReferee2(e.getFirstSelectedItem().get().getLicensee());
 			}
+		});
+		
+		allLicenseeReferee2.addValueChangeListener(e -> {
+			isAllLicenseeReferee2Checked = e.getValue();
+			enterForm();
 		});
 		
 		VerticalLayout vreferee2 = new VerticalLayout(allLicenseeReferee2, selectLicenseeReferee2);
@@ -149,9 +167,25 @@ public class OfficialForm extends CommonForm<Official> {
 		}
 		
 		if (isAllLicenseeTable1Checked) {
-			selectLicenseeTable1.setItems(view.getLicenseeService().getAllOfficialLicenseeSorted());
+			selectLicenseeTable1.setItems(view.getLicenseeService().getAllMainOfficialLicenseeSorted());
 			selectLicenseeTable1.markAsDirty();
 		}
+		
+		if (isAllLicenseeTable2Checked) {
+			selectLicenseeTable2.setItems(view.getLicenseeService().getAllMainOfficialLicenseeSorted());
+			selectLicenseeTable2.markAsDirty();
+		}
+		
+		if (isAllLicenseeReferee1Checked) {
+			selectLicenseeReferee1.setItems(view.getLicenseeService().getAllMainOfficialLicenseeSorted());
+			selectLicenseeReferee1.markAsDirty();
+		}
+		
+		if (isAllLicenseeReferee2Checked) {
+			selectLicenseeReferee2.setItems(view.getLicenseeService().getAllMainOfficialLicenseeSorted());
+			selectLicenseeReferee2.markAsDirty();
+		}
+		
 	}
 
 }

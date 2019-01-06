@@ -147,7 +147,7 @@ public class LicenseeServiceImpl extends SabbObjectServiceImpl<Licensee> impleme
 	}
 
 	@Override
-	public List<OfficialLicensee> getAllOfficialLicenseeSorted() {
-		return this.getAll().stream().sorted((l1,l2) -> l1.getName().compareTo(l2.getName())).map(this.officialConverter::convertLicensee).collect(Collectors.toList());
+	public List<OfficialLicensee> getAllMainOfficialLicenseeSorted() {
+		return this.getAll().stream().filter(l -> l.getAssociation().isMain()).sorted((l1,l2) -> l1.getName().compareTo(l2.getName())).map(this.officialConverter::convertLicensee).collect(Collectors.toList());
 	}
 }

@@ -413,4 +413,10 @@
 				defaultValueBoolean="false" />
 		</addColumn>
 	</changeSet>
+	
+	<changeSet id="drop_nullable_constraint_match" author="FRO">
+		<dropNotNullConstraint schemaName="sabb" tableName="transport" columnName="id_match" columnDataType="int"/>
+		<dropNotNullConstraint schemaName="sabb" tableName="official" columnName="id_match" columnDataType="int"/>
+	</changeSet>
+	
 </databaseChangeLog>
