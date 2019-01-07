@@ -31,7 +31,9 @@ public interface SabbMapper<T extends SabbObject> {
 			@Result(property = "category", column = "id_category", one = @One(select = "getCategory")),
 			@Result(property = "ffbbUniqueId", column = "ffbb_unique_id"),
 			@Result(property = "excelReference", column = "excel_reference"),
-			@Result(property = "excelReferenceCtc", column = "excel_reference_ctc")})
+			@Result(property = "excelReferenceCtc", column = "excel_reference_ctc"),
+			@Result(property = "refereeReplacmentLabel", column = "referee_replacment_label"),
+			@Result(property = "hasOfficialReferee", column = "has_official_referee")})
 	Team getTeam(int idTeam);
 	
 	@Select("SELECT * FROM sabb.season WHERE id=#{idSeason}")

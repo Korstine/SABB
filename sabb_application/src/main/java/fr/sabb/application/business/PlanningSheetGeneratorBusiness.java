@@ -166,15 +166,19 @@ public class PlanningSheetGeneratorBusiness {
 
 				if (match.getTeam().isHasOfficialReferee()) {
 					row.getCell(7).setCellValue("Officiels");
+				} else {
+					row.getCell(7).setCellValue("-");
 				}
 				
 				if (official != null) {
-					row.getCell(7).setCellValue(getLicenseeReferee(official));
+					String officialStr = getLicenseeReferee(official);
+					if (!officialStr.equals(" - ") ) {
+						row.getCell(7).setCellValue(officialStr);
+					}
+					
 							
 					
-					row.getCell(8).setCellValue(String.format("%s - %s",
-							SheetUtils.formatFullLicenseeString(official.getLicenseeTable1()),
-							SheetUtils.formatFullLicenseeString(official.getLicenseeTable2())));
+					row.getCell(8).setCellValue(getLicenseeTable(official));
 					
 				}
 
@@ -199,8 +203,17 @@ public class PlanningSheetGeneratorBusiness {
 		}
 	}
 
+	private static String getLicenseeTable(Official official) {
+		if (official.getTeamTable() != null && official.getTeamTable().getRefereeReplacmentLabel() != null) {
+			return official.getTeamTable().getRefereeReplacmentLabel();
+		}
+		return String.format("%s - %s",
+				SheetUtils.formatFullLicenseeString(official.getLicenseeTable1()),
+				SheetUtils.formatFullLicenseeString(official.getLicenseeTable2()));
+	}
+
 	private static String getLicenseeReferee(Official official) {
-		if (official.getTeamReferee().getRefereeReplacmentLabel() != null) {
+		if (official.getTeamReferee() != null && official.getTeamReferee().getRefereeReplacmentLabel() != null) {
 			return official.getTeamReferee().getRefereeReplacmentLabel();
 		}
 		return String.format("%s - %s",
