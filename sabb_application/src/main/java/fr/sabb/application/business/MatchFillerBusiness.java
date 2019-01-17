@@ -25,6 +25,9 @@ public class MatchFillerBusiness {
 	@Autowired
 	private TeamService teamService;
 	
+	@Autowired
+	private SabbCalendarBusiness sabbCalendarBusiness;
+	
 	private int index = 0;
 	private String dateStr = null;
 	private Team team;
@@ -93,6 +96,12 @@ public class MatchFillerBusiness {
 		try {
 			matchService.updateOrInsert(match);
 		} catch (ValidationException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			// sabbCalendarBusiness.addMatchToCalendar(match);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
