@@ -1,6 +1,11 @@
 package fr.sabb.application.ui.screen.business.licensee;
 
+import java.time.LocalDate;
+
 import com.vaadin.data.Binder;
+import com.vaadin.data.HasValue;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.DateField;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.ListSelect;
 import com.vaadin.ui.TextField;
@@ -22,6 +27,7 @@ public class LicenseeForm extends CommonForm<Licensee> {
 	private ListSelect<Association> selectAssociation = new ListSelect<>("Association");
 	private TextField mail = new TextField("Mail");
 	private TextField adress = new TextField("Adresse");
+	
 
 	public LicenseeForm(LicenseeView view) {
 		super(view);
@@ -52,7 +58,7 @@ public class LicenseeForm extends CommonForm<Licensee> {
 		addComponents(h1, h2, buttons);
 		binder.bindInstanceFields(this);
 	}
-
+	
 	@Override
 	public Binder<Licensee> getBinder() {
 		return binder;

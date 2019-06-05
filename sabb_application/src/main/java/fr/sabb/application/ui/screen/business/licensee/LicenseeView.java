@@ -9,6 +9,7 @@ import com.vaadin.ui.Grid;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Upload;
 
+import fr.sabb.application.business.EmergementListingAGBusiness;
 import fr.sabb.application.data.object.Licensee;
 import fr.sabb.application.service.SabbObjectService;
 import fr.sabb.application.service.assocation.AssociationService;
@@ -31,6 +32,9 @@ public class LicenseeView extends CommonView<Licensee>{
 	@Autowired
 	@Lazy
 	private AssociationService associationService;
+	
+	@Autowired
+	private EmergementListingAGBusiness emergementListingAGBusiness;
 	
 	public static final String VIEW_NAME = "List des Licencies";
 	@Override
@@ -87,7 +91,7 @@ public class LicenseeView extends CommonView<Licensee>{
 	@Override
 	public CommonFilter getFilter() {
 		if (filter == null) {
-			filter = new LicenseeFilter(grid);
+			filter = new LicenseeFilter(grid,emergementListingAGBusiness);
 		}
 		return filter;
 	}

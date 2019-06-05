@@ -193,12 +193,30 @@ public class Licensee extends SabbObject {
 	public Association getAssociation() {
 		return association;
 	}
-
+	
 	/**
 	 * @param association the association to set
 	 */
 	public void setAssociation(Association association) {
 		this.association = association;
 	}
+	
+	/**
+	 * @param association the association to set
+	 */
+	public boolean isMainAssociation() {
+		return association != null && association.isMain(); 
+	}
+	
+	public String toStringForListingAG(int count, boolean isParent) {
+        StringBuilder line = new StringBuilder();
+        line.append(count).append(";");
+        line.append(this.name).append(" " + this.firstname).append(";");
+        line.append(isParent ? "parent" : "").append(";");
+        line.append("").append(";");
+        line.append(this.numLicensee).append(";").append("\n");
+
+        return line.toString();
+    }
 	
 }

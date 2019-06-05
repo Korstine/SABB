@@ -19,6 +19,7 @@ public interface LicenseeMapper extends SabbMapper<Licensee> {
 	@Results({ @Result(property = "team", column = "id_team", one = @One(select = "getTeam")),
 			@Result(property = "category", column = "id_category", one = @One(select = "getCategory")),
 			@Result(property = "association", column = "id_association", one = @One(select = "getAssociation")),
+			@Result(property="dateOfBirth", column="date_of_birth"),
 			@Result(property = "numLicensee", column = "num_licensee")})
 	List<Licensee> getAll();
 	
