@@ -9,6 +9,7 @@ public class Match extends SabbObject {
 	private Timestamp matchDate;
 	private int idFFBB;
 	private boolean home;
+	private boolean locationSwitched;
 
 	/**
 	 * @return the id
@@ -95,6 +96,20 @@ public class Match extends SabbObject {
 	 */
 	public void setHome(boolean home) {
 		this.home = home;
+	}
+
+	/**
+	 * @return the locationSwitched
+	 */
+	public boolean isLocationSwitched() {
+		return locationSwitched;
+	}
+
+	/**
+	 * @param locationSwitched the locationSwitched to set
+	 */
+	public void setLocationSwitched(boolean locationSwitched) {
+		this.locationSwitched = locationSwitched;
 	}
 
 	/* (non-Javadoc)

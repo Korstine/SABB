@@ -31,6 +31,7 @@ import fr.sabb.application.data.object.Transport;
 import fr.sabb.application.service.licensee.LicenseeService;
 import fr.sabb.application.service.match.MatchService;
 import fr.sabb.application.service.transport.TransportService;
+import fr.sabb.application.utils.SabbConstantes;
 import fr.sabb.application.utils.SheetUtils;
 
 @Component
@@ -53,7 +54,7 @@ public class TransportSheetGeneratorBusiness {
 		// Récupération de l'equipe en base
 		try {
 			wrappedStream = POIFSFileSystem.createNonClosingInputStream(new FileInputStream(
-					"C:/Users/flori/OneDrive/Basket/Saison 18-19/Transport/Template Feuille Transport.xlsx"));
+					String.format("C:/Users/flori/OneDrive/Basket/%s/Transport/Template Feuille Transport.xlsx",SabbConstantes.CURRENT_SEASON)));
 			XSSFWorkbook workbook = new XSSFWorkbook(wrappedStream);
 
 			if (null != workbook) {
@@ -70,7 +71,7 @@ public class TransportSheetGeneratorBusiness {
 
 				workbook.setSheetName(0, fileName);
 				workbook.write(new FileOutputStream(
-						"C:/Users/flori/OneDrive/Basket/Saison 18-19/Transport/" + fileName + ".xlsx"));
+						String.format("C:/Users/flori/OneDrive/Basket/%s/Transport/%s.xlsx",SabbConstantes.CURRENT_SEASON, fileName)));
 			}
 
 			if (null != wrappedStream) {

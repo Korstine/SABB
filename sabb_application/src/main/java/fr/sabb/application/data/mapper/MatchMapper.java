@@ -25,6 +25,7 @@ public interface MatchMapper extends SabbMapper<Match> {
 			@Result(property="team", column="id_team", one=@One(select="getTeam")),
 			@Result(property="idFFBB", column="id_ffbb"),
 			@Result(property="home", column="home"),
+			@Result(property="locationSwitched", column="location_switched"),
 	})
 	List<Match> getAll();
 	
@@ -34,9 +35,9 @@ public interface MatchMapper extends SabbMapper<Match> {
 	})
 	Match getMatch(Match match);
 	
-	@Insert("INSERT INTO sabb.match(opponent,id_team,match_date,id_ffbb,home) VAlUES(#{opponent}, #{team.id}, #{matchDate}, #{idFFBB}, #{home})")
+	@Insert("INSERT INTO sabb.match(opponent,id_team,match_date,id_ffbb,home,location_switched) VAlUES(#{opponent}, #{team.id}, #{matchDate}, #{idFFBB}, #{home}, #{locationSwitched})")
 	void insert(Match match);
 	
-	@Update("UPDATE sabb.match SET opponent=#{opponent}, id_team=#{team.id}, match_date=#{matchDate}, home=#{home} WHERE id=#{id}")
+	@Update("UPDATE sabb.match SET opponent=#{opponent}, id_team=#{team.id}, match_date=#{matchDate}, home=#{home}, location_switched=#{locationSwitched} WHERE id=#{id}")
 	void update(Match match);
 }

@@ -8,6 +8,22 @@ public class Association extends SabbObject {
 	private boolean active;
 	private String nameFfbb;
 	private String nameFfbbCtc;
+	private String ffbbLocation;
+	private String ffbbLocationBis;
+
+	/**
+	 * @return the ffbbLocationBis
+	 */
+	public String getFfbbLocationBis() {
+		return ffbbLocationBis;
+	}
+
+	/**
+	 * @param ffbbLocationBis the ffbbLocationBis to set
+	 */
+	public void setFfbbLocationBis(String ffbbLocationBis) {
+		this.ffbbLocationBis = ffbbLocationBis;
+	}
 
 	/**
 	 * @return the id
@@ -99,6 +115,20 @@ public class Association extends SabbObject {
 	 */
 	public void setNameFfbbCtc(String nameFfbbCtc) {
 		this.nameFfbbCtc = nameFfbbCtc;
+	}
+
+	/**
+	 * @return the ffbbLocation
+	 */
+	public String getFfbbLocation() {
+		return ffbbLocation;
+	}
+
+	/**
+	 * @param ffbbLocation the ffbbLocation to set
+	 */
+	public void setFfbbLocation(String ffbbLocation) {
+		this.ffbbLocation = ffbbLocation;
 	}
 
 }

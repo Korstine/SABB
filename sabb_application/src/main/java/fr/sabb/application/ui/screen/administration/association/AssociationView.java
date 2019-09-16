@@ -55,7 +55,7 @@ public class AssociationView  extends CommonView<Association> {
 
 	@Override
 	public void setColumns(Grid<Association> grid) {
-		grid.setColumns("id", "name", "nameFfbb", "nameFfbbCtc", "main", "active");
+		grid.setColumns("id", "name", "nameFfbb", "nameFfbbCtc", "ffbbLocation", "ffbbLocationBis", "main", "active");
 	}
 
 	@Override

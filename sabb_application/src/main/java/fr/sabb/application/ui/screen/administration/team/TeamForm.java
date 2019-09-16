@@ -17,6 +17,7 @@ import fr.sabb.application.data.object.Category;
 import fr.sabb.application.data.object.Season;
 import fr.sabb.application.data.object.Team;
 import fr.sabb.application.ui.screen.CommonForm;
+import fr.sabb.application.utils.FormUtils;
 
 @Component
 public class TeamForm extends CommonForm<Team> {
@@ -100,7 +101,8 @@ public class TeamForm extends CommonForm<Team> {
 
 	@Override
 	public void clearAllFormFields() {
-		// TODO Auto-generated method stub
+		FormUtils.resetFields(name,active,ffbbUniqueId,sex,ctc,excelReference,excelReferenceCtc,hasOfficialReferee,refereeReplacmentLabel);
+		FormUtils.resetFields(selectSeason,selectAssociation,selectCategory);
 		
 	}
 

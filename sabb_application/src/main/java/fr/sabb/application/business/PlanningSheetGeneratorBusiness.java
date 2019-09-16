@@ -8,6 +8,7 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Calendar;
+import java.util.List;
 
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.ss.util.CellRangeAddress;
@@ -19,13 +20,18 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.google.api.client.repackaged.com.google.common.base.Objects;
+
+import fr.sabb.application.data.object.Association;
 import fr.sabb.application.data.object.Licensee;
 import fr.sabb.application.data.object.Match;
 import fr.sabb.application.data.object.Official;
 import fr.sabb.application.data.object.Transport;
+import fr.sabb.application.service.assocation.AssociationService;
 import fr.sabb.application.service.match.MatchService;
 import fr.sabb.application.service.official.OfficialService;
 import fr.sabb.application.service.transport.TransportService;
+import fr.sabb.application.utils.SabbConstantes;
 import fr.sabb.application.utils.SheetUtils;
 
 @Component
@@ -39,6 +45,9 @@ public class PlanningSheetGeneratorBusiness {
 
 	@Autowired
 	private OfficialService offcialService;
+	
+	@Autowired
+	private AssociationService associationService;
 
 	public void generateSABBWeeklySheet(LocalDate weeklyDate) {
 
@@ -48,13 +57,14 @@ public class PlanningSheetGeneratorBusiness {
 
 		try {
 			wrappedStream = POIFSFileSystem.createNonClosingInputStream(new FileInputStream(
-					"C:/Users/flori/OneDrive/Basket/Saison 18-19/Convoc/Template SABB Planning Weekend 18-19.xlsx"));
+					String.format("C:/Users/flori/OneDrive/Basket/%s/Convoc/Template SABB Planning Weekend.xlsx",SabbConstantes.CURRENT_SEASON)));
 			XSSFWorkbook workbook = new XSSFWorkbook(wrappedStream);
 
 			if (null != workbook) {
 				XSSFSheet sheet = workbook.getSheetAt(0);
 
 				Date date = Date.valueOf(weeklyDate);
+				setCellValuePlanning(workbook, sheet, "Date", getLiteralDate(weeklyDate));
 				Calendar calWeekly = Calendar.getInstance();
 				calWeekly.setTime(date);
 				matchService
@@ -64,7 +74,7 @@ public class PlanningSheetGeneratorBusiness {
 
 				workbook.setSheetName(0, fileName);
 				workbook.write(new FileOutputStream(
-						"C:/Users/flori/OneDrive/Basket/Saison 18-19/Convoc/SABB " + fileName + ".xlsx"));
+						String.format("C:/Users/flori/OneDrive/Basket/%s/Convoc/SABB %s.xlsx",SabbConstantes.CURRENT_SEASON,fileName)));
 			}
 
 			if (null != wrappedStream) {
@@ -85,11 +95,13 @@ public class PlanningSheetGeneratorBusiness {
 
 		try {
 			wrappedStream = POIFSFileSystem.createNonClosingInputStream(new FileInputStream(
-					"C:/Users/flori/OneDrive/Basket/Saison 18-19/Convoc/Template CTC Planning Weekend 18-19.xlsx"));
+					String.format("C:/Users/flori/OneDrive/Basket/%s/Convoc/Template CTC Planning Weekend.xlsx",SabbConstantes.CURRENT_SEASON)));
 			XSSFWorkbook workbook = new XSSFWorkbook(wrappedStream);
 
 			if (null != workbook) {
 				XSSFSheet sheet = workbook.getSheetAt(0);
+				
+				List<Association> associations = this.associationService.getAllActive();
 
 				setCellValuePlanning(workbook, sheet, "Date", getLiteralDate(weeklyDate));
 				Date date = Date.valueOf(weeklyDate);
@@ -98,11 +110,11 @@ public class PlanningSheetGeneratorBusiness {
 				matchService
 						.getAllCTCMatchForCurrentSeasonByWeekOfYear(calWeekly.get(Calendar.YEAR),
 								calWeekly.get(Calendar.WEEK_OF_YEAR))
-						.forEach(m -> setLineValueCTCPlanning(m, workbook, sheet));
+						.forEach(m -> setLineValueCTCPlanning(m, workbook, sheet, associations));
 
 				workbook.setSheetName(0, fileName);
 				workbook.write(new FileOutputStream(
-						"C:/Users/flori/OneDrive/Basket/Saison 18-19/Convoc/CTC " + fileName + ".xlsx"));
+						String.format("C:/Users/flori/OneDrive/Basket/%s/Convoc/CTC %s.xlsx",SabbConstantes.CURRENT_SEASON,fileName)));
 			}
 
 			if (null != wrappedStream) {
@@ -157,6 +169,9 @@ public class PlanningSheetGeneratorBusiness {
 		if (null != row) {
 
 			if (match.isHome()) {
+				if (match.isLocationSwitched()) {
+					row.getCell(1).setCellValue("Les Fréchets");
+				}
 				row.getCell(1).setCellValue("Saint André");
 				row.getCell(2).setCellValue(match.getOpponent());
 
@@ -236,14 +251,18 @@ public class PlanningSheetGeneratorBusiness {
 	/**
 	 * Fonction utilisée pour le remplissage d'une rencontre dans le fichier excel
 	 */
-	static void setLineValueCTCPlanning(Match match, XSSFWorkbook workbook, XSSFSheet sheet) {
+	static void setLineValueCTCPlanning(Match match, XSSFWorkbook workbook, XSSFSheet sheet, List<Association> associations) {
 		int indexRow = getCellRowPlanning(workbook, match.getTeam().getExcelReferenceCtc());
 		XSSFRow row = sheet.getRow(indexRow);
 
 		if (null != row) {
 
 			if (match.isHome()) {
-				row.getCell(1).setCellValue(match.getTeam().getAssociation().getName());
+				if(match.isLocationSwitched()) {
+					row.getCell(1).setCellValue(getOtherAssociation(associations, match));					
+				} else {
+					row.getCell(1).setCellValue(match.getTeam().getAssociation().getName());	
+				}
 				row.getCell(2).setCellValue(match.getOpponent());
 			} else {
 				row.getCell(1).setCellValue(match.getOpponent());
@@ -278,5 +297,9 @@ public class PlanningSheetGeneratorBusiness {
 	private static String getLiteralDate(LocalDate weeklyDate) {
 		SimpleDateFormat sDF = new SimpleDateFormat("EEE dd MMM yyyy");
 		return sDF.format(Date.valueOf(weeklyDate));
+	}
+	
+	private static String getOtherAssociation(List<Association> associations, Match match) {
+		return associations.stream().map(Association::getName).filter(n-> !Objects.equal(n, match.getTeam().getAssociation().getName())).findFirst().orElseThrow(()-> new RuntimeException("Il faut 2 associations pour gérer les switch"));
 	}
 }

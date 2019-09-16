@@ -18,6 +18,7 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 
 import fr.sabb.application.data.object.Licensee;
 import fr.sabb.application.service.licensee.LicenseeService;
+import fr.sabb.application.utils.SabbConstantes;
 
 @Component
 public class EmergementListingAGBusiness {
@@ -31,7 +32,7 @@ public class EmergementListingAGBusiness {
 
 	public void generateEmergementListing(LocalDate dateAG) throws IOException {
         FileWriter fw;
-		fw = new FileWriter("C:/Users/flori/OneDrive/Basket/Saison 18-19/Listing.csv");
+		fw = new FileWriter(String.format("C:/Users/flori/OneDrive/Basket/%s/Listing.csv",SabbConstantes.CURRENT_SEASON));
         BufferedWriter output = new BufferedWriter(fw);
         adressAlreadyRepresented = new ArrayList<>();
         listParent = new ArrayList<>();

@@ -50,6 +50,6 @@ public interface SabbMapper<T extends SabbObject> {
 	Licensee getLicensee(int idLicensee);
 	
 	@Select("SELECT * FROM sabb.association WHERE id=#{idAssociation}")
-	@Results(value = { @Result(property = "nameFfbb", column = "name_ffbb"), @Result(property="nameFfbbCtc", column="name_ffbb_ctc"), })
+	@Results(value = { @Result(property = "nameFfbb", column = "name_ffbb"), @Result(property="nameFfbbCtc", column="name_ffbb_ctc"), @Result(property="ffbbLocation", column="ffbb_location"), @Result(property="ffbbLocationBis", column="ffbb_location_bis"),})
 	Association getAssociation(int idAssociation);
 }

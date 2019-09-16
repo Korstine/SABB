@@ -8,6 +8,7 @@ import com.vaadin.ui.TextField;
 
 import fr.sabb.application.data.object.Association;
 import fr.sabb.application.ui.screen.CommonForm;
+import fr.sabb.application.utils.SabbConstantes;
 
 public class AssociationForm extends CommonForm<Association> {
 
@@ -18,6 +19,8 @@ public class AssociationForm extends CommonForm<Association> {
 	private CheckBox main = new CheckBox("Club principal");
 	private TextField nameFfbb = new TextField("Nommage FFBB");
 	private TextField nameFfbbCtc = new TextField("Nommage FFBB CTC");
+	private TextField ffbbLocation = new TextField("Valeur Plan FFBB");
+	private TextField ffbbLocationBis = new TextField("Valeur Bis Plan FFBB");
 
 	public AssociationForm(AssociationView view) {
 		super(view);
@@ -26,7 +29,7 @@ public class AssociationForm extends CommonForm<Association> {
 		reloadLicensee.addClickListener(e -> reloadAssociationLicensee(view));
 
 		HorizontalLayout buttons = new HorizontalLayout(save, delete, reloadLicensee);
-		addComponents(name, nameFfbb, nameFfbbCtc, main, active, buttons);
+		addComponents(name, nameFfbb, nameFfbbCtc, ffbbLocation, ffbbLocationBis, main, active, buttons);
 
 		binder.bindInstanceFields(this);
 	}
@@ -57,10 +60,10 @@ public class AssociationForm extends CommonForm<Association> {
 		}
 		if (getItem().isMain()) {
 			view.getLicenseeService()
-			.fillDBWithCsvFile(getItem(), "C:/Users/flori/OneDrive/Basket/Saison 18-19/M01_qualifies_complet_L_E_P_V.csv");
+			.fillDBWithCsvFile(getItem(), String.format("C:/Users/flori/OneDrive/Basket/%s/M01_qualifies_complet_L_E_P_V.csv", SabbConstantes.CURRENT_SEASON));
 		} else {
 			view.getLicenseeService()
-			.fillDBWithCsvFile(getItem(), "C:/Users/flori/OneDrive/Basket/Saison 18-19/Frechets_M01_qualifies_complet_L_E_P_V.csv");
+			.fillDBWithCsvFile(getItem(), String.format("C:/Users/flori/OneDrive/Basket/%s/Frechets_M01_qualifies_complet_L_E_P_V.csv", SabbConstantes.CURRENT_SEASON));
 		}
 	}
 

@@ -3,6 +3,8 @@ package fr.sabb.application.business;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
+import java.util.stream.Stream;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -11,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import fr.sabb.application.ValidationException;
+import fr.sabb.application.data.object.Association;
 import fr.sabb.application.data.object.Match;
 import fr.sabb.application.data.object.Team;
 import fr.sabb.application.service.match.MatchService;
@@ -88,6 +91,11 @@ public class MatchFillerBusiness {
 						match.setOpponent(e.text());
 					}
 					break;
+				case 9:
+					if (match.isHome() && doesLocationSwitch(e, team.getAssociation())) {
+						match.setLocationSwitched(true);
+					}
+					break;
 				default:
 					break;
 			}
@@ -104,5 +112,9 @@ public class MatchFillerBusiness {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	private boolean doesLocationSwitch(Element e, Association association) {
+		return Stream.of(association.getFfbbLocation(), association.getFfbbLocationBis()).filter(Objects::nonNull).noneMatch(l-> String.valueOf(e).contains(l));
 	}
 }

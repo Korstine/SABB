@@ -126,7 +126,7 @@ public class TeamView extends CommonView<Team> {
 
 	@Override
 	public CommonFilter getFilter() {
-		return null;
+		return new TeamFilter(grid);
 	}
 
 }

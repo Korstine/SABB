@@ -419,4 +419,23 @@
 		<dropNotNullConstraint schemaName="sabb" tableName="official" columnName="id_match" columnDataType="int"/>
 	</changeSet>
 	
+		<changeSet id="add_association_ffbb_location" author="FRO">
+		<addColumn schemaName="sabb" tableName="association">
+			<column name="ffbb_location" type="varchar(25)" />
+		</addColumn>
+	</changeSet>
+	
+	<changeSet id="add_match_location_switched" author="FRO">
+		<addColumn schemaName="sabb" tableName="match">
+			<column name="location_switched" type="boolean"
+				defaultValueBoolean="false" />
+		</addColumn>
+	</changeSet>
+	
+	<changeSet id="add_association_ffbb_location_bis" author="FRO">
+		<addColumn schemaName="sabb" tableName="association">
+			<column name="ffbb_location_bis" type="varchar(25)" />
+		</addColumn>
+	</changeSet>
+	
 </databaseChangeLog>
