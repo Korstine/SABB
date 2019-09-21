@@ -16,6 +16,7 @@ public class Licensee extends SabbObject {
 	private Timestamp dateOfBirth;
 	private String sex;
 	private Association association;
+	private Season season;
 
 	/**
 	 * @return the id
@@ -201,6 +202,20 @@ public class Licensee extends SabbObject {
 		this.association = association;
 	}
 	
+	/**
+	 * @return the season
+	 */
+	public Season getSeason() {
+		return season;
+	}
+
+	/**
+	 * @param season the season to set
+	 */
+	public void setSeason(Season season) {
+		this.season = season;
+	}
+
 	/**
 	 * @param association the association to set
 	 */

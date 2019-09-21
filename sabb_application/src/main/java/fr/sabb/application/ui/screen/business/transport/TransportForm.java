@@ -1,6 +1,7 @@
 package fr.sabb.application.ui.screen.business.transport;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.vaadin.data.Binder;
 import com.vaadin.server.UserError;
@@ -31,7 +32,7 @@ public class TransportForm extends CommonForm<Transport> {
 	public TransportForm(TransportView view) {
 		super(view);
 
-		selectTeam.setItems((view.getTeamService().getAll()));
+		selectTeam.setItems((view.getTeamService().getAll().stream().filter(t -> t.getSeason().isActive()).collect(Collectors.toList())));
 		selectTeam.setRows(5);
 		selectTeam.addSelectionListener(e -> {
 			if (e.getFirstSelectedItem().isPresent()) {

@@ -24,6 +24,7 @@ import fr.sabb.application.data.object.OfficialLicensee;
 import fr.sabb.application.data.object.Team;
 import fr.sabb.application.service.SabbObjectServiceImpl;
 import fr.sabb.application.service.category.CategoryService;
+import fr.sabb.application.service.season.SeasonService;
 import fr.sabb.application.service.team.TeamService;
 
 @Service
@@ -40,6 +41,9 @@ public class LicenseeServiceImpl extends SabbObjectServiceImpl<Licensee> impleme
 	
 	@Autowired
 	private OfficialConverter officialConverter;
+	
+	@Autowired
+	private SeasonService seasonService;
 
 	@Override
 	public SabbMapper<Licensee> getMapper() {
@@ -64,18 +68,19 @@ public class LicenseeServiceImpl extends SabbObjectServiceImpl<Licensee> impleme
 		licensee.setAdress(String.format("%s;%s", fields[6], fields[5]));
 		licensee.setSex(fields[10]);
 		licensee.setNumLicensee(fields[15]);
-		licensee.setPhone(getPhone(fields[18], fields[19], fields[20]));
-		licensee.setMail(fields[21]);
+		licensee.setPhone(getPhone(fields[19], fields[20], fields[21]));
+		licensee.setMail(fields[22]);
 		licensee.setCategory(this.getCategory(fields[12], licensee.getSex()));
 		licensee.setTeam(getTeam(licensee.getCategory(), licensee.getSex(), association, licensee.getNumLicensee()));
 		licensee.setDateOfBirth(getDateOfBirth(fields[14]));
 		licensee.setAssociation(association);
+		licensee.setSeason(seasonService.getCurrentSeason());
 		this.upsert(licensee);
 	}
 
 	private Team getTeam(Category category, String sex, Association association, String numLicence) {
 		if (category != null && association.isMain() && category.isAutobind()) {
-			Licensee oldLicensee = getAll().stream().filter(l -> l.getNumLicensee().equals(numLicence)).findFirst().orElse(null);
+			Licensee oldLicensee = getAll().stream().filter(l -> l.getNumLicensee().equals(numLicence)).filter(l-> l.getSeason().isActive()).findFirst().orElse(null);
 			if (oldLicensee == null || oldLicensee.getTeam() == null) {
 				return teamService.getFirstTeamForCategoryAndSex(category.getId(), sex);
 			}

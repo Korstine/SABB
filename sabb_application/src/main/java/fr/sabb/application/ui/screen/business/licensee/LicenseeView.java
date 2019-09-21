@@ -1,9 +1,13 @@
 package fr.sabb.application.ui.screen.business.licensee;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
+import com.google.api.client.util.Objects;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.Grid;
 import com.vaadin.ui.HorizontalLayout;
@@ -14,6 +18,7 @@ import fr.sabb.application.data.object.Licensee;
 import fr.sabb.application.service.SabbObjectService;
 import fr.sabb.application.service.assocation.AssociationService;
 import fr.sabb.application.service.licensee.LicenseeService;
+import fr.sabb.application.service.season.SeasonService;
 import fr.sabb.application.service.team.TeamService;
 import fr.sabb.application.ui.screen.CommonFilter;
 import fr.sabb.application.ui.screen.CommonForm;
@@ -32,6 +37,10 @@ public class LicenseeView extends CommonView<Licensee>{
 	@Autowired
 	@Lazy
 	private AssociationService associationService;
+	
+	@Autowired
+	@Lazy
+	private SeasonService seasonService;
 	
 	@Autowired
 	private EmergementListingAGBusiness emergementListingAGBusiness;
@@ -94,6 +103,11 @@ public class LicenseeView extends CommonView<Licensee>{
 			filter = new LicenseeFilter(grid,emergementListingAGBusiness);
 		}
 		return filter;
+	}
+	
+	@Override
+	public List<Licensee> getItems() {
+		return getService().getAll().stream().filter(l -> Objects.equal(seasonService.getCurrentSeason(), l.getSeason())).collect(Collectors.toList());
 	}
 
 }

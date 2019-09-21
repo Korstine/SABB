@@ -60,10 +60,10 @@ public class AssociationForm extends CommonForm<Association> {
 		}
 		if (getItem().isMain()) {
 			view.getLicenseeService()
-			.fillDBWithCsvFile(getItem(), String.format("C:/Users/flori/OneDrive/Basket/%s/M01_qualifies_complet_L_E_P_V.csv", SabbConstantes.CURRENT_SEASON));
+			.fillDBWithCsvFile(getItem(), String.format("C:/Users/flori/OneDrive/Basket/%s/SABB_licencies_extraction_2019_2020.csv", SabbConstantes.CURRENT_SEASON));
 		} else {
 			view.getLicenseeService()
-			.fillDBWithCsvFile(getItem(), String.format("C:/Users/flori/OneDrive/Basket/%s/Frechets_M01_qualifies_complet_L_E_P_V.csv", SabbConstantes.CURRENT_SEASON));
+			.fillDBWithCsvFile(getItem(), String.format("C:/Users/flori/OneDrive/Basket/%s/FBC_licencies_extraction_2019_2020.csv", SabbConstantes.CURRENT_SEASON));
 		}
 	}
 

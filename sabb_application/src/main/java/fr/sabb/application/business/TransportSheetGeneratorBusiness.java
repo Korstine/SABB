@@ -7,7 +7,9 @@ import java.io.InputStream;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.List;
+
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.ss.usermodel.BorderStyle;
 import org.apache.poi.ss.usermodel.FillPatternType;
@@ -61,7 +63,7 @@ public class TransportSheetGeneratorBusiness {
 				XSSFSheet sheet = workbook.getSheetAt(0);
 
 				// Ajout des licenciés
-				licenseeService.getAllByTeam(team).forEach(l -> addLineValueTransportLicencie(workbook, sheet, l));
+				licenseeService.getAllByTeam(team).stream().sorted(Comparator.comparing(Licensee::getName)).forEach(l -> addLineValueTransportLicencie(workbook, sheet, l));
 
 				// Ajout des rencontres
 				matchService.getAllMatchByTeam(team).stream()
@@ -128,13 +130,12 @@ public class TransportSheetGeneratorBusiness {
 
 			if (transport != null) {
 
-				newRow.createCell(3).setCellValue("");
-				newRow.createCell(4)
+				newRow.createCell(3)
 						.setCellValue(String.format("%s - %s - %s", SheetUtils.formatLicenseeString(transport.getLicensee1()),
 								SheetUtils.formatLicenseeString(transport.getLicensee2()),
 								SheetUtils.formatLicenseeString(transport.getLicensee3())));
 			}
-			sheet.addMergedRegion(new CellRangeAddress(newRow.getRowNum(), newRow.getRowNum(), 4, 5));
+			sheet.addMergedRegion(new CellRangeAddress(newRow.getRowNum(), newRow.getRowNum(), 3, 5));
 
 			XSSFCellStyle cellStyle0 = (XSSFCellStyle) bottomRow.getCell(0).getCellStyle();
 			if (!match.isHome()) {
@@ -171,17 +172,6 @@ public class TransportSheetGeneratorBusiness {
 				newRow.getCell(3).setCellStyle(cellStyle3);
 			}
 
-			XSSFCellStyle cellStyle4 = (XSSFCellStyle) bottomRow.getCell(4).getCellStyle();
-			if (!match.isHome()) {
-				cellStyle4.setFillForegroundColor(new XSSFColor(Color.LIGHT_GRAY));
-				cellStyle4.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-			} else {
-				cellStyle4.setFillPattern(FillPatternType.NO_FILL);
-			}
-			cellStyle4.setBorderRight(BorderStyle.THICK);
-			if (newRow.getCell(4) != null) {
-				newRow.getCell(4).setCellStyle(cellStyle3);
-			}
 		}
 	}
 

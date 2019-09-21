@@ -438,4 +438,23 @@
 		</addColumn>
 	</changeSet>
 	
+	<changeSet id="add_licensee_season" author="FRO">
+		<addColumn schemaName="sabb" tableName="licensee">
+			<column name="id_season" type="int" defaultValueNumeric="1" >
+				<constraints nullable="false" />
+			</column>
+		</addColumn>
+		<addForeignKeyConstraint
+			baseTableSchemaName="sabb" baseColumnNames="id_season"
+			baseTableName="licensee" constraintName="fk_licensee_season"
+			referencedTableSchemaName="sabb" referencedColumnNames="id"
+			referencedTableName="season" />
+	</changeSet>
+	
+	<changeSet id="change_licensee_unique_constraint" author="FRO">
+		<dropUniqueConstraint schemaName="sabb" tableName="licensee" constraintName="licensee_num_licensee_key"/>
+		<addUniqueConstraint columnNames="num_licensee, id_season"
+			schemaName="sabb" tableName="licensee" />
+	</changeSet>
+	
 </databaseChangeLog>

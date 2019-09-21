@@ -1,5 +1,8 @@
 package fr.sabb.application.ui.screen.business.transport;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -97,6 +100,11 @@ public class TransportView extends CommonView<Transport> {
 	 */
 	public TransportSheetGeneratorBusiness getTransportSheetGeneratorBusiness() {
 		return transportSheetGeneratorBusiness;
+	}
+	
+	@Override
+	public List<Transport> getItems() {
+		return getService().getAll().stream().filter(t -> t.getMatch().getTeam().getSeason().isActive()).collect(Collectors.toList());
 	}
 	
 }
