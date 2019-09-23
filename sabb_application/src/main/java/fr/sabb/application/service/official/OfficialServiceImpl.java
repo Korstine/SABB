@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import fr.sabb.application.ValidationException;
 import fr.sabb.application.data.mapper.OfficialMapper;
 import fr.sabb.application.data.mapper.SabbMapper;
 import fr.sabb.application.data.object.Licensee;
@@ -60,6 +61,15 @@ public class OfficialServiceImpl extends SabbObjectServiceImpl<Official> impleme
 	public void unvalidAllOfficialForCurrentSeason() {
 		Season currentSeason = this.seasonService.getCurrentSeason();
 		this.getAll().stream().filter(o -> o.getMatch().getTeam().getSeason().equals(currentSeason)).forEach(this::unvalidOfficial);
+	}
+	
+	@Override
+	public void updateOrInsert(Official official) throws ValidationException {
+		Official existingOfficial = this.getOfficialFromMatch(official.getMatch());
+		if (existingOfficial != null) {
+			official.setId(existingOfficial.getId());
+		}
+		super.updateOrInsert(official);
 	}
 	
 	private void unvalidOfficial (Official official) {

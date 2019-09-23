@@ -137,6 +137,9 @@ public class LicenseeServiceImpl extends SabbObjectServiceImpl<Licensee> impleme
 	
 	@Override
 	public void updateOrInsert(Licensee licensee) throws ValidationException {
+		if (licensee.getSeason() == null) {
+			licensee.setSeason(seasonService.getCurrentSeason());
+		}
 		if (licensee.getTeam() != null && licensee.getCategory() == null) {
 			licensee.setCategory(licensee.getTeam().getCategory());
 		}
@@ -153,6 +156,6 @@ public class LicenseeServiceImpl extends SabbObjectServiceImpl<Licensee> impleme
 
 	@Override
 	public List<OfficialLicensee> getAllMainOfficialLicenseeSorted() {
-		return this.getAll().stream().filter(l -> l.getAssociation().isMain()).sorted((l1,l2) -> l1.getName().compareTo(l2.getName())).map(this.officialConverter::convertLicensee).collect(Collectors.toList());
+		return this.getAll().stream().filter(l -> l.getAssociation().isMain()).filter(l -> l.getSeason().isActive()).sorted((l1,l2) -> l1.getName().compareTo(l2.getName())).map(this.officialConverter::convertLicensee).collect(Collectors.toList());
 	}
 }
