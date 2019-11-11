@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.List;
+import java.util.stream.Stream;
 
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.ss.util.CellRangeAddress;
@@ -48,8 +49,12 @@ public class PlanningSheetGeneratorBusiness {
 	
 	@Autowired
 	private AssociationService associationService;
+	
+	private static int indexSwitchedOffset;
 
 	public void generateSABBWeeklySheet(LocalDate weeklyDate) {
+		
+		indexSwitchedOffset = 16;
 
 		InputStream wrappedStream = null;
 
@@ -129,14 +134,19 @@ public class PlanningSheetGeneratorBusiness {
 	}
 
 	private void fillSheetForSABBMatch(Match match, XSSFWorkbook workbook, XSSFSheet sheet) {
-		if (!match.getTeam().getAssociation().isMain()) {
-			return;
+		if (!match.getTeam().getAssociation().isMain() && !match.isLocationSwitched()) {
+			return;	
 		}
 		Transport transport = transportService.getTransportOrBarByMatch(match);
 		Official official = offcialService.getOfficialFromMatch(match);
 
 		try {
-			setLineValuePlanning(match, workbook, sheet, transport, official);
+			if (match.getTeam().getAssociation().isMain()) {
+				setLineValuePlanning(match, workbook, sheet, transport, official);
+			} else {
+				setSwitchedLineValuePlanning(match, workbook, sheet, transport, official);
+			}
+			
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		}
@@ -217,6 +227,47 @@ public class PlanningSheetGeneratorBusiness {
 			row.getCell(3).setCellValue(SheetUtils.getDateToString(match.getMatchDate()));
 		}
 	}
+	
+	static void setSwitchedLineValuePlanning(Match match, XSSFWorkbook workbook, XSSFSheet sheet, Transport transport,
+			Official official) {
+		XSSFRow row = sheet.createRow(indexSwitchedOffset++);
+
+		if (null != row) {
+			
+				Stream.of(1,2,3,4,5,6,7,8,9).forEach(i -> row.createCell(i));
+				row.getCell(1).setCellValue("Saint André");
+				row.getCell(2).setCellValue(match.getOpponent());
+
+				row.getCell(4).setCellValue(SheetUtils.toHeureFormat(match.getMatchDate()));
+
+				row.getCell(6).setCellValue("-");
+
+				if (match.getTeam().isHasOfficialReferee()) {
+					row.getCell(7).setCellValue("Officiels");
+				} else {
+					row.getCell(7).setCellValue("-");
+				}
+				
+				if (official != null) {
+					String officialStr = getLicenseeReferee(official);
+					if (!officialStr.equals(" - ") ) {
+						row.getCell(7).setCellValue(officialStr);
+					}
+					
+							
+					
+					row.getCell(8).setCellValue(getLicenseeTable(official));
+					
+				}
+
+				if (transport != null) {
+					row.getCell(9).setCellValue(getTransportCellContent(transport));
+				}
+
+			row.getCell(3).setCellValue(SheetUtils.getDateToString(match.getMatchDate()));
+		}
+	}
+
 
 	private static String getLicenseeTable(Official official) {
 		if (official.getTeamTable() != null && official.getTeamTable().getRefereeReplacmentLabel() != null) {
