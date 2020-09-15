@@ -1,5 +1,7 @@
 package fr.sabb.application.data.object;
 
+import java.sql.Timestamp;
+
 public class Official extends SabbObject {
 	private int id;
 	private Match match;
@@ -131,4 +133,5 @@ public class Official extends SabbObject {
 	public void setLicenseeReferee2(Licensee licenseeReferee2) {
 		this.licenseeReferee2 = licenseeReferee2;
 	}
+	
 }

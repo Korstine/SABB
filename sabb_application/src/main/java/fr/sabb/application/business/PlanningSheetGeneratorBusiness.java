@@ -54,7 +54,7 @@ public class PlanningSheetGeneratorBusiness {
 
 	public void generateSABBWeeklySheet(LocalDate weeklyDate) {
 		
-		indexSwitchedOffset = 16;
+		indexSwitchedOffset = 18;
 
 		InputStream wrappedStream = null;
 

@@ -14,6 +14,6 @@ public class OfficialConverter {
 	private OfficialService officialService;
 
 	protected OfficialLicensee convertLicensee (Licensee licensee) {
-		return new OfficialLicensee(licensee, this.officialService.countLicenseeOfficialNumber(licensee));
+		return new OfficialLicensee(licensee, this.officialService.countLicenseeOfficialNumber(licensee), this.officialService.countScoreOfficial(licensee));
 	}
 }

@@ -5,11 +5,14 @@ public class OfficialLicensee {
 	private Licensee licensee;
 
 	private int numberOfficial;
+	
+	private int score;
 
-	public OfficialLicensee(Licensee licensee, int numberOfficial) {
+	public OfficialLicensee(Licensee licensee, int numberOfficial,int score) {
 		super();
 		this.licensee = licensee;
 		this.numberOfficial = numberOfficial;
+		this.score = score;
 	}
 
 	/**
@@ -41,6 +44,20 @@ public class OfficialLicensee {
 	public void setNumberOfficial(int numberOfficial) {
 		this.numberOfficial = numberOfficial;
 	}
+	
+	/**
+	 * @return the score
+	 */
+	public int getScore() {
+		return score;
+	}
+
+	/**
+	 * @param score the score to set
+	 */
+	public void setScore(int score) {
+		this.score = score;
+	}
 
 	/*
 	 * (non-Javadoc)
@@ -49,7 +66,7 @@ public class OfficialLicensee {
 	 */
 	@Override
 	public String toString() {
-		return String.format("%s : %s", licensee.toString(), numberOfficial);
+		return String.format("%s : %s (%s)", licensee.toString(), numberOfficial, score);
 	}
 
 }

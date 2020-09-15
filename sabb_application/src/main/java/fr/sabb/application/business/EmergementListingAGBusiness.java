@@ -37,7 +37,11 @@ public class EmergementListingAGBusiness {
         adressAlreadyRepresented = new ArrayList<>();
         listParent = new ArrayList<>();
         int count = 1;
-        List<Licensee> listingAG = licenseeService.getAll().stream().filter(Licensee::isMainAssociation).filter(l -> this.filterByFamily(l, dateAG)).sorted((l1,l2) -> l1.getName().compareTo(l2.getName())).collect(Collectors.toList());
+        List<Licensee> listingAG = licenseeService.getAll().stream()
+        		.filter(Licensee::isMainAssociation)
+        		.filter(Licensee::isSeasonActif)
+        		.filter(l -> this.filterByFamily(l, dateAG))
+        		.sorted((l1,l2) -> l1.getName().compareTo(l2.getName())).collect(Collectors.toList());
         
         for(Licensee l : listingAG) {
         	try {

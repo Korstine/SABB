@@ -216,11 +216,12 @@ public class Licensee extends SabbObject {
 		this.season = season;
 	}
 
-	/**
-	 * @param association the association to set
-	 */
 	public boolean isMainAssociation() {
 		return association != null && association.isMain(); 
+	}
+	
+	public boolean isSeasonActif() {
+		return season != null && season.isActive();
 	}
 	
 	public String toStringForListingAG(int count, boolean isParent) {
