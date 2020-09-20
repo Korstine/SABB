@@ -12,6 +12,10 @@ import fr.sabb.application.ui.screen.CommonFilter;
 
 public class TeamFilter extends CommonFilter<Team> {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6440772019740217412L;
 	private final Grid<Team> grid;
 	private final TextField seasonFilter;
 

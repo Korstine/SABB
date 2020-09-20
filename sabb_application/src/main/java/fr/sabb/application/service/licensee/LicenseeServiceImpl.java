@@ -67,9 +67,9 @@ public class LicenseeServiceImpl extends SabbObjectServiceImpl<Licensee> impleme
 		licensee.setFirstname(fields[4]);
 		licensee.setAdress(String.format("%s;%s", fields[6], fields[5]));
 		licensee.setSex(fields[10]);
-		licensee.setNumLicensee(fields[15]);
-		licensee.setPhone(getPhone(fields[19], fields[20], fields[21]));
-		licensee.setMail(fields[22]);
+		licensee.setNumLicensee(fields[16]);
+		licensee.setPhone(getPhone(fields[20], fields[21], fields[22]));
+		licensee.setMail(fields[23]);
 		licensee.setCategory(this.getCategory(fields[12], licensee.getSex()));
 		licensee.setTeam(getTeam(licensee.getCategory(), licensee.getSex(), association, licensee.getNumLicensee()));
 		licensee.setDateOfBirth(getDateOfBirth(fields[14]));

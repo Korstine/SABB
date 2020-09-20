@@ -64,7 +64,7 @@ public class OfficialView extends CommonView<Official> {
 
 	@Override
 	public void setColumns(Grid<Official> grid) {
-		grid.setColumns("match", "match.matchDate", "teamTable", "teamReferee", "licenseeTable1", "licenseeTable2", "licenseeReferee1", "licenseeReferee2");
+		grid.setColumns("id","match", "match.matchDate", "teamTable", "teamReferee", "licenseeTable1", "licenseeTable2", "licenseeReferee1", "licenseeReferee2");
 	}
 
 	@Override
